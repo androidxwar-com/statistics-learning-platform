@@ -1,0 +1,118 @@
+{
+    "concepts": {
+        "vcd-def-base": {
+            "conceptId": "vcd-def-base",
+            "title": "Definizione di Variabile Casuale Discreta",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Una **variabile casuale discreta** X è una funzione che associa ad ogni evento elementare ω dello spazio campionario Ω un valore numerico reale x ∈ ℝ, tale che l'insieme dei possibili valori sia un insieme **numerabile** (finito o infinito).\n\nFormalmente: X: Ω → ℝ, dove X(Ω) = {x₁, x₂, x₃, ...} è numerabile.\n\nLa variabile casuale X è detta **discreta** quando assume valori in un insieme discreto, separato, contabile.",
+                "mathFormulas": [
+                    "X: Ω → ℝ",
+                    "X(Ω) = {x₁, x₂, x₃, ..., xₙ} oppure X(Ω) = {x₁, x₂, x₃, ...} (infinito numerabile)"
+                ],
+                "keyTerms": [
+                    "funzione",
+                    "spazio campionario",
+                    "numerabile",
+                    "discreto"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Immagina di lanciare un dado. Il risultato è incerto prima del lancio, ma sappiamo che può essere solo uno di questi valori: 1, 2, 3, 4, 5, 6.\n\nUna **variabile casuale discreta** è semplicemente:\n- Una 'scatola' che contiene i possibili risultati di un esperimento aleatorio\n- I valori sono **separati** (non continui): ad esempio 1, 2, 3... non c'è il valore 1.5 o 2.7\n- Possiamo **contare** tutti i possibili valori (anche se fossero infiniti)\n\nEsempi comuni:\n- Numero di teste in 3 lanci di una moneta: {0, 1, 2, 3}\n- Numero di chiamate ricevute in un'ora: {0, 1, 2, 3, ...} (infinito ma numerabile)",
+                "analogy": "Pensa a una variabile casuale discreta come i tasti di un pianoforte: ogni nota è ben definita e separata. Non puoi suonare 'tra' il Do e il Re, ma solo Do OPPURE Re."
+            },
+            "phase3_practical": {
+                "title": "Applicazione Pratica",
+                "examples": [
+                    {
+                        "scenario": "Lancio di Due Dadi",
+                        "description": "Definisci X = 'somma dei valori ottenuti lanciando due dadi a 6 facce'",
+                        "solution": "X può assumere i valori: {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}\n\nQuesto è un insieme finito (11 valori) e numerabile → X è una variabile casuale DISCRETA.\n\nNOTA: X non può mai valere 1.5 o 13.2. I valori sono discreti, separati."
+                    },
+                    {
+                        "scenario": "Numero di Email Ricevute",
+                        "description": "Y = 'numero di email ricevute in un giorno'",
+                        "solution": "Y può assumere valori: {0, 1, 2, 3, 4, ...} → infinito numerabile\n\nAnche se teoricamente non c'è limite superiore, possiamo sempre contare il numero di email. Y è discreta."
+                    }
+                ],
+                "realWorldUse": "Le variabili casuali discrete sono usate per modellare: conteggi (clienti in coda, difetti in produzione), esiti categorici (testa/croce, dado), punteggi in giochi, etc."
+            }
+        },
+        "vcd-funzione-massa": {
+            "conceptId": "vcd-funzione-massa",
+            "title": "Funzione di Massa di Probabilità",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Sia X una variabile casuale discreta con supporto S = {x₁, x₂, x₃, ...}. La **funzione di massa di probabilità** (PMF - Probability Mass Function) di X è definita come:\n\npₓ(x) = P(X = x)\n\nper ogni x ∈ S.\n\nLa PMF deve soddisfare due proprietà fondamentali:\n1. **Non-negatività**: pₓ(x) ≥ 0 per ogni x ∈ S\n2. **Normalizzazione**: Σₓ pₓ(x) = 1 (somma su tutti i possibili valori)",
+                "mathFormulas": [
+                    "pₓ(x) = P(X = x)",
+                    "pₓ(x) ≥ 0 ∀x ∈ S",
+                    "Σₓ∈S pₓ(x) = 1"
+                ],
+                "keyTerms": [
+                    "massa di probabilità",
+                    "PMF",
+                    "supporto",
+                    "normalizzazione"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "La **funzione di massa** ti dice semplicemente: **Quanto è probabile che la variabile casuale X assuma un certo valore?**\n\nPer ogni possibile risultato, c'è una 'massa' di probabilità associata.\n\n**Regole base**:\n1. Ogni probabilità è un numero tra 0 e 1 (0% e 100%)\n2. Se sommi TUTTE le probabilità, ottieni 1 (certezza totale che uno dei valori uscirà)\n\n**Esempio intuitivo**: Lancio di un dado equo\n- P(X = 1) = 1/6\n- P(X = 2) = 1/6\n- ...\n- P(X = 6) = 1/6\n\nSe sommi tutte: 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 6/6 = 1 ✓",
+                "analogy": "Pensa alla PMF come una 'distribuzione di peso'. Immagina di avere 1 kg di sabbia da dividere tra 6 scatole (i risultati del dado). Se il dado è equo, ogni scatola riceve esattamente 1/6 kg. Se il dado è truccato, alcune scatole ricevono più sabbia (più probabilità)."
+            },
+            "phase3_practical": {
+                "title": "Applicazione Pratica",
+                "examples": [
+                    {
+                        "scenario": "Lancio di una Moneta Truccata",
+                        "description": "Una moneta NON equa esce Testa con probabilità 0.7. Definisci X = 1 se esce Testa, X = 0 se esce Croce. Determina la PMF.",
+                        "solution": "**Passo 1**: Identifica i valori possibili: S = {0, 1}\n\n**Passo 2**: Assegna le probabilità:\n- pₓ(1) = P(X = 1) = P(Testa) = 0.7\n- pₓ(0) = P(X = 0) = P(Croce) = 1 - 0.7 = 0.3\n\n**Verifica normalizzazione**: 0.7 + 0.3 = 1.0 ✓\n\n**PMF finale**:\npₓ(x) = { 0.3 se x=0, 0.7 se x=1, 0 altrimenti }"
+                    }
+                ],
+                "realWorldUse": "Le PMF sono fondamentali in: analisi di sondaggi, controllo qualità (probabilità di difetti), machine learning (classificazione), assicurazioni (probabilità di sinistri)."
+            }
+        },
+        "vcd-valor-atteso-def": {
+            "conceptId": "vcd-valor-atteso-def",
+            "title": "Definizione di Valore Atteso",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Il **valore atteso** (o media, o speranza matematica) di una variabile casuale discreta X è definito come:\n\nE[X] = Σₓ x · pₓ(x)\n\ndove la somma è estesa a tutti i valori x del supporto di X.\n\nIl valore atteso rappresenta la media ponderata dei possibili valori, dove i pesi sono le rispettive probabilità.\n\n**Proprietà linerarità**: E[aX + b] = aE[X] + b per costanti a, b ∈ ℝ",
+                "mathFormulas": [
+                    "E[X] = Σₓ∈S x · P(X = x)",
+                    "E[aX + b] = aE[X] + b"
+                ],
+                "keyTerms": [
+                    "valore atteso",
+                    "media",
+                    "speranza matematica",
+                    "media ponderata"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Il **valore atteso** risponde alla domanda: **Se ripeto l'esperimento tantissime volte, quale sarà il valore medio ottenuto?**\n\nNon è necessariamente un valore che può uscire! È il 'centro di gravità' della distribuzione.\n\n**Come si calcola**:\n1. Prendi ogni possibile valore\n2. Moltiplicalo per la sua probabilità\n3. Somma tutto\n\n**Esempio**: Dado equo\nE[X] = 1·(1/6) + 2·(1/6) + 3·(1/6) + 4·(1/6) + 5·(1/6) + 6·(1/6)\nE[X] = (1+2+3+4+5+6)/6 = 21/6 = 3.5\n\nNota: 3.5 non può mai uscire da un dado, ma è il valore 'medio atteso'!",
+                "analogy": "Il valore atteso è come il baricentro di un oggetto. Se costruisci un modello fisico dove ogni valore ha una massa proporzionale alla sua probabilità, il valore atteso è il punto dove l'oggetto si bilancia perfettamente."
+            },
+            "phase3_practical": {
+                "title": "Applicazione Pratica",
+                "examples": [
+                    {
+                        "scenario": "Gioco d'Azzardo: Scommessa con Probabilità",
+                        "description": "Paghi 5€ per giocare. Lanci un dado: se esce 6, vinci 20€. Altrimenti non vinci nulla. Conviene giocare?",
+                        "solution": "**Passo 1**: Definisci X = vincita netta\n\n- Se esce 6 (probabilità 1/6): Vincita netta = 20€ - 5€ = 15€\n- Se esce 1,2,3,4,5 (probabilità 5/6): Vincita netta = 0€ - 5€ = -5€\n\n**Passo 2**: Calcola E[X]\n\nE[X] = 15 · (1/6) + (-5) · (5/6)\nE[X] = 15/6 - 25/6 = -10/6 ≈ -1.67€\n\n**Interpretazione**: In media, perdi 1.67€ ogni volta che giochi. **Non conviene!**"
+                    }
+                ],
+                "realWorldUse": "Il valore atteso è usato per: decisioni finanziarie (rendimento atteso investimenti), teoria dei giochi, analisi rischio-beneficio, ottimizzazione di strategie."
+            }
+        }
+    },
+    "metadata": {
+        "version": "1.0.0",
+        "totalConcepts": 3,
+        "contentType": "structured-theory",
+        "language": "it"
+    }
+}

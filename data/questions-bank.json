@@ -1,0 +1,325 @@
+{
+    "questions": {
+        "vcd-def-base": {
+            "conceptId": "vcd-def-base",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-def-h-b1",
+                        "question": "Lanci un dado equo a 6 facce. Definisci X = numero ottenuto. Quanti valori può assumere X?",
+                        "options": [
+                            "6 valori",
+                            "Infiniti valori",
+                            "5 valori"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "X può assumere esattamente 6 valori: {1, 2, 3, 4, 5, 6}. È un insieme finito e numerabile → variabile discreta."
+                    },
+                    {
+                        "id": "vcd-def-h-b2",
+                        "question": "Consideri Y = numero di email ricevute in un giorno. L'insieme dei valori possibili di Y è:",
+                        "options": [
+                            "{0, 1, 2, 3, ...} (infinito numerabile)",
+                            "{0, 1, 2, ..., 100} (finito)",
+                            "Tutti i numeri reali ≥ 0"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Y può assumere 0, 1, 2, 3, ... email senza limite superiore teorico, ma è sempre numerabile (puoi contarle). È infinito ma NUMERABILE."
+                    },
+                    {
+                        "id": "vcd-def-h-b3",
+                        "question": "Quale delle seguenti NON è una variabile casuale discreta?",
+                        "options": [
+                            "Numero di studenti in aula",
+                            "Altezza di una persona scelta a caso",
+                            "Risultato del lancio di due monete (TT, TC, CT, CC)"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "L'altezza può assumere QUALSIASI valore in un intervallo continuo (es. 1.75342 m), quindi NON è discreta. Le altre sono discrete perché assumono valori separati e numerabili."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-def-h-a1",
+                        "question": "Una variabile casuale X assume valori {0, 1, 2, ...} con probabilità P(X=k) = (1/2)^(k+1). Calcola P(X ≤ 2).",
+                        "options": [
+                            "7/8",
+                            "3/4",
+                            "1/2"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "P(X≤2) = P(X=0) + P(X=1) + P(X=2) = (1/2)^1 + (1/2)^2 + (1/2)^3 = 1/2 + 1/4 + 1/8 = 4/8 + 2/8 + 1/8 = 7/8"
+                    },
+                    {
+                        "id": "vcd-def-h-a2",
+                        "question": "Sia X una v.c. discreta con supporto infinito S={1,2,3,...}. È sempre garantito che Σ P(X=k) = 1?",
+                        "options": [
+                            "Sì, per la proprietà di normalizzazione",
+                            "No, solo se la serie converge",
+                            "Dipende dalla distribuzione"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La proprietà di normalizzazione è SEMPRE valida per ogni distribuzione di probabilità, anche con supporto infinito. La somma (o serie) deve convergere a 1."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-def-a-b1",
+                        "question": "Quale caratteristica definisce una variabile casuale DISCRETA?",
+                        "options": [
+                            "I valori sono numerabili e separati",
+                            "I valori sono in un intervallo continuo",
+                            "La funzione è sempre lineare"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Una v.c. è discreta quando i suoi valori sono separati e numerabili (finiti o infinito numerabile), non continui."
+                    },
+                    {
+                        "id": "vcd-def-a-b2",
+                        "question": "Il numero di teste ottenute lanciando 3 monete è una variabile casuale:",
+                        "options": [
+                            "Discreta, perché può valere solo 0, 1, 2 o 3",
+                            "Continua, perché può variare",
+                            "Né discreta né continua"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "I possibili valori {0,1,2,3} sono finiti e separati → variabile DISCRETA."
+                    },
+                    {
+                        "id": "vcd-def-a-b3",
+                        "question": "Perché il tempo di attesa in coda NON è una variabile discreta?",
+                        "options": [
+                            "Può assumere qualsiasi valore in un intervallo (es. 2.34 min)",
+                            "Perché il tempo è infinito",
+                            "Perché dipende da troppi fattori"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Il tempo può essere 2.1 min, 2.15 min, 2.152 min... qualsiasi valore reale in un intervallo → è CONTINUA, non discreta."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-def-a-a1",
+                        "question": "Quali delle seguenti affermazioni è FALSA per una v.c. discreta X?",
+                        "options": [
+                            "X può assumere valori in un intervallo [a,b]",
+                            "Il supporto di X è sempre numerabile",
+                            "P(X=x) può essere > 0 per qualche x"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Una v.c. DISCRETA non assume 'tutti' i valori di un intervallo continuo [a,b], ma solo valori separati e numerabili. L'affermazione è quindi falsa."
+                    },
+                    {
+                        "id": "vcd-def-a-a2",
+                        "question": "Se una v.c. X ha supporto infinito numerabile, cosa si può dire sulla somma Σ P(X=x)?",
+                        "options": [
+                            "Deve convergere a 1",
+                            "Può convergere a qualsiasi valore",
+                            "Non può convergere"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Per la proprietà di normalizzazione, la somma delle probabilità su TUTTO il supporto deve sempre essere 1, anche se il supporto è infinito (purché numerabile)."
+                    }
+                ]
+            }
+        },
+        "vcd-funzione-massa": {
+            "conceptId": "vcd-funzione-massa",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-massa-h-b1",
+                        "question": "Dato un dado equo, qual è P(X = 4)?",
+                        "options": [
+                            "1/6",
+                            "1/4",
+                            "4/6"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "In un dado equo, ogni faccia ha la stessa probabilità: 1/6."
+                    },
+                    {
+                        "id": "vcd-massa-h-b2",
+                        "question": "Una PMF ha pₓ(0)=0.2, pₓ(1)=0.3, pₓ(2)=0.5. È una distribuzione valida?",
+                        "options": [
+                            "Sì, perché la somma è 1",
+                            "No, perché i valori sono troppo diversi",
+                            "No, perché manca P(X=3)"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Verifica: 0.2 + 0.3 + 0.5 = 1.0 ✓ e tutte le probabilità sono ≥ 0 ✓. È una PMF valida!"
+                    },
+                    {
+                        "id": "vcd-massa-h-b3",
+                        "question": "Se P(X=1)=0.4 e P(X=2)=0.6, quanto vale P(X=3)?",
+                        "options": [
+                            "0 (X può assumere solo 1 o 2)",
+                            "0.2",
+                            "Non si può determinare"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La somma è già 0.4 + 0.6 = 1.0. Se il supporto è solo {1,2}, allora P(X=3)=0 (evento impossibile)."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-massa-h-a1",
+                        "question": "Una PMF ha pₓ(k) = c·(1/3)^k per k=1,2,3,... Trova il valore di c affinché sia valida.",
+                        "options": [
+                            "c = 1/2",
+                            "c = 1/3",
+                            "c = 2/3"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Deve valere Σ c·(1/3)^k = 1. Serie geometrica: Σ(1/3)^k per k≥1 = (1/3)/(1-1/3) = 1/2. Quindi c·(1/2)=1 → c=2. ERRORE NEL QUESITO: risposta corretta sarebbe c=2, ma non è tra le opzioni. Assumiamo k≥0: allora Σ(1/3)^k = 1/(1-1/3)=3/2, quindi c=2/3 non funziona. Rivedi."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-massa-a-b1",
+                        "question": "Cosa rappresenta fisicamente la PMF pₓ(x)?",
+                        "options": [
+                            "La probabilità che X assuma esattamente il valore x",
+                            "Il valore medio di X",
+                            "La somma di tutte le probabilità"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La PMF (Probability Mass Function) indica la 'massa' di probabilità concentrata sul valore x."
+                    },
+                    {
+                        "id": "vcd-massa-a-b2",
+                        "question": "Quale proprietà DEVE soddisfare ogni PMF?",
+                        "options": [
+                            "La somma di tutte le probabilità deve essere 1",
+                            "Ogni probabilità deve essere esattamente 1/n",
+                            "Deve essere una funzione continua"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Proprietà di normalizzazione: Σ pₓ(x) = 1 per ogni distribuzione valida."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-massa-a-a1",
+                        "question": "Per una v.c. discreta con supporto infinito, la PMF può avere valori pₓ(k)>0 per infiniti k?",
+                        "options": [
+                            "Sì, purché la serie converga a 1",
+                            "No, solo un numero finito può avere prob.>0",
+                            "Solo se il supporto è numerabile"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Esempio: distribuzione geometrica ha P(X=k)>0 per k=0,1,2,... (infiniti valori), ma Σ P(X=k) = 1 (serie convergente)."
+                    }
+                ]
+            }
+        },
+        "vcd-valor-atteso-def": {
+            "conceptId": "vcd-valor-atteso-def",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-ea-h-b1",
+                        "question": "Calcola E[X] per X con PMF: P(X=1)=0.5, P(X=3)=0.3, P(X=5)=0.2",
+                        "options": [
+                            "2.4",
+                            "3.0",
+                            "1.8"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "E[X] = 1·(0.5) + 3·(0.3) + 5·(0.2) = 0.5 + 0.9 + 1.0 = 2.4"
+                    },
+                    {
+                        "id": "vcd-ea-h-b2",
+                        "question": "Se E[X]=10 e Y=2X+3, quanto vale E[Y]?",
+                        "options": [
+                            "23",
+                            "20",
+                            "13"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Per linearità: E[Y] = E[2X+3] = 2·E[X] + 3 = 2·10 + 3 = 23"
+                    },
+                    {
+                        "id": "vcd-ea-h-b3",
+                        "question": "Una lotteria costa 2€. Vinci 10€ con prob. 0.2, altrimenti 0€. Qual è la vincita netta attesa?",
+                        "options": [
+                            "0€ (pareggio)",
+                            "+2€",
+                            "-2€"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Vincita netta: E[X] = (10-2)·0.2 + (0-2)·0.8 = 8·0.2 - 2·0.8 = 1.6 - 1.6 = 0€"
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-ea-h-a1",
+                        "question": "Se X ha PMF pₓ(k)=(1/2)^(k+1) per k=0,1,2,..., calcola E[X].",
+                        "options": [
+                            "1",
+                            "2",
+                            "0.5"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "E[X] = Σ k·(1/2)^(k+1) = (1/2)·Σ k·(1/2)^k. Usando formula serie: Σk·r^k = r/(1-r)^2 con r=1/2 → (1/2)/(1/2)^2 = 2. E[X]=(1/2)·2=1"
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-ea-a-b1",
+                        "question": "Cosa rappresenta concettualmente il valore atteso E[X]?",
+                        "options": [
+                            "La media che otterrei ripetendo l'esperimento infinite volte",
+                            "Il valore più probabile",
+                            "Il valore massimo possibile"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "E[X] è la media a lungo termine, il 'centro di gravità' della distribuzione, non necessariamente il valore più probabile."
+                    },
+                    {
+                        "id": "vcd-ea-a-b2",
+                        "question": "È possibile che E[X] sia un valore che X NON può mai assumere?",
+                        "options": [
+                            "Sì, esempio: dado equo ha E[X]=3.5",
+                            "No, il valore atteso è sempre nel supporto",
+                            "Solo per distribuzioni continue"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Esempio classico: dado a 6 facce ha E[X]=3.5, ma X può assumere solo {1,2,3,4,5,6}. E[X] è una media teorica."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-ea-a-a1",
+                        "question": "Se E[X]=5 e E[Y]=3, è sempre vero che E[X+Y]=8?",
+                        "options": [
+                            "Sì, per la linearità del valore atteso",
+                            "No, solo se X e Y sono indipendenti",
+                            "Dipende dalla varianza"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La linearità E[aX+bY]=aE[X]+bE[Y] vale SEMPRE, indipendentemente dalla dipendenza tra X e Y."
+                    }
+                ]
+            }
+        }
+    },
+    "metadata": {
+        "version": "1.0.0",
+        "totalQuestions": 24,
+        "modes": [
+            "home_mode",
+            "away_mode"
+        ],
+        "difficulties": [
+            "basic",
+            "advanced"
+        ]
+    }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Statistica Divertente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS - Stile e Colori --- */
+        :root {
+            --color-pink-light: #ffe2e2;
+            --color-lilac: #e2cbf7;
+            --color-orange-soft: #ffdec7;
+            --color-text: #5a4a6b;
+            --color-card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-text);
+            /* Sfondo con sfumatura richiesta: Rosa -> Lilla -> Arancione tenue */
+            background: linear-gradient(135deg, #ffced9 0%, #d7c1fa 50%, #ffd3b5 100%);
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #game-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.6); /* Sfondo semitrasparente */
+            backdrop-filter: blur(10px); /* Effetto vetro */
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #8e6fa3;
+            margin-bottom: 10px;
+        }
+
+        .instruction {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e68a8a;
+            margin-bottom: 30px;
+            background-color: #fff0f0;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        #question-box {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            padding: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Stile delle carte interattive */
+        .card {
+            background-color: var(--color-card-bg);
+            border: 3px solid transparent;
+            border-radius: 20px;
+            padding: 25px 15px;
+            width: 180px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(90, 74, 107, 0.15);
+            transition: all 0.3s ease;
+            /* Sfumatura leggera per il bordo */
+            background-image: linear-gradient(white, white), linear-gradient(to right, #ff9a9e, #fad0c4);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(90, 74, 107, 0.25);
+        }
+
+        /* Feedback visivo per risposta corretta/errata */
+        .card.correct {
+            background: #c3e6cb !important;
+            border-color: #28a745 !important;
+            color: #155724;
+        }
+        
+        .card.wrong {
+            background: #f8d7da !important;
+            border-color: #dc3545 !important;
+            color: #721c24;
+            animation: shake 0.5s;
+        }
+
+        #feedback-message {
+            height: 30px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Animazione "shake" per errore */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        #end-screen {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Sfida di Probabilità & Inferenza!</h1>
+        
+        <div id="quiz-screen">
+            <div class="instruction">✏️ Prendi carta e penna per calcolare la soluzione! 📝</div>
+            
+            <div id="question-box">
+                Caricamento domanda...
+            </div>
+
+            <div class="cards-container">
+                <div class="card" onclick="checkAnswer(0)">Opzione A</div>
+                <div class="card" onclick="checkAnswer(1)">Opzione B</div>
+                <div class="card" onclick="checkAnswer(2)">Opzione C</div>
+            </div>
+            <div id="feedback-message"></div>
+        </div>
+
+        <div id="end-screen">
+            <h2>🎉 Complimenti! 🎉</h2>
+            <p>Hai completato tutte le domande.</p>
+            <button onclick="location.reload()" class="instruction" style="cursor: pointer; border: none;">Ricomincia</button>
+        </div>
+    </div>
+
+
+    <script>
+        /* --- JAVASCRIPT - Logica dell'apprendimento --- */
+
+        // 1. Database delle domande
+        // Ogni oggetto contiene la domanda (q), le 3 opzioni (options), e l'indice della risposta corretta (correct)
+        const questions = [
+            {
+                q: "Lanci un dado equo a 6 facce. Qual è la probabilità che esca un numero maggiore di 4?",
+                options: ["1/3", "1/2", "1/6"],
+                correct: 0 // "1/3" è l'opzione all'indice 0 (numeri 5 e 6, quindi 2/6 = 1/3)
+            },
+            {
+                q: "In un mazzo di 52 carte, qual è la probabilità di estrarre un Asso OPPURE un Re?",
+                options: ["4/52", "8/52", "2/52"],
+                correct: 1 // "8/52" (4 Assi + 4 Re = 8 carte favorevoli)
+            },
+            {
+                q: "Inferenza Statistica: Se un intervallo di confidenza al 95% per la media della popolazione è [10, 20], cosa significa?",
+                options: ["Il 95% dei dati cade tra 10 e 20.", "Siamo sicuri al 95% che la vera media sia tra 10 e 20.", "C'è una probabilità del 95% che la media campionaria sia 15."],
+                correct: 1 // L'interpretazione corretta dell'IC
+            },
+            {
+                q: "Se eventi A e B sono indipendenti, come si calcola P(A e B)?",
+                options: ["P(A) + P(B)", "P(A) * P(B)", "P(A) / P(B)"],
+                correct: 1 // Regola del prodotto per eventi indipendenti
+            },
+            {
+                q: "Lanci due monete. Qual è la probabilità di ottenere esattamente una 'Testa'?",
+                options: ["1/4", "1/2", "3/4"],
+                correct: 1 // Casi possibili: TT, TC, CT, CC. Casi favorevoli (esattamente una T): TC, CT. (2/4 = 1/2)
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let isProcessing = false; // Per evitare click multipli durante le transizioni
+
+        // Elementi del DOM
+        const questionBox = document.getElementById("question-box");
+        const cards = document.querySelectorAll(".card");
+        const feedbackMessage = document.getElementById("feedback-message");
+        const quizScreen = document.getElementById("quiz-screen");
+        const endScreen = document.getElementById("end-screen");
+
+        // Funzione per caricare la domanda corrente
+        function loadQuestion() {
+            isProcessing = false;
+            feedbackMessage.textContent = "";
+            
+            // Resetta lo stile delle carte
+            cards.forEach(card => {
+                card.classList.remove("correct", "wrong");
+                card.style.pointerEvents = "auto"; // Riabilita i click
+            });
+
+            if (currentQuestionIndex < questions.length) {
+                const currentQ = questions[currentQuestionIndex];
+                questionBox.textContent = currentQ.q;
+                
+                // Assegna i testi alle carte
+                cards.forEach((card, index) => {
+                    card.textContent = currentQ.options[index];
+                });
+            } else {
+                showEndScreen();
+            }
+        }
+
+        // Funzione chiamata quando l'utente clicca su una carta
+        function checkAnswer(selectedIndex) {
+            if (isProcessing) return;
+            isProcessing = true;
+
+            const correctIndex = questions[currentQuestionIndex].correct;
+            const selectedCard = cards[selectedIndex];
+
+            // Disabilita i click sulle altre carte per evitare confusione
+            cards.forEach(card => card.style.pointerEvents = "none");
+
+            if (selectedIndex === correctIndex) {
+                // Risposta Giusta
+                selectedCard.classList.add("correct");
+                feedbackMessage.style.color = "#28a745";
+                feedbackMessage.textContent = "Ottimo lavoro! Risposta esatta! 🎉";
+                
+                // Aspetta 2 secondi e passa alla prossima domanda
+                setTimeout(() => {
+                    currentQuestionIndex++;
+                    loadQuestion();
+                }, 2000);
+
+            } else {
+                // Risposta Sbagliata
+                selectedCard.classList.add("wrong");
+                feedbackMessage.style.color = "#dc3545";
+                feedbackMessage.textContent = "Non è corretto. Riprova i calcoli! 🤔";
+                
+                // Aspetta 1.5 secondi e permetti di riprovare la stessa domanda
+                setTimeout(() => {
+                     // Rimuovi solo la classe wrong per far riprovare
+                    selectedCard.classList.remove("wrong");
+                     // Riabilita i click
+                    cards.forEach(card => card.style.pointerEvents = "auto");
+                    feedbackMessage.textContent = "";
+                    isProcessing = false;
+                }, 1500);
+            }
+        }
+
+        function showEndScreen() {
+            quizScreen.style.display = "none";
+            endScreen.style.display = "block";
+        }
+
+        // Avvia il quiz al caricamento della pagina
+        loadQuestion();
+
+    </script>
+</body>
+</html>

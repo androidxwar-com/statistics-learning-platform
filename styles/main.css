@@ -1,0 +1,333 @@
+/**
+ * MAIN CSS - Global Styles
+ * 
+ * Basato su bozza.txt con evoluzione modulare:
+ * - Gradiente rosa → lilla → arancione
+ * - Glassmorphism effect
+ * - Poppins font
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- VARIABILI COLORE --- */
+:root {
+    --color-pink-light: #ffced9;
+    --color-lilac: #d7c1fa;
+    --color-orange-soft: #ffd3b5;
+    --color-text: #5a4a6b;
+    --color-card-bg: rgba(255, 255, 255, 0.85);
+    --color- --color-success: #28a745;
+    --color-error: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+}
+
+/* --- BASE --- */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text);
+    
+    /* Gradiente sfondo */
+    background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-lilac) 50%, var(--color-orange-soft) 100%);
+    background-attachment: fixed;
+    
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* --- LAYOUT PRINCIPALE --- */
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#app-header {
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#app-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* --- HEADER COMPONENTS --- */
+.app-title {
+    text-align: center;
+    color: #8e6fa3;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.mode-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    padding: 10px 25px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0.4);
+    color: var(--color-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mode-btn.active {
+    background-color: rgba(142, 111, 163, 0.7);
+    color: white;
+    border-color: #8e6fa3;
+}
+
+.mode-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.current-concept-info {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.current-concept-info strong {
+    display: block;
+    font-size: 1.2rem;
+    color: #8e6fa3;
+}
+
+.concept-meta {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* --- PROGRESS BAR --- */
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.progress-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.progress-step.completed {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.progress-step.current {
+    background-color: #8e6fa3;
+    color: white;
+    box-shadow: 0 0 0 4px rgba(142, 111, 163, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.progress-step.pending {
+    background-color: rgba(255,255,255,0.5);
+    color: #888;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* --- PHASE CONTAINER (Base per tutte le fasi) --- */
+.phase-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.phase-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.phase-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgba(142, 111, 163, 0.7);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.phase-badge-advanced {
+    background-color: rgba(220, 53, 69, 0.7);
+}
+
+.phase-subtitle {
+    color: #888;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.phase-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* --- BUTTONS --- */
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+    background-color: #8e6fa3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #7a5e8f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(142, 111, 163, 0.4);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
+    border: 2px solid #8e6fa3;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+}
+
+.btn-large {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+/* --- FEEDBACK MESSAGES --- */
+.feedback-message {
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border-radius: 15px;
+    font-weight: 600;
+    display: none;
+}
+
+.feedback-message.success {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: var(--color-success);
+    border: 2px solid var(--color-success);
+}
+
+.feedback-message.error {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: var(--color-error);
+    border: 2px solid var(--color-error);
+}
+
+.feedback-message.info {
+    background-color: rgba(23, 162, 184, 0.2);
+    color: var(--color-info);
+    border: 2px solid var(--color-info);
+}
+
+.feedback-message.warning {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #856404;
+    border: 2px solid var(--color-warning);
+}
+
+/* --- LOADER --- */
+.loader-container {
+    text-align: center;
+}
+
+.loader {
+    border: 5px solid rgba(142, 111, 163, 0.2);
+    border-top: 5px solid #8e6fa3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- ERROR BOX --- */
+.error-box {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.error-box h3 {
+    color: var(--color-error);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .phase-container {
+        padding: 25px;
+        margin: 20px;
+    }
+
+    .app-title {
+        font-size: 1.5rem;
+    }
+
+    .mode-toggle {
+        flex-wrap: wrap;
+    }
+
+    .progress-bar {
+        gap: 5px;
+    }
+
+    .progress-step {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
