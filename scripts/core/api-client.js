@@ -353,10 +353,8 @@ if (typeof module !== 'undefined' && module.exports) {
     try {
         // @ts-ignore
         if (import.meta.url) {
-            // workaround for direct export default in browser ESM if needed, but window assign above usually handles it.
-            // But for Node tests with type:module, we might need explicit export.
+            // workaround for direct export default in browser ESM if needed
         }
     } catch (e) { }
 }
 
-export default GroqAPIClient;
