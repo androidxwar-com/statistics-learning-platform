@@ -1,134 +1,134 @@
 {
-  "macro_topics": [
-    {
-      "id": "variabili-casuali-discrete",
-      "title": "Variabili Casuali Discrete",
-      "order": 1,
-      "subtopics": [
+    "macro_topics": [
         {
-          "id": "vcd-definizione",
-          "title": "Definizione e Funzione di Massa",
-          "order": 1,
-          "concepts": [
-            {
-              "id": "vcd-def-base",
-              "title": "Definizione di Variabile Casuale Discreta",
-              "estimatedMinutes": 10
-            },
-            {
-              "id": "vcd-funzione-massa",
-              "title": "Funzione di Massa di Probabilità",
-              "estimatedMinutes": 12
-            },
-            {
-              "id": "vcd-proprieta",
-              "title": "Proprietà della Funzione di Massa",
-              "estimatedMinutes": 8
-            }
-          ]
+            "id": "variabili-casuali-discrete",
+            "title": "Variabili Casuali Discrete",
+            "order": 1,
+            "subtopics": [
+                {
+                    "id": "vcd-definizione",
+                    "title": "Definizione e Funzione di Massa",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "vcd-def-base",
+                            "title": "Definizione di Variabile Casuale Discreta",
+                            "estimatedMinutes": 10
+                        },
+                        {
+                            "id": "vcd-funzione-massa",
+                            "title": "Funzione di Massa di Probabilità",
+                            "estimatedMinutes": 12
+                        },
+                        {
+                            "id": "vcd-proprieta",
+                            "title": "Proprietà della Funzione di Massa",
+                            "estimatedMinutes": 8
+                        }
+                    ]
+                },
+                {
+                    "id": "vcd-valore-atteso",
+                    "title": "Valore Atteso e Momenti",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "vcd-valor-atteso-def",
+                            "title": "Definizione di Valore Atteso",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "vcd-varianza",
+                            "title": "Varianza e Deviazione Standard",
+                            "estimatedMinutes": 12
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "id": "vcd-valore-atteso",
-          "title": "Valore Atteso e Momenti",
-          "order": 2,
-          "concepts": [
-            {
-              "id": "vcd-valor-atteso-def",
-              "title": "Definizione di Valore Atteso",
-              "estimatedMinutes": 15
-            },
-            {
-              "id": "vcd-varianza",
-              "title": "Varianza e Deviazione Standard",
-              "estimatedMinutes": 12
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "variabili-casuali-continue",
-      "title": "Variabili Casuali Continue",
-      "order": 2,
-      "subtopics": [
-        {
-          "id": "vcc-densita",
-          "title": "Funzione di Densità di Probabilità",
-          "order": 1,
-          "concepts": [
-            {
-              "id": "vcc-def-base",
-              "title": "Definizione di Variabile Casuale Continua",
-              "estimatedMinutes": 12
-            },
-            {
-              "id": "vcc-densita-prob",
-              "title": "Densità di Probabilità",
-              "estimatedMinutes": 15
-            }
-          ]
+            "id": "variabili-casuali-continue",
+            "title": "Variabili Casuali Continue",
+            "order": 2,
+            "subtopics": [
+                {
+                    "id": "vcc-densita",
+                    "title": "Funzione di Densità di Probabilità",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "vcc-def-base",
+                            "title": "Definizione di Variabile Casuale Continua",
+                            "estimatedMinutes": 12
+                        },
+                        {
+                            "id": "vcc-densita-prob",
+                            "title": "Densità di Probabilità",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "vcc-ripartizione",
+                    "title": "Funzione di Ripartizione",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "vcc-funzione-ripartizione",
+                            "title": "Definizione e Proprietà della Funzione di Ripartizione",
+                            "estimatedMinutes": 18
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "id": "vcc-ripartizione",
-          "title": "Funzione di Ripartizione",
-          "order": 2,
-          "concepts": [
-            {
-              "id": "vcc-funzione-ripartizione",
-              "title": "Definizione e Proprietà della Funzione di Ripartizione",
-              "estimatedMinutes": 18
-            }
-          ]
+            "id": "inferenza-statistica",
+            "title": "Inferenza Statistica",
+            "order": 3,
+            "subtopics": [
+                {
+                    "id": "inf-intervalli-confidenza",
+                    "title": "Intervalli di Confidenza",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "inf-ic-definizione",
+                            "title": "Definizione e Interpretazione",
+                            "estimatedMinutes": 20
+                        },
+                        {
+                            "id": "inf-ic-media",
+                            "title": "Intervalli di Confidenza per la Media",
+                            "estimatedMinutes": 25
+                        }
+                    ]
+                },
+                {
+                    "id": "inf-test-ipotesi",
+                    "title": "Test di Ipotesi",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "inf-test-definizione",
+                            "title": "Logica dei Test di Ipotesi",
+                            "estimatedMinutes": 22
+                        },
+                        {
+                            "id": "inf-test-errori",
+                            "title": "Errori di Tipo I e II",
+                            "estimatedMinutes": 18
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "inferenza-statistica",
-      "title": "Inferenza Statistica",
-      "order": 3,
-      "subtopics": [
-        {
-          "id": "inf-intervalli-confidenza",
-          "title": "Intervalli di Confidenza",
-          "order": 1,
-          "concepts": [
-            {
-              "id": "inf-ic-definizione",
-              "title": "Definizione e Interpretazione",
-              "estimatedMinutes": 20
-            },
-            {
-              "id": "inf-ic-media",
-              "title": "Intervalli di Confidenza per la Media",
-              "estimatedMinutes": 25
-            }
-          ]
-        },
-        {
-          "id": "inf-test-ipotesi",
-          "title": "Test di Ipotesi",
-          "order": 2,
-          "concepts": [
-            {
-              "id": "inf-test-definizione",
-              "title": "Logica dei Test di Ipotesi",
-              "estimatedMinutes": 22
-            },
-            {
-              "id": "inf-test-errori",
-              "title": "Errori di Tipo I e II",
-              "estimatedMinutes": 18
-            }
-          ]
-        }
-      ]
+    ],
+    "metadata": {
+        "version": "1.0.0",
+        "lastUpdated": "2026-01-27",
+        "totalTopics": 3,
+        "totalConcepts": 14,
+        "estimatedTotalHours": 4.5
     }
-  ],
-  "metadata": {
-    "version": "1.0.0",
-    "lastUpdated": "2026-01-27",
-    "totalTopics": 3,
-    "totalConcepts": 14,
-    "estimatedTotalHours": 4.5
-  }
 }

@@ -33,7 +33,7 @@ const GroqAPIClient = (function () {
         }
 
         // Modalità demo: ritorna risposta SIMULATA istantanea
-        if (config.demoMode || !config.apiKey || config.apiKey === 'YOUR_GROQ_API_KEY_HERE') {
+        if (!config || config.demoMode || !config.apiKey || config.apiKey === 'YOUR_GROQ_API_KEY_HERE') {
             console.log('⚡ SIMULATION MODE: Generazione risposta istantanea (Mock)');
             await sleep(1000); // Piccolo delay per realismo
             return simulateResponse(prompt);
@@ -105,21 +105,79 @@ const GroqAPIClient = (function () {
     }
 
     /**
-     * Genera spiegazione alternativa per concetto non chiaro (Fase 1)
+     * Genera spiegazione alternativa ADATTIVA (Infinite Loop) - PROMPT ENGINEERED
      */
-    async function generateAlternativeExplanation(conceptTitle, originalExplanation) {
-        const prompt = `L'utente non ha compreso questa spiegazione sul concetto "${conceptTitle}":
+    async function generateAlternativeExplanation(conceptTitle, originalExplanation, attempt = 1) {
+        let styleInstruction = "";
 
-"${originalExplanation}"
+        // Strategia Adattiva Avanzata
+        switch (attempt) {
+            case 1:
+                styleInstruction = `
+                STRATEGIA: ANALOGIA CONCRETA (Life-Based)
+                - Non usare MAI gergo tecnico senza spiegarlo.
+                - Usa una metafora presa dalla vita reale (cucina, soldi, sport, traffico).
+                - Collega l'analogia al concetto matematico: "Proprio come X, anche Y funziona così..."
+                - Esempio: "La varianza è come l'incertezza del meteo: se c'è sempre sole varianza 0..."
+                `;
+                break;
+            case 2:
+                styleInstruction = `
+                STRATEGIA: ESEMPIO NUMERICO PASSO-PASSO (Hands-on)
+                - Inventa numeri semplicissimi (es. 2, 5, 10).
+                - Scrivi i calcoli riga per riga.
+                - Spiega COSA stai facendo in ogni passaggio e PERCHÉ.
+                - Concludi con: "Vedi? Il risultato ci dice che..."
+                `;
+                break;
+            case 3:
+                styleInstruction = `
+                STRATEGIA: ELI5 (Explain Like I'm 5)
+                - Immagina di parlare a un bambino curioso.
+                - Usa frasi brevi. Soggetto, Verbo, Oggetto.
+                - Estremizza il concetto per renderlo ovvio.
+                - Usa emoji per rendere il testo amichevole.
+                `;
+                break;
+            default:
+                styleInstruction = `
+                STRATEGIA: SOCRATICA & VISIVA
+                - Non spiegare, fai domande retoriche che guidano alla soluzione.
+                - Usa bullet points per spezzare il ragionamento.
+                - Prova a descrivere un grafico o un'immagine mentale.
+                - "Immagina di vedere..."
+                `;
+                break;
+        }
 
-Per favore, rispiega lo stesso concetto utilizzando:
-1. Terminologia più semplice e accessibile
-2. Un'analogia concreta e quotidiana
-3. Un esempio numerico pratico
+        const systemPrompt = `
+        SEI IL MIGLIOR TUTOR DI STATISTICA DEL MONDO.
+        La tua missione è sbloccare la comprensione dello studente a tutti i costi.
+        
+        REGOLE FERREE:
+        1.  **BANALITÀ VIETATA**: Non dire mai "Proviamo a guardarla diversamente" senza aggiungere sostanza. Entra subito nel vivo.
+        2.  **CONCRETEZZA**: Se parli di teoria, devi subito ancorarla alla realtà.
+        3.  **STRUTTURA**: Usa grassetti (**text**) per i concetti chiave e liste puntate.
+        4.  **TONO**: Empatico, paziente, ma estremamente competente. Mai freddo.
+        
+        Sei l'ultima speranza dello studente per capire questo concetto. Non fallire.
+        `;
 
-Mantieni il rigore matematico ma sii più intuitivo. Rispondi in italiano, max 250 parole.`;
+        const prompt = `
+        CONTESTO:
+        L'utente è bloccato sul concetto: "${conceptTitle}".
+        Ha letto la definizione formale ma non l'ha capita (Tentativo #${attempt}).
+        
+        TESTO ORIGINALE (che non ha funzionato): 
+        "${originalExplanation}"
 
-        const systemPrompt = 'Sei un tutor paziente ed esperto di statistica. Il tuo obiettivo è far comprendere i concetti a tutti, usando esempi chiari e linguaggio accessibile.';
+        ORDINE ESECUTIVO:
+        Genera una spiegazione alternativa seguendo RIGOROSAMENTE questa strategia:
+        ---
+        ${styleInstruction}
+        ---
+
+        Rispondi in italiano perfetto. Lunghezza: quanto serve per essere chiari (circa 150-200 parole).`;
 
         return await callAPI(prompt, systemPrompt);
     }
@@ -233,23 +291,43 @@ Usa un tono incoraggiante ma diretto. Max 150 parole, in italiano.`;
             if (prompt.includes('variabili-casuali')) topic = "sulle Variabili Casuali";
             if (prompt.includes('teorema')) topic = "sul Teorema";
 
-            const uniqueId = `gen-q-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+            // Logica simulazione: crea 1 corretta e 2 errate
+            const correctAnswer = "Questa è la risposta corretta basata sui principi fondamentali.";
+            const wrong1 = "Questa opzione contiene un errore logico comune.";
+            const wrong2 = "Questa opzione è matematicamente errata.";
+
+            // Metti tutto in un array
+            let allOptions = [correctAnswer, wrong1, wrong2];
+
+            // SHUFFLE (Mescola) le risposte in modo casuale
+            for (let i = allOptions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [allOptions[i], allOptions[j]] = [allOptions[j], allOptions[i]];
+            }
+
+            // Trova dove è finita la risposta corretta
+            const correctIndex = allOptions.indexOf(correctAnswer);
 
             return JSON.stringify({
                 question: `Domanda Generativa ${topic} #${Math.floor(Math.random() * 900) + 100}: Quale delle seguenti affermazioni è corretta?`,
-                options: [
-                    "Questa è l'opzione corretta basata sui principi fondamentali.",
-                    "Questa opzione contiene un errore logico comune.",
-                    "Questa opzione è matematicamente errata."
-                ],
-                correctIndex: 0,
-                explanation: `La risposta è corretta perché rispetta le definizioni assiomatiche ${topic}. L'errore nelle altre opzioni deriva da un'errata interpretazione delle proprietà.`
+                options: allOptions,
+                correctIndex: correctIndex, // Indice dinamico corretto
+                explanation: `La risposta corretta è "${correctAnswer}" perché rispetta le definizioni assiomatiche. L'errore nelle altre opzioni deriva da un'errata interpretazione.`
             });
         }
 
-        // Caso 3: Spiegazione Alternativa
-        if (prompt.includes('spiegazione sul concetto') || prompt.includes('rispiega lo stesso concetto')) {
-            return "Certamente. Proviamo a vedere il concetto da un'altra prospettiva.\n\nImmagina di costruire un edificio: le fondamenta devono essere solide prima di alzare i muri. Allo stesso modo, in questo teorema, le ipotesi iniziali sono le fondamenta. Se ne togliamo una, crolla la tesi. In termini pratici, stiamo calcolando l'equilibrio del sistema.";
+        // Caso 3: Spiegazione Alternativa (MOCK AVANZATO)
+        if (prompt.includes('spiegazione sul concetto') || prompt.includes('Rispigalo')) {
+            if (prompt.includes('ANALOGIA')) {
+                return `**Analogia della Bilancia ⚖️**\n\nImmagina il Valore Atteso come il punto esatto dove devi mettere il dito sotto un righello per tenerlo in equilibrio.\n\nNon è detto che su quel punto ci sia un "peso" (un valore reale), ma è il *centro di gravità* di tutto il sistema. Se hai pesi grossi a sinistra, il punto di equilibrio si sposta a sinistra. Ecco, la media è proprio quel punto di equilibrio matematico.`;
+            }
+            if (prompt.includes('ESEMPIO NUMERICO')) {
+                return `**Facciamo i conti in tasca 💰**\n\nImmagina questo gioco:\n- Lanci una moneta.\n- Testa: Vinci 10€.\n- Croce: Perdi 2€.\n\nConviene giocare?\nCalcoliamo la "speranza" (Valore Atteso):\n\n1. Probabilità Testa (0.5) × Vincita (10) = **5€**\n2. Probabilità Croce (0.5) × Perdita (-2) = **-1€**\n\nSomma: 5 - 1 = **4€**.\n\nSignifica che *in media*, ogni volta che giochi, guadagni 4€. Ti conviene eccome!`;
+            }
+            if (prompt.includes('bambino di 5 anni')) {
+                return `**Spiegazione Semplice 👶**\n\nPensa al Valore Atteso come alla promessa di un regalo.\nSe la mamma ti promette "forse un gelato" (buono!) o "forse niente" (uffa...), tu nella tua testa ti aspetti una via di mezzo.\n\nIn matematica facciamo la stessa cosa: calcoliamo una "via di mezzo" tra tutte le cose belle e brutte che possono succedere, per sapere se essere felici o tristi prima ancora che succedano!`;
+            }
+            return `**Cambiamo prospettiva 🔭**\n\nDimentica le formule per un secondo. Pensa alla 'frequenza'. Se ripetessi questo esperimento un milione di volte, cosa succederebbe alla maggior parte dei risultati? Si accumulerebbero tutti intorno a un valore specifico. Quel valore è ciò che stiamo cercando. È il 'destino' verso cui tendono i tuoi dati.`;
         }
 
         return "Risposta generata dal sistema locale. Per risposte real-time specifiche, configura l'API Key.";
@@ -265,7 +343,20 @@ Usa un tono incoraggiante ma diretto. Max 150 parole, in italiano.`;
     };
 })();
 
-// Export
+// Export per ES Module e Browser
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = GroqAPIClient;
+} else if (typeof window !== 'undefined') {
+    window.GroqAPIClient = GroqAPIClient;
+} else {
+    // Default export per ESM environments senza 'module' defined
+    try {
+        // @ts-ignore
+        if (import.meta.url) {
+            // workaround for direct export default in browser ESM if needed, but window assign above usually handles it.
+            // But for Node tests with type:module, we might need explicit export.
+        }
+    } catch (e) { }
 }
+
+export default GroqAPIClient;

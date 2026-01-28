@@ -12,7 +12,7 @@
 
 const Phase1ComplexTheory = (function () {
     let currentContent = null;
-    let hasRequestedAlternative = false;
+    let attempts = 0; // Contatore tentativi spiegazione
 
     /**
      * Renderizza Fase 1
@@ -99,59 +99,70 @@ const Phase1ComplexTheory = (function () {
     /**
      * Gestisce feedback "No, non mi è chiaro"
      */
+    /**
+     * Gestisce feedback "No, non mi è chiaro" (Infinite Loop)
+     */
     async function handleUnclear() {
-        console.log('❌ Concetto non chiaro - Richiesta spiegazione alternativa');
+        attempts++;
+        console.log(`❌ Concetto non chiaro - Tentativo spiegazione #${attempts}`);
 
-        showFeedbackMessage('Un momento, sto preparando una spiegazione più semplice... 🤔', 'info');
-
-        // Disabilita bottoni durante caricamento
+        showFeedbackMessage(`Generazione spiegazione alternativa (Tentativo ${attempts})... 🤔`, 'info');
         disableFeedbackButtons();
 
         try {
-            // Richiedi spiegazione alternativa via Groq
+            // Richiedi spiegazione alternativa via Groq con contesto del tentativo
             const alternative = await GroqAPIClient.generateAlternativeExplanation(
                 currentContent.title,
-                currentContent.content
+                currentContent.content,
+                attempts
             );
 
+            console.log("DEBUG: Alternative content received:", alternative); // Debug log
+
             if (alternative) {
-                displayAlternativeExplanation(alternative);
-                StateManager.setState({ requestedAlternativeExplanation: true });
+                displayAlternativeExplanation(alternative, attempts);
             } else {
-                // Fallback: usa spiegazione semplificata (Fase 2) come alternativa
-                console.warn('⚠️ Groq non disponibile, uso fallback da Fase 2');
-                const conceptId = StateManager.getState().currentConceptId;
-                const theoryData = await DataLoader.loadTheoryContent(conceptId);
-                displayAlternativeExplanation(theoryData.phase2_simplified.content);
+                console.warn('⚠️ Groq non disponibile, uso fallback');
+                displayAlternativeExplanation("Non riesco a generare altre spiegazioni al momento. Prova a rileggere o chiedi al docente.", attempts);
             }
 
-            showFeedbackMessage('Ecco una spiegazione alternativa! Leggi e dimmi se ti è chiara ora. 📖', 'success');
+            // Msg successo
+            showFeedbackMessage(`Ecco una nuova spiegazione (${getStyleName(attempts)}). È più chiara ora? 📖`, 'success');
 
         } catch (error) {
-            console.error('Errore generazione spiegazione alternativa:', error);
-            showFeedbackMessage('⚠️ Errore nel caricamento. Riprova o passa alla fase successiva.', 'error');
+            console.error('Errore generazione spiegazione:', error);
+            showFeedbackMessage('⚠️ Errore generico. Riprova.', 'error');
         }
 
         enableFeedbackButtons();
     }
 
+    function getStyleName(n) {
+        if (n === 1) return "Analogia Pratica";
+        if (n === 2) return "Esempio Numerico";
+        if (n === 3) return "Spiegazione Semplificata (ELI5)";
+        return "Nuova Prospettiva";
+    }
+
     /**
      * Mostra spiegazione alternativa
      */
-    function displayAlternativeExplanation(explanation) {
+    function displayAlternativeExplanation(explanation, attemptNum) {
         const box = document.getElementById('alternative-explanation-box');
+
+        // Stile inline per garantire visibilità immediata (Yellow box)
         box.innerHTML = `
-            <div class="alternative-explanation">
-                <h4>💡 Spiegazione Alternativa</h4>
-                <div class="alt-content">
+            <div class="alternative-explanation attempt-${attemptNum}" style="background: #fff3cd; color: #856404; padding: 15px; border: 1px solid #ffeeba; border-radius: 8px; margin: 15px 0;">
+                <h4 style="margin-top:0">💡 Spiegazione Alternativa #${attemptNum}: ${getStyleName(attemptNum)}</h4>
+                <div class="alt-content" style="font-size: 1.05em; line-height: 1.6;">
                     ${formatTheoryContent(explanation)}
                 </div>
             </div>
         `;
         box.style.display = 'block';
 
-        // Scroll smooth verso la spiegazione
-        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        // Scroll smooth
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     /**

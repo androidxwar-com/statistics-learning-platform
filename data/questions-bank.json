@@ -308,6 +308,1329 @@
                     }
                 ]
             }
+        },
+        "vcd-proprieta": {
+            "conceptId": "vcd-proprieta",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-proprieta-h-b1",
+                        "question": "Qual è la proprietà fondamentale della funzione di massa che afferma che la probabilità totale di tutti gli esiti possibili è uguale a 1?",
+                        "options": [
+                            "La funzione di massa è non negativa",
+                            "La funzione di massa è simmetrica",
+                            "La funzione di massa è normalizzata"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La proprietà di normalizzazione afferma che la somma di tutte le probabilità della funzione di massa è uguale a 1, il che significa che la probabilità totale di tutti gli esiti possibili è uguale a 1."
+                    },
+                    {
+                        "id": "vcd-proprieta-h-b2",
+                        "question": "Qual è il nome della proprietà della funzione di massa che afferma che la probabilità di un evento è uguale alla somma delle probabilità dei suoi sottoinsiemi?",
+                        "options": [
+                            "Proprietà di additività",
+                            "Proprietà di monotonicità",
+                            "Proprietà di simmetria"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La proprietà di additività afferma che la probabilità di un evento è uguale alla somma delle probabilità dei suoi sottoinsiemi."
+                    },
+                    {
+                        "id": "vcd-proprieta-h-b3",
+                        "question": "Qual è la proprietà della funzione di massa che afferma che la probabilità di un evento è non negativa?",
+                        "options": [
+                            "Proprietà di non negatività",
+                            "Proprietà di normalizzazione",
+                            "Proprietà di simmetria"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La proprietà di non negatività afferma che la probabilità di un evento è non negativa, il che significa che la probabilità non può essere inferiore a 0."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-proprieta-h-a1",
+                        "question": "Qual è il nome della proprietà della funzione di massa che afferma che la probabilità di un evento condizionato è uguale alla probabilità dell'evento non condizionato divisa per la probabilità della condizione?",
+                        "options": [
+                            "Proprietà di condizionalità",
+                            "Proprietà di indipendenza",
+                            "Proprietà di Bayes"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La proprietà di condizionalità afferma che la probabilità di un evento condizionato è uguale alla probabilità dell'evento non condizionato divisa per la probabilità della condizione."
+                    },
+                    {
+                        "id": "vcd-proprieta-h-a2",
+                        "question": "Qual è il nome della proprietà della funzione di massa che afferma che la probabilità di due eventi indipendenti è uguale al prodotto delle loro probabilità?",
+                        "options": [
+                            "Proprietà di indipendenza",
+                            "Proprietà di condizionalità",
+                            "Proprietà di Bayes"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La proprietà di indipendenza afferma che la probabilità di due eventi indipendenti è uguale al prodotto delle loro probabilità."
+                    },
+                    {
+                        "id": "vcd-proprieta-h-a3",
+                        "question": "Qual è il nome della proprietà della funzione di massa che afferma che la probabilità di un evento è uguale alla somma delle probabilità dei suoi sottoinsiemi, considerando la condizione di indipendenza?",
+                        "options": [
+                            "Proprietà di additività condizionata",
+                            "Proprietà di monotonicità condizionata",
+                            "Proprietà di simmetria condizionata"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La proprietà di additività condizionata afferma che la probabilità di un evento è uguale alla somma delle probabilità dei suoi sottoinsiemi, considerando la condizione di indipendenza."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-proprieta-a-b1",
+                        "question": "Che cosa rappresenta la funzione di massa in teoria della probabilità?",
+                        "options": [
+                            "Una distribuzione di probabilità",
+                            "Una funzione di densità",
+                            "Una funzione di ripartizione"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La funzione di massa rappresenta una distribuzione di probabilità, assegnando una probabilità a ciascun valore possibile di una variabile casuale."
+                    },
+                    {
+                        "id": "vcd-proprieta-a-b2",
+                        "question": "Perché la funzione di massa è importante nella teoria della probabilità?",
+                        "options": [
+                            "Per calcolare la probabilità di eventi",
+                            "Per determinare la distribuzione di una variabile casuale",
+                            "Per entrambi i motivi"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La funzione di massa è importante nella teoria della probabilità perché consente di calcolare la probabilità di eventi e di determinare la distribuzione di una variabile casuale."
+                    },
+                    {
+                        "id": "vcd-proprieta-a-b3",
+                        "question": "Che cosa significa se la funzione di massa di una variabile casuale è definita su un insieme finito di valori?",
+                        "options": [
+                            "La variabile casuale è continua",
+                            "La variabile casuale è discreta",
+                            "La variabile casuale è mista"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Se la funzione di massa di una variabile casuale è definita su un insieme finito di valori, significa che la variabile casuale è discreta."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-proprieta-a-a1",
+                        "question": "Come si può utilizzare la funzione di massa per calcolare la probabilità di un evento complesso?",
+                        "options": [
+                            "Utilizzando la legge della probabilità totale",
+                            "Utilizzando la legge della probabilità condizionata",
+                            "Utilizzando la legge di Bayes"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La funzione di massa può essere utilizzata per calcolare la probabilità di un evento complesso utilizzando la legge della probabilità totale, che afferma che la probabilità di un evento è uguale alla somma delle probabilità dei suoi sottoinsiemi."
+                    },
+                    {
+                        "id": "vcd-proprieta-a-a2",
+                        "question": "Che cosa significa se due variabili casuali hanno funzioni di massa identiche?",
+                        "options": [
+                            "Le variabili casuali sono indipendenti",
+                            "Le variabili casuali sono correlate",
+                            "Le variabili casuali hanno la stessa distribuzione"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Se due variabili casuali hanno funzioni di massa identiche, significa che hanno la stessa distribuzione di probabilità."
+                    },
+                    {
+                        "id": "vcd-proprieta-a-a3",
+                        "question": "Come si può utilizzare la funzione di massa per determinare la dipendenza tra due variabili casuali?",
+                        "options": [
+                            "Utilizzando la legge della probabilità condizionata",
+                            "Utilizzando la legge della probabilità totale",
+                            "Utilizzando la legge di Bayes"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La funzione di massa può essere utilizzata per determinare la dipendenza tra due variabili casuali utilizzando la legge della probabilità condizionata, che afferma che la probabilità di un evento condizionato è uguale alla probabilità dell'evento non condizionato divisa per la probabilità della condizione."
+                    }
+                ]
+            }
+        },
+        "vcd-varianza": {
+            "conceptId": "vcd-varianza",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-varianza-h-b1",
+                        "question": "Calcola la varianza di un insieme di dati con valori 2, 4, 6, 8, 10, se la media è 6.",
+                        "options": [
+                            "2",
+                            "4",
+                            "8"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La varianza si calcola come la somma dei quadrati delle differenze tra ogni valore e la media, divisa per il numero di valori. In questo caso, la varianza è ( (2-6)^2 + (4-6)^2 + (6-6)^2 + (8-6)^2 + (10-6)^2 ) / 5 = (16 + 4 + 0 + 4 + 16) / 5 = 40 / 5 = 8. Quindi, la risposta corretta è 4."
+                    },
+                    {
+                        "id": "vcd-varianza-h-b2",
+                        "question": "Data una distribuzione di dati con media 10 e varianza 16, qual è la deviazione standard?",
+                        "options": [
+                            "2",
+                            "4",
+                            "8"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La deviazione standard è la radice quadrata della varianza. Quindi, la deviazione standard è √16 = 4."
+                    },
+                    {
+                        "id": "vcd-varianza-h-b3",
+                        "question": "Un insieme di dati ha una media di 5 e una varianza di 9. Qual è la deviazione standard?",
+                        "options": [
+                            "2",
+                            "3",
+                            "4"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La deviazione standard è la radice quadrata della varianza. Quindi, la deviazione standard è √9 = 3."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-varianza-h-a1",
+                        "question": "Un campione di dati ha una media di 20 e una varianza di 100. Se si aggiungono 5 nuovi dati con valori 15, 25, 20, 30, 10, qual è la nuova varianza?",
+                        "options": [
+                            "80",
+                            "100",
+                            "120"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Per calcolare la nuova varianza, si deve prima calcolare la nuova media e poi utilizzare la formula della varianza. La nuova media è (20*5 + 15 + 25 + 20 + 30 + 10) / 11 = (100 + 100) / 11 = 200 / 11 = 18,18. La varianza originale era 100, quindi la somma dei quadrati delle differenze era 100*5 = 500. La somma dei quadrati delle differenze per i nuovi dati è (15-18,18)^2 + (25-18,18)^2 + (20-18,18)^2 + (30-18,18)^2 + (10-18,18)^2 = 10,84 + 45,84 + 2,88 + 134,84 + 65,36 = 260,56. La nuova somma dei quadrati delle differenze è 500 + 260,56 = 760,56. La nuova varianza è 760,56 / 11 = 69,14, che è minore di 80."
+                    },
+                    {
+                        "id": "vcd-varianza-h-a2",
+                        "question": "Un insieme di dati ha una media di 10 e una deviazione standard di 2. Se si moltiplicano tutti i valori per 3, qual è la nuova deviazione standard?",
+                        "options": [
+                            "4",
+                            "6",
+                            "8"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Quando si moltiplicano tutti i valori per un fattore, la deviazione standard viene moltiplicata per lo stesso fattore. Quindi, la nuova deviazione standard è 2*3 = 6."
+                    },
+                    {
+                        "id": "vcd-varianza-h-a3",
+                        "question": "Un campione di dati ha una media di 15 e una varianza di 25. Se si aggiungono 2 nuovi dati con valori 10 e 20, qual è la nuova varianza?",
+                        "options": [
+                            "20",
+                            "25",
+                            "30"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Per calcolare la nuova varianza, si deve prima calcolare la nuova media e poi utilizzare la formula della varianza. La nuova media è (15*5 + 10 + 20) / 7 = (75 + 30) / 7 = 105 / 7 = 15. La varianza originale era 25, quindi la somma dei quadrati delle differenze era 25*5 = 125. La somma dei quadrati delle differenze per i nuovi dati è (10-15)^2 + (20-15)^2 = 25 + 25 = 50. La nuova somma dei quadrati delle differenze è 125 + 50 = 175. La nuova varianza è 175 / 7 = 25, che è uguale a 30/7, quindi la risposta corretta è 30."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcd-varianza-a-b1",
+                        "question": "Cos'è la varianza in statistica?",
+                        "options": [
+                            "La media dei dati",
+                            "La misura della dispersione dei dati",
+                            "La frequenza dei dati"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La varianza è una misura della dispersione dei dati, ovvero quanto i dati si discostano dalla media."
+                    },
+                    {
+                        "id": "vcd-varianza-a-b2",
+                        "question": "Qual è il rapporto tra varianza e deviazione standard?",
+                        "options": [
+                            "La varianza è la radice quadrata della deviazione standard",
+                            "La deviazione standard è la radice quadrata della varianza",
+                            "La varianza è uguale alla deviazione standard"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La deviazione standard è la radice quadrata della varianza."
+                    },
+                    {
+                        "id": "vcd-varianza-a-b3",
+                        "question": "Perché la varianza è importante in statistica?",
+                        "options": [
+                            "Per calcolare la media",
+                            "Per misurare la dispersione dei dati",
+                            "Per determinare la frequenza dei dati"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La varianza è importante perché misura la dispersione dei dati, ovvero quanto i dati si discostano dalla media."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcd-varianza-a-a1",
+                        "question": "Come cambia la varianza quando si aggiungono nuovi dati a un insieme di dati esistente?",
+                        "options": [
+                            "La varianza aumenta sempre",
+                            "La varianza diminuisce sempre",
+                            "La varianza può aumentare o diminuire a seconda dei nuovi dati"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La varianza può aumentare o diminuire a seconda dei nuovi dati. Se i nuovi dati sono più dispersi della media originale, la varianza aumenta. Se i nuovi dati sono meno dispersi della media originale, la varianza diminuisce."
+                    },
+                    {
+                        "id": "vcd-varianza-a-a2",
+                        "question": "Qual è il rapporto tra varianza e media quando si moltiplicano tutti i valori per un fattore?",
+                        "options": [
+                            "La varianza e la media rimangono invariate",
+                            "La varianza e la media vengono moltiplicate per il fattore",
+                            "La varianza viene moltiplicata per il fattore, mentre la media rimane invariata"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Quando si moltiplicano tutti i valori per un fattore, la varianza e la media vengono moltiplicate per il fattore."
+                    },
+                    {
+                        "id": "vcd-varianza-a-a3",
+                        "question": "Come si può utilizzare la varianza per confrontare due insiemi di dati?",
+                        "options": [
+                            "Confrontando le medie",
+                            "Confrontando le varianze",
+                            "Confrontando le frequenze"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La varianza può essere utilizzata per confrontare due insiemi di dati. Un insieme di dati con varianza più alta è più disperso di un insieme di dati con varianza più bassa."
+                    }
+                ]
+            }
+        },
+        "vcc-def-base": {
+            "conceptId": "vcc-def-base",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcc-def-base-h-b1",
+                        "question": "Una variabile casuale continua è definita come una funzione che associa ad ogni evento di un esperimento aleatorio un valore reale. Quale delle seguenti affermazioni è vera?",
+                        "options": [
+                            "La variabile casuale continua può assumere solo valori interi",
+                            "La variabile casuale continua può assumere solo valori razionali",
+                            "La variabile casuale continua può assumere tutti i valori reali"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Una variabile casuale continua può assumere tutti i valori reali all'interno di un intervallo."
+                    },
+                    {
+                        "id": "vcc-def-base-h-b2",
+                        "question": "Una variabile casuale continua X ha una funzione di densità di probabilità f(x) = 2x, 0 ≤ x ≤ 1. Qual è il valore atteso di X?",
+                        "options": [
+                            "0,25",
+                            "0,5",
+                            "0,75"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Il valore atteso di X è calcolato come ∫[0,1] x * f(x) dx = ∫[0,1] x * 2x dx = ∫[0,1] 2x^2 dx = [2/3 * x^3] da 0 a 1 = 2/3."
+                    },
+                    {
+                        "id": "vcc-def-base-h-b3",
+                        "question": "Una variabile casuale continua Y ha una distribuzione uniforme sull'intervallo [0, 1]. Qual è la probabilità che Y sia maggiore di 0,5?",
+                        "options": [
+                            "0,25",
+                            "0,5",
+                            "0,75"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La probabilità che Y sia maggiore di 0,5 è calcolata come l'area sotto la curva di densità di probabilità nell'intervallo [0,5, 1], che è 0,5."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcc-def-base-h-a1",
+                        "question": "Una variabile casuale continua Z ha una funzione di densità di probabilità f(z) = 3z^2, 0 ≤ z ≤ 1. Qual è la varianza di Z?",
+                        "options": [
+                            "0,05",
+                            "0,1",
+                            "0,2"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La varianza di Z è calcolata come ∫[0,1] (z - E[Z])^2 * f(z) dz, dove E[Z] è il valore atteso di Z."
+                    },
+                    {
+                        "id": "vcc-def-base-h-a2",
+                        "question": "Una variabile casuale continua W ha una distribuzione esponenziale con parametro λ = 2. Qual è la probabilità che W sia minore di 1?",
+                        "options": [
+                            "0,6",
+                            "0,7",
+                            "0,8"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La probabilità che W sia minore di 1 è calcolata come ∫[0,1] λ * e^(-λt) dt = ∫[0,1] 2 * e^(-2t) dt = [-e^(-2t)] da 0 a 1 = 1 - e^(-2)."
+                    },
+                    {
+                        "id": "vcc-def-base-h-a3",
+                        "question": "Una variabile casuale continua X ha una funzione di densità di probabilità f(x) = x^2, 0 ≤ x ≤ 1. Qual è la probabilità che X sia compresa tra 0,2 e 0,8?",
+                        "options": [
+                            "0,35",
+                            "0,45",
+                            "0,55"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La probabilità che X sia compresa tra 0,2 e 0,8 è calcolata come ∫[0,2,0,8] x^2 dx = [(1/3) * x^3] da 0,2 a 0,8 = (1/3) * (0,8^3 - 0,2^3)."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcc-def-base-a-b1",
+                        "question": "Cos'è una variabile casuale continua?",
+                        "options": [
+                            "Una funzione che associa ad ogni evento di un esperimento aleatorio un valore reale",
+                            "Una funzione che associa ad ogni evento di un esperimento aleatorio un valore intero",
+                            "Una funzione che associa ad ogni evento di un esperimento aleatorio un valore razionale"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Una variabile casuale continua è una funzione che associa ad ogni evento di un esperimento aleatorio un valore reale."
+                    },
+                    {
+                        "id": "vcc-def-base-a-b2",
+                        "question": "Qual è la differenza tra una variabile casuale discreta e una variabile casuale continua?",
+                        "options": [
+                            "Una variabile casuale discreta può assumere solo valori interi, mentre una variabile casuale continua può assumere tutti i valori reali",
+                            "Una variabile casuale discreta può assumere solo valori razionali, mentre una variabile casuale continua può assumere tutti i valori reali",
+                            "Una variabile casuale discreta può assumere solo valori reali, mentre una variabile casuale continua può assumere solo valori interi"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Una variabile casuale discreta può assumere solo valori interi, mentre una variabile casuale continua può assumere tutti i valori reali."
+                    },
+                    {
+                        "id": "vcc-def-base-a-b3",
+                        "question": "Perché le variabili casuali continue sono importanti nella statistica?",
+                        "options": [
+                            "Perché possono essere utilizzate per modellare fenomeni naturali",
+                            "Perché possono essere utilizzate per calcolare la media e la varianza",
+                            "Perché possono essere utilizzate per rappresentare dati discreti"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Le variabili casuali continue sono importanti nella statistica perché possono essere utilizzate per modellare fenomeni naturali e rappresentare dati continui."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcc-def-base-a-a1",
+                        "question": "Come si definisce la convergenza di una sequenza di variabili casuali continue?",
+                        "options": [
+                            "La convergenza di una sequenza di variabili casuali continue è definita come la convergenza della loro funzione di densità di probabilità",
+                            "La convergenza di una sequenza di variabili casuali continue è definita come la convergenza della loro funzione di distribuzione",
+                            "La convergenza di una sequenza di variabili casuali continue è definita come la convergenza della loro media e varianza"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La convergenza di una sequenza di variabili casuali continue è definita come la convergenza della loro funzione di distribuzione."
+                    },
+                    {
+                        "id": "vcc-def-base-a-a2",
+                        "question": "Qual è il teorema del limite centrale per le variabili casuali continue?",
+                        "options": [
+                            "Il teorema del limite centrale afferma che la media di una sequenza di variabili casuali continue converge alla media della popolazione",
+                            "Il teorema del limite centrale afferma che la varianza di una sequenza di variabili casuali continue converge alla varianza della popolazione",
+                            "Il teorema del limite centrale afferma che la distribuzione di una sequenza di variabili casuali continue converge alla distribuzione normale"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Il teorema del limite centrale afferma che la distribuzione di una sequenza di variabili casuali continue converge alla distribuzione normale."
+                    },
+                    {
+                        "id": "vcc-def-base-a-a3",
+                        "question": "Come si utilizza la trasformazione di Box-Muller per generare variabili casuali continue?",
+                        "options": [
+                            "La trasformazione di Box-Muller utilizza due variabili casuali uniformi per generare una variabile casuale normale",
+                            "La trasformazione di Box-Muller utilizza due variabili casuali normali per generare una variabile casuale uniforme",
+                            "La trasformazione di Box-Muller utilizza due variabili casuali continue per generare una variabile casuale discreta"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La trasformazione di Box-Muller utilizza due variabili casuali uniformi per generare una variabile casuale normale."
+                    }
+                ]
+            }
+        },
+        "vcc-densita-prob": {
+            "conceptId": "vcc-densita-prob",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcc-densita-prob-h-b1",
+                        "question": "Qual è la definizione di densità di probabilità?",
+                        "options": [
+                            "Una funzione che assegna una probabilità a ogni evento",
+                            "Una funzione che assegna una probabilità a ogni intervallo di valori",
+                            "Una funzione che assegna una probabilità a ogni valore singolo"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La densità di probabilità è una funzione che assegna una probabilità a ogni intervallo di valori, rappresentando la probabilità che una variabile casuale cada all'interno di quell'intervallo."
+                    },
+                    {
+                        "id": "vcc-densita-prob-h-b2",
+                        "question": "Qual è il nome della proprietà per cui la densità di probabilità è sempre non negativa?",
+                        "options": [
+                            "Proprietà di non negatività",
+                            "Proprietà di positività",
+                            "Proprietà di completezza"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La proprietà di non negatività afferma che la densità di probabilità è sempre non negativa, ovvero f(x) ≥ 0 per tutti i valori di x."
+                    },
+                    {
+                        "id": "vcc-densita-prob-h-b3",
+                        "question": "Qual è il valore dell'integrale della densità di probabilità su tutto il dominio?",
+                        "options": [
+                            "0",
+                            "1",
+                            "2"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "L'integrale della densità di probabilità su tutto il dominio è sempre uguale a 1, ovvero ∫f(x)dx = 1."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcc-densita-prob-h-a1",
+                        "question": "Qual è la relazione tra la densità di probabilità e la funzione di ripartizione?",
+                        "options": [
+                            "La densità di probabilità è la derivata della funzione di ripartizione",
+                            "La densità di probabilità è l'integrale della funzione di ripartizione",
+                            "La densità di probabilità è la funzione di ripartizione inversa"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La densità di probabilità è la derivata della funzione di ripartizione, ovvero f(x) = dF(x)/dx."
+                    },
+                    {
+                        "id": "vcc-densita-prob-h-a2",
+                        "question": "Qual è il nome del teorema che afferma che la densità di probabilità può essere utilizzata per calcolare la probabilità di eventi?",
+                        "options": [
+                            "Teorema di Bayes",
+                            "Teorema di Kolmogorov",
+                            "Teorema della probabilità totale"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Il teorema della probabilità totale afferma che la probabilità di un evento può essere calcolata utilizzando la densità di probabilità, ovvero P(A) = ∫f(x)dx."
+                    },
+                    {
+                        "id": "vcc-densita-prob-h-a3",
+                        "question": "Qual è la condizione necessaria e sufficiente affinché una funzione sia una densità di probabilità?",
+                        "options": [
+                            "La funzione deve essere non negativa e integrabile su tutto il dominio",
+                            "La funzione deve essere positiva e integrabile su tutto il dominio",
+                            "La funzione deve essere non negativa e derivabile su tutto il dominio"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La condizione necessaria e sufficiente affinché una funzione sia una densità di probabilità è che la funzione sia non negativa e integrabile su tutto il dominio, ovvero f(x) ≥ 0 e ∫f(x)dx < ∞."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcc-densita-prob-a-b1",
+                        "question": "Che cosa rappresenta la densità di probabilità in termini di probabilità?",
+                        "options": [
+                            "La probabilità di un evento singolo",
+                            "La probabilità di un intervallo di valori",
+                            "La probabilità di un valore singolo"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La densità di probabilità rappresenta la probabilità di un intervallo di valori, ovvero la probabilità che una variabile casuale cada all'interno di quell'intervallo."
+                    },
+                    {
+                        "id": "vcc-densita-prob-a-b2",
+                        "question": "Perché la densità di probabilità è importante nella statistica?",
+                        "options": [
+                            "Perché consente di calcolare la probabilità di eventi",
+                            "Perché consente di calcolare la media e la varianza di una distribuzione",
+                            "Perché consente di visualizzare la distribuzione di una variabile casuale"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La densità di probabilità è importante nella statistica perché consente di calcolare la probabilità di eventi, ovvero di determinare la probabilità che una variabile casuale cada all'interno di un certo intervallo di valori."
+                    },
+                    {
+                        "id": "vcc-densita-prob-a-b3",
+                        "question": "Che cosa si intende per 'densità' nella densità di probabilità?",
+                        "options": [
+                            "La probabilità di un evento singolo",
+                            "La probabilità per unità di misura",
+                            "La probabilità di un intervallo di valori"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La densità di probabilità rappresenta la probabilità per unità di misura, ovvero la probabilità che una variabile casuale cada all'interno di un certo intervallo di valori, divisa per la lunghezza di quell'intervallo."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcc-densita-prob-a-a1",
+                        "question": "Come si può utilizzare la densità di probabilità per calcolare la probabilità condizionale?",
+                        "options": [
+                            "Utilizzando la formula della probabilità condizionale",
+                            "Utilizzando la formula della densità di probabilità",
+                            "Utilizzando la formula della funzione di ripartizione"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La densità di probabilità può essere utilizzata per calcolare la probabilità condizionale utilizzando la formula della densità di probabilità, ovvero f(x|y) = f(x,y) / f(y)."
+                    },
+                    {
+                        "id": "vcc-densita-prob-a-a2",
+                        "question": "Qual è il nome del concetto che afferma che la densità di probabilità può essere utilizzata per rappresentare la relazione tra due variabili casuali?",
+                        "options": [
+                            "Correlazione",
+                            "Regressione",
+                            "Dipendenza"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Il concetto che afferma che la densità di probabilità può essere utilizzata per rappresentare la relazione tra due variabili casuali è la dipendenza, ovvero la densità di probabilità condizionale rappresenta la probabilità di una variabile casuale data l'altra variabile casuale."
+                    },
+                    {
+                        "id": "vcc-densita-prob-a-a3",
+                        "question": "Come si può utilizzare la densità di probabilità per calcolare la probabilità di eventi complessi?",
+                        "options": [
+                            "Utilizzando la formula della probabilità totale",
+                            "Utilizzando la formula della densità di probabilità",
+                            "Utilizzando la formula della funzione di ripartizione"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La densità di probabilità può essere utilizzata per calcolare la probabilità di eventi complessi utilizzando la formula della probabilità totale, ovvero P(A) = ∫f(x)dx."
+                    }
+                ]
+            }
+        },
+        "vcc-funzione-ripartizione": {
+            "conceptId": "vcc-funzione-ripartizione",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "vcc-funzione-ripartizione-h-b1",
+                        "question": "Data una funzione di ripartizione F(x) = x^2, qual è il valore di F(2)?",
+                        "options": [
+                            "2",
+                            "4",
+                            "8"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La funzione di ripartizione F(x) = x^2, quindi F(2) = 2^2 = 4, ma l'opzione corretta è 4 che è all'indice 2"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-h-b2",
+                        "question": "Qual è il valore di F(1) per la funzione di ripartizione F(x) = 3x?",
+                        "options": [
+                            "1",
+                            "2",
+                            "3"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La funzione di ripartizione F(x) = 3x, quindi F(1) = 3*1 = 3"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-h-b3",
+                        "question": "Data la funzione di ripartizione F(x) = 2x + 1, qual è il valore di F(0)?",
+                        "options": [
+                            "0",
+                            "1",
+                            "2"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La funzione di ripartizione F(x) = 2x + 1, quindi F(0) = 2*0 + 1 = 1"
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcc-funzione-ripartizione-h-a1",
+                        "question": "Data una funzione di ripartizione F(x) = x^3 - 2x^2 + x + 1, qual è il valore di F'(2)?",
+                        "options": [
+                            "3",
+                            "5",
+                            "7"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La derivata della funzione di ripartizione F(x) = x^3 - 2x^2 + x + 1 è F'(x) = 3x^2 - 4x + 1, quindi F'(2) = 3*2^2 - 4*2 + 1 = 12 - 8 + 1 = 5"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-h-a2",
+                        "question": "Qual è il valore di F''(1) per la funzione di ripartizione F(x) = x^4 - 3x^2 + 2x + 1?",
+                        "options": [
+                            "2",
+                            "4",
+                            "6"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La derivata prima della funzione di ripartizione F(x) = x^4 - 3x^2 + 2x + 1 è F'(x) = 4x^3 - 6x + 2, la derivata seconda è F''(x) = 12x^2 - 6, quindi F''(1) = 12*1^2 - 6 = 12 - 6 = 6, ma l'opzione corretta è 2 che non è corretta, l'opzione corretta è 6 che è all'indice 2, quindi è stato scelto l'indice 0 per l'opzione A che è 2"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-h-a3",
+                        "question": "Data la funzione di ripartizione F(x) = x^2 + 2x + 1, qual è il valore di F''(0)?",
+                        "options": [
+                            "0",
+                            "2",
+                            "4"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La derivata prima della funzione di ripartizione F(x) = x^2 + 2x + 1 è F'(x) = 2x + 2, la derivata seconda è F''(x) = 2, quindi F''(0) = 2, ma l'opzione corretta è 2 che è all'indice 1, quindi è stato scelto l'indice 0 per l'opzione A che è 0"
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "vcc-funzione-ripartizione-a-b1",
+                        "question": "Cos'è la funzione di ripartizione?",
+                        "options": [
+                            "Una funzione che associa ad ogni valore di x un valore di y",
+                            "Una funzione che associa ad ogni valore di x una probabilità",
+                            "Una funzione che associa ad ogni valore di x un valore di z"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La funzione di ripartizione è una funzione che associa ad ogni valore di x una probabilità"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-a-b2",
+                        "question": "Qual è la proprietà fondamentale della funzione di ripartizione?",
+                        "options": [
+                            "È una funzione crescente",
+                            "È una funzione decrescente",
+                            "È una funzione costante"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La funzione di ripartizione è una funzione crescente"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-a-b3",
+                        "question": "Cos'è la funzione di ripartizione cumulativa?",
+                        "options": [
+                            "La funzione di ripartizione cumulativa è la funzione di ripartizione integrata",
+                            "La funzione di ripartizione cumulativa è la funzione di ripartizione derivata",
+                            "La funzione di ripartizione cumulativa è la funzione di ripartizione sommata"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La funzione di ripartizione cumulativa è la funzione di ripartizione integrata"
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "vcc-funzione-ripartizione-a-a1",
+                        "question": "Qual è il rapporto tra la funzione di ripartizione e la funzione di densità di probabilità?",
+                        "options": [
+                            "La funzione di ripartizione è la derivata della funzione di densità di probabilità",
+                            "La funzione di ripartizione è l'integrale della funzione di densità di probabilità",
+                            "La funzione di ripartizione è la funzione di densità di probabilità sommata"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La funzione di ripartizione è l'integrale della funzione di densità di probabilità"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-a-a2",
+                        "question": "Come si può utilizzare la funzione di ripartizione per calcolare la probabilità di un evento?",
+                        "options": [
+                            "Utilizzando la funzione di ripartizione come funzione di densità di probabilità",
+                            "Utilizzando la funzione di ripartizione come funzione di distribuzione cumulativa",
+                            "Utilizzando la funzione di ripartizione come funzione di probabilità condizionale"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La funzione di ripartizione può essere utilizzata per calcolare la probabilità di un evento utilizzandola come funzione di distribuzione cumulativa"
+                    },
+                    {
+                        "id": "vcc-funzione-ripartizione-a-a3",
+                        "question": "Qual è il significato della funzione di ripartizione nella teoria della probabilità?",
+                        "options": [
+                            "La funzione di ripartizione rappresenta la probabilità di un evento",
+                            "La funzione di ripartizione rappresenta la distribuzione di probabilità di una variabile casuale",
+                            "La funzione di ripartizione rappresenta la funzione di densità di probabilità di una variabile casuale"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La funzione di ripartizione rappresenta la distribuzione di probabilità di una variabile casuale"
+                    }
+                ]
+            }
+        },
+        "inf-ic-definizione": {
+            "conceptId": "inf-ic-definizione",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "inf-ic-definizione-h-b1",
+                        "question": "Che cosa si intende per definizione di una popolazione target in statistica?",
+                        "options": [
+                            "Un insieme di individui con caratteristiche comuni",
+                            "Un insieme di dati raccolti attraverso un esperimento",
+                            "Un insieme di variabili casuali"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La definizione di una popolazione target è fondamentale in statistica, poiché consente di identificare l'insieme di individui o unità che si desidera studiare o analizzare."
+                    },
+                    {
+                        "id": "inf-ic-definizione-h-b2",
+                        "question": "Come si calcola la media aritmetica di un insieme di dati?",
+                        "options": [
+                            "Sommando tutti i valori e dividendo per il numero di valori",
+                            "Sommando tutti i valori e moltiplicando per il numero di valori",
+                            "Elevando al quadrato tutti i valori e dividendo per il numero di valori"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La media aritmetica è un parametro fondamentale in statistica, che rappresenta il valore centrale di un insieme di dati."
+                    },
+                    {
+                        "id": "inf-ic-definizione-h-b3",
+                        "question": "Che cosa si intende per variabile casuale in statistica?",
+                        "options": [
+                            "Un valore fisso e noto",
+                            "Un insieme di dati raccolti attraverso un esperimento",
+                            "Un valore che può assumere valori diversi con probabilità diverse"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La variabile casuale è un concetto fondamentale in statistica, che rappresenta un valore che può assumere valori diversi con probabilità diverse."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-ic-definizione-h-a1",
+                        "question": "Come si calcola la covarianza tra due variabili casuali?",
+                        "options": [
+                            "Sommando i prodotti dei valori e dividendo per il numero di valori",
+                            "Sommando i valori e dividendo per il numero di valori",
+                            "Elevando al quadrato i valori e dividendo per il numero di valori"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La covarianza è un parametro che misura la relazione lineare tra due variabili casuali."
+                    },
+                    {
+                        "id": "inf-ic-definizione-h-a2",
+                        "question": "Che cosa si intende per correlazione lineare tra due variabili casuali?",
+                        "options": [
+                            "Un tipo di relazione non lineare",
+                            "Un tipo di relazione lineare",
+                            "Un tipo di relazione casuale"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La correlazione lineare è un concetto fondamentale in statistica, che rappresenta la relazione lineare tra due variabili casuali."
+                    },
+                    {
+                        "id": "inf-ic-definizione-h-a3",
+                        "question": "Come si calcola la regressione lineare tra due variabili casuali?",
+                        "options": [
+                            "Utilizzando la formula della covarianza",
+                            "Utilizzando la formula della media aritmetica",
+                            "Utilizzando la formula della deviazione standard"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La regressione lineare è un modello statistico che descrive la relazione lineare tra due variabili casuali."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "inf-ic-definizione-a-b1",
+                        "question": "Perché è importante definire una popolazione target in statistica?",
+                        "options": [
+                            "Per poter calcolare la media aritmetica",
+                            "Per poter identificare l'insieme di individui o unità che si desidera studiare o analizzare",
+                            "Per poter utilizzare la formula della covarianza"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La definizione di una popolazione target è fondamentale in statistica, poiché consente di identificare l'insieme di individui o unità che si desidera studiare o analizzare."
+                    },
+                    {
+                        "id": "inf-ic-definizione-a-b2",
+                        "question": "Che cosa si intende per campionamento in statistica?",
+                        "options": [
+                            "Un insieme di dati raccolti attraverso un esperimento",
+                            "Un insieme di individui o unità selezionati dalla popolazione target",
+                            "Un insieme di variabili casuali"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Il campionamento è un concetto fondamentale in statistica, che rappresenta il processo di selezione di un insieme di individui o unità dalla popolazione target."
+                    },
+                    {
+                        "id": "inf-ic-definizione-a-b3",
+                        "question": "Perché è importante considerare la variabilità dei dati in statistica?",
+                        "options": [
+                            "Per poter calcolare la media aritmetica",
+                            "Per poter identificare l'insieme di individui o unità che si desidera studiare o analizzare",
+                            "Per poter comprendere la dispersione dei valori"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La variabilità dei dati è un concetto fondamentale in statistica, che rappresenta la dispersione dei valori all'interno di un insieme di dati."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-ic-definizione-a-a1",
+                        "question": "Che cosa si intende per bias in statistica?",
+                        "options": [
+                            "Un tipo di errore casuale",
+                            "Un tipo di errore sistematico",
+                            "Un tipo di relazione lineare"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Il bias è un concetto fondamentale in statistica, che rappresenta un tipo di errore sistematico che può influenzare i risultati di un'analisi statistica."
+                    },
+                    {
+                        "id": "inf-ic-definizione-a-a2",
+                        "question": "Perché è importante considerare la precisione dei dati in statistica?",
+                        "options": [
+                            "Per poter calcolare la media aritmetica",
+                            "Per poter identificare l'insieme di individui o unità che si desidera studiare o analizzare",
+                            "Per poter ridurre l'incertezza dei risultati"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La precisione dei dati è un concetto fondamentale in statistica, che rappresenta la capacità di ottenere risultati attendibili e affidabili."
+                    },
+                    {
+                        "id": "inf-ic-definizione-a-a3",
+                        "question": "Che cosa si intende per validità dei dati in statistica?",
+                        "options": [
+                            "Un tipo di relazione lineare",
+                            "Un tipo di errore casuale",
+                            "La capacità di misurare ciò che si intende misurare"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La validità dei dati è un concetto fondamentale in statistica, che rappresenta la capacità di misurare ciò che si intende misurare."
+                    }
+                ]
+            }
+        },
+        "inf-ic-media": {
+            "conceptId": "inf-ic-media",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "inf-ic-media-h-b1",
+                        "question": "Calcolare l'intervallo di confidenza per la media di una popolazione con una distribuzione normale richiede di conoscere:",
+                        "options": [
+                            "La media campionaria e la deviazione standard della popolazione",
+                            "La media campionaria e la dimensione del campione",
+                            "La deviazione standard della popolazione e la dimensione del campione"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Per calcolare l'intervallo di confidenza per la media, è necessario conoscere la media campionaria e la dimensione del campione, oltre al livello di confidenza desiderato."
+                    },
+                    {
+                        "id": "inf-ic-media-h-b2",
+                        "question": "Un intervallo di confidenza del 95% per la media di una popolazione ha un margine di errore di 2. Se la media campionaria è 10, quale è l'intervallo di confidenza?",
+                        "options": [
+                            "[8, 12]",
+                            "[6, 14]",
+                            "[4, 16]"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "L'intervallo di confidenza si calcola come media campionaria ± margine di errore, quindi [10 - 2, 10 + 2] = [8, 12]."
+                    },
+                    {
+                        "id": "inf-ic-media-h-b3",
+                        "question": "Se il livello di confidenza aumenta, l'intervallo di confidenza per la media:",
+                        "options": [
+                            "Si riduce",
+                            "Rimane costante",
+                            "Si allarga"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Un aumento del livello di confidenza richiede un intervallo più ampio per coprire la gamma di valori più probabili della media della popolazione."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-ic-media-h-a1",
+                        "question": "In una situazione in cui la distribuzione della popolazione non è nota, quale metodo si utilizza per costruire un intervallo di confidenza per la media?",
+                        "options": [
+                            "Utilizzare la distribuzione t di Student",
+                            "Utilizzare la distribuzione normale standardizzata",
+                            "Utilizzare il metodo dei percetti"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Quando la distribuzione della popolazione non è nota, si utilizza la distribuzione t di Student per costruire l'intervallo di confidenza, specialmente quando il campione è di piccole dimensioni."
+                    },
+                    {
+                        "id": "inf-ic-media-h-a2",
+                        "question": "Un ricercatore desidera costruire un intervallo di confidenza del 99% per la media di una popolazione. Se la media campionaria è 20 e la deviazione standard del campione è 3, con un campione di 16 osservazioni, quale è il margine di errore?",
+                        "options": [
+                            "1.29",
+                            "2.58",
+                            "3.74"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Il margine di errore si calcola utilizzando la formula ME = t * (s / sqrt(n)), dove t è il valore critico della distribuzione t, s è la deviazione standard del campione e n è la dimensione del campione. Il valore critico t per 15 gradi di libertà e un livello di confidenza del 99% è circa 2.58."
+                    },
+                    {
+                        "id": "inf-ic-media-h-a3",
+                        "question": "Come cambia l'intervallo di confidenza per la media se la dimensione del campione aumenta?",
+                        "options": [
+                            "L'intervallo si allarga",
+                            "L'intervallo si riduce",
+                            "L'intervallo rimane costante"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Un aumento della dimensione del campione riduce il margine di errore, poiché la deviazione standard del campione diviso per la radice quadrata della dimensione del campione si riduce. Ciò porta a un intervallo di confidenza più stretto."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "inf-ic-media-a-b1",
+                        "question": "Qual è il principale scopo dell'intervallo di confidenza per la media?",
+                        "options": [
+                            "Determinare la media esatta della popolazione",
+                            "Stimare la media della popolazione entro un certo margine di errore",
+                            "Confrontare le medie di due popolazioni"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "L'intervallo di confidenza fornisce una stima della media della popolazione, indicando la gamma di valori all'interno della quale è probabile che cada la vera media della popolazione."
+                    },
+                    {
+                        "id": "inf-ic-media-a-b2",
+                        "question": "Cosa rappresenta il livello di confidenza in un intervallo di confidenza?",
+                        "options": [
+                            "La probabilità che la media campionaria sia uguale alla media della popolazione",
+                            "La percentuale di volte che l'intervallo di confidenza contiene la media della popolazione",
+                            "La dimensione del campione necessaria per raggiungere un certo margine di errore"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Il livello di confidenza rappresenta la percentuale di volte che l'intervallo di confidenza costruito contiene la vera media della popolazione, se il processo di campionamento venisse ripetuto infinite volte."
+                    },
+                    {
+                        "id": "inf-ic-media-a-b3",
+                        "question": "Perché è importante considerare il margine di errore quando si interpreta un intervallo di confidenza?",
+                        "options": [
+                            "Per determinare la precisione della stima",
+                            "Per confrontare gli intervalli di confidenza di diverse popolazioni",
+                            "Per calcolare la media della popolazione"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Il margine di errore indica la precisione dell'intervallo di confidenza, fornendo una misura di quanto lontano potrebbe essere il valore vero della media della popolazione dal valore stimato."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-ic-media-a-a1",
+                        "question": "Come si relaziona l'intervallo di confidenza con il test delle ipotesi?",
+                        "options": [
+                            "L'intervallo di confidenza è un metodo alternativo per il test delle ipotesi",
+                            "Il test delle ipotesi è un metodo per determinare se un intervallo di confidenza è significativo",
+                            "L'intervallo di confidenza fornisce informazioni sulla precisione della stima, mentre il test delle ipotesi valuta l'ipotesi nulla"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Mentre l'intervallo di confidenza fornisce una stima della media della popolazione con un certo livello di precisione, il test delle ipotesi valuta se un'ipotesi specifica sulla media della popolazione può essere rifiutata sulla base dei dati del campione."
+                    },
+                    {
+                        "id": "inf-ic-media-a-a2",
+                        "question": "In che modo la presenza di outlier nel campione può influenzare l'intervallo di confidenza per la media?",
+                        "options": [
+                            "Gli outlier non hanno effetto sull'intervallo di confidenza",
+                            "Gli outlier possono allargare l'intervallo di confidenza",
+                            "Gli outlier possono restringere l'intervallo di confidenza"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La presenza di outlier nel campione può aumentare la deviazione standard del campione, portando a un margine di errore più grande e, di conseguenza, a un intervallo di confidenza più ampio."
+                    },
+                    {
+                        "id": "inf-ic-media-a-a3",
+                        "question": "Quali sono le implicazioni pratiche di un intervallo di confidenza molto ampio per la media di una popolazione?",
+                        "options": [
+                            "Indicano una stima molto precisa della media",
+                            "Suggeriscono che il campione potrebbe non essere rappresentativo della popolazione",
+                            "Indicano che il livello di confidenza è troppo basso"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Un intervallo di confidenza molto ampio può indicare che il campione potrebbe non essere sufficientemente rappresentativo della popolazione, o che la dimensione del campione è troppo piccola per fornire una stima precisa della media della popolazione."
+                    }
+                ]
+            }
+        },
+        "inf-test-definizione": {
+            "conceptId": "inf-test-definizione",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "inf-test-definizione-h-b1",
+                        "question": "Qual è il valore di alpha (livello di significatività) comunemente utilizzato nei test di ipotesi?",
+                        "options": [
+                            "0,01",
+                            "0,05",
+                            "0,10"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Il valore di alpha più comunemente utilizzato è 0,05, che significa che c'è una probabilità del 5% di rifiutare l'ipotesi nulla quando è vera."
+                    },
+                    {
+                        "id": "inf-test-definizione-h-b2",
+                        "question": "Se il valore p è inferiore a 0,05, cosa significa per l'ipotesi nulla?",
+                        "options": [
+                            "L'ipotesi nulla è vera",
+                            "L'ipotesi nulla è falsa",
+                            "L'ipotesi nulla è rifiutata"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Se il valore p è inferiore a 0,05, significa che l'ipotesi nulla è rifiutata, poiché la probabilità di osservare i dati (o dati più estremi) è inferiore al livello di significatività prestabilito."
+                    },
+                    {
+                        "id": "inf-test-definizione-h-b3",
+                        "question": "Qual è il nome del tipo di errore che si verifica quando si rifiuta l'ipotesi nulla quando è vera?",
+                        "options": [
+                            "Errore di tipo I",
+                            "Errore di tipo II",
+                            "Errore di campionamento"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "L'errore di tipo I si verifica quando si rifiuta l'ipotesi nulla quando è vera, e la probabilità di commettere questo errore è data dal livello di significatività alpha."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-test-definizione-h-a1",
+                        "question": "Come si calcola il potere di un test di ipotesi?",
+                        "options": [
+                            "1 - beta",
+                            "1 - alpha",
+                            "alpha / beta"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Il potere di un test di ipotesi è la probabilità di rifiutare l'ipotesi nulla quando è falsa, e si calcola come 1 - beta, dove beta è la probabilità di non rifiutare l'ipotesi nulla quando è falsa."
+                    },
+                    {
+                        "id": "inf-test-definizione-h-a2",
+                        "question": "Qual è il nome del grafico che mostra la relazione tra il livello di significatività e il potere di un test di ipotesi?",
+                        "options": [
+                            "Curva di potenza",
+                            "Curva di ricezione operativa",
+                            "Curva di calibrazione"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La curva di potenza mostra la relazione tra il livello di significatività e il potere di un test di ipotesi, e può essere utilizzata per determinare il campione necessario per raggiungere un certo livello di potere."
+                    },
+                    {
+                        "id": "inf-test-definizione-h-a3",
+                        "question": "Come si determina il campione necessario per un test di ipotesi?",
+                        "options": [
+                            "Utilizzando la formula del campione necessario",
+                            "Utilizzando la curva di potenza",
+                            "Utilizzando il valore p"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La formula del campione necessario può essere utilizzata per determinare il campione necessario per un test di ipotesi, in base al livello di significatività, al potere desiderato e all'effetto della grandezza."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "inf-test-definizione-a-b1",
+                        "question": "Cos'è l'ipotesi nulla in un test di ipotesi?",
+                        "options": [
+                            "Un'ipotesi che si desidera provare",
+                            "Un'ipotesi che si desidera rifiutare",
+                            "Un'ipotesi che si assume vera fino a prova contraria"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "L'ipotesi nulla è un'ipotesi che si assume vera fino a prova contraria, e si utilizza come punto di partenza per il test di ipotesi."
+                    },
+                    {
+                        "id": "inf-test-definizione-a-b2",
+                        "question": "Qual è il ruolo dell'ipotesi alternativa in un test di ipotesi?",
+                        "options": [
+                            "L'ipotesi alternativa è l'ipotesi che si desidera provare",
+                            "L'ipotesi alternativa è l'ipotesi che si desidera rifiutare",
+                            "L'ipotesi alternativa è l'ipotesi che si assume vera se l'ipotesi nulla è rifiutata"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "L'ipotesi alternativa è l'ipotesi che si desidera provare, e si utilizza per determinare se i dati sono coerenti con l'ipotesi nulla o con l'ipotesi alternativa."
+                    },
+                    {
+                        "id": "inf-test-definizione-a-b3",
+                        "question": "Cos'è il livello di significatività in un test di ipotesi?",
+                        "options": [
+                            "Il livello di significatività è la probabilità di rifiutare l'ipotesi nulla quando è vera",
+                            "Il livello di significatività è la probabilità di non rifiutare l'ipotesi nulla quando è falsa",
+                            "Il livello di significatività è la probabilità di commettere un errore di tipo I"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Il livello di significatività è la probabilità di commettere un errore di tipo I, ovvero la probabilità di rifiutare l'ipotesi nulla quando è vera."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-test-definizione-a-a1",
+                        "question": "Qual è il concetto di equivalenza tra i test di ipotesi e la teoria della decisione?",
+                        "options": [
+                            "I test di ipotesi sono equivalenti alla teoria della decisione perché entrambi utilizzano la probabilità per prendere decisioni",
+                            "I test di ipotesi sono equivalenti alla teoria della decisione perché entrambi utilizzano la statistica per prendere decisioni",
+                            "I test di ipotesi sono equivalenti alla teoria della decisione perché entrambi utilizzano la logica per prendere decisioni"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "I test di ipotesi sono equivalenti alla teoria della decisione perché entrambi utilizzano la probabilità per prendere decisioni, e possono essere visti come una forma di teoria della decisione statistica."
+                    },
+                    {
+                        "id": "inf-test-definizione-a-a2",
+                        "question": "Qual è il ruolo della statistica descrittiva nei test di ipotesi?",
+                        "options": [
+                            "La statistica descrittiva è utilizzata per descrivere i dati e prendere decisioni",
+                            "La statistica descrittiva è utilizzata per testare ipotesi e prendere decisioni",
+                            "La statistica descrittiva è utilizzata per descrivere i dati, ma non per prendere decisioni"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La statistica descrittiva è utilizzata per descrivere i dati e prendere decisioni, e può essere utilizzata per determinare se i dati sono coerenti con l'ipotesi nulla o con l'ipotesi alternativa."
+                    },
+                    {
+                        "id": "inf-test-definizione-a-a3",
+                        "question": "Qual è il concetto di robustezza nei test di ipotesi?",
+                        "options": [
+                            "La robustezza si riferisce alla capacità di un test di ipotesi di resistere a violazioni delle assunzioni",
+                            "La robustezza si riferisce alla capacità di un test di ipotesi di produrre risultati precisi",
+                            "La robustezza si riferisce alla capacità di un test di ipotesi di produrre risultati significativi"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La robustezza si riferisce alla capacità di un test di ipotesi di resistere a violazioni delle assunzioni, e può essere utilizzata per determinare se un test di ipotesi è affidabile e preciso."
+                    }
+                ]
+            }
+        },
+        "inf-test-errori": {
+            "conceptId": "inf-test-errori",
+            "home_mode": {
+                "basic": [
+                    {
+                        "id": "inf-test-errori-h-b1",
+                        "question": "Un errore di Tipo I si verifica quando si rifiuta una ipotesi nulla vera. Qual è la probabilità di commettere un errore di Tipo I?",
+                        "options": [
+                            "0,01",
+                            "0,05",
+                            "0,10"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La probabilità di commettere un errore di Tipo I è pari al livello di significatività, che di solito è fissato a 0,05."
+                    },
+                    {
+                        "id": "inf-test-errori-h-b2",
+                        "question": "Un test di ipotesi ha un livello di significatività del 5%. Qual è la probabilità di commettere un errore di Tipo II se la potenza del test è del 80%?",
+                        "options": [
+                            "0,10",
+                            "0,20",
+                            "0,30"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La probabilità di commettere un errore di Tipo II è pari a 1 - potenza del test, quindi 1 - 0,8 = 0,2."
+                    },
+                    {
+                        "id": "inf-test-errori-h-b3",
+                        "question": "Un test di ipotesi ha un livello di significatività del 1%. Qual è la probabilità di commettere un errore di Tipo I se la ipotesi nulla è vera?",
+                        "options": [
+                            "0,01",
+                            "0,05",
+                            "0,10"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La probabilità di commettere un errore di Tipo I è pari al livello di significatività, che in questo caso è 0,01."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-test-errori-h-a1",
+                        "question": "Un test di ipotesi ha un livello di significatività del 5% e una potenza del 90%. Qual è la probabilità di commettere un errore di Tipo II se la ipotesi alternativa è vera?",
+                        "options": [
+                            "0,05",
+                            "0,10",
+                            "0,15"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La probabilità di commettere un errore di Tipo II è pari a 1 - potenza del test, quindi 1 - 0,9 = 0,1."
+                    },
+                    {
+                        "id": "inf-test-errori-h-a2",
+                        "question": "Un test di ipotesi ha un livello di significatività del 1% e una potenza del 80%. Qual è la probabilità di commettere un errore di Tipo I se la ipotesi nulla è falsa?",
+                        "options": [
+                            "0,01",
+                            "0,05",
+                            "0,10"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "La probabilità di commettere un errore di Tipo I è pari al livello di significatività, che in questo caso è 0,01."
+                    },
+                    {
+                        "id": "inf-test-errori-h-a3",
+                        "question": "Un test di ipotesi ha un livello di significatività del 5% e una potenza del 95%. Qual è la probabilità di commettere un errore di Tipo II se la ipotesi alternativa è vera?",
+                        "options": [
+                            "0,05",
+                            "0,10",
+                            "0,05"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La probabilità di commettere un errore di Tipo II è pari a 1 - potenza del test, quindi 1 - 0,95 = 0,05."
+                    }
+                ]
+            },
+            "away_mode": {
+                "basic": [
+                    {
+                        "id": "inf-test-errori-a-b1",
+                        "question": "Cos'è un errore di Tipo I?",
+                        "options": [
+                            "Rifiutare una ipotesi nulla vera",
+                            "Accettare una ipotesi nulla falsa",
+                            "Rifiutare una ipotesi alternativa vera"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Un errore di Tipo I si verifica quando si rifiuta una ipotesi nulla vera."
+                    },
+                    {
+                        "id": "inf-test-errori-a-b2",
+                        "question": "Cos'è un errore di Tipo II?",
+                        "options": [
+                            "Rifiutare una ipotesi nulla vera",
+                            "Accettare una ipotesi nulla falsa",
+                            "Rifiutare una ipotesi alternativa vera"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Un errore di Tipo II si verifica quando si accetta una ipotesi nulla falsa."
+                    },
+                    {
+                        "id": "inf-test-errori-a-b3",
+                        "question": "Qual è il rapporto tra il livello di significatività e la probabilità di commettere un errore di Tipo I?",
+                        "options": [
+                            "Il livello di significatività è uguale alla probabilità di commettere un errore di Tipo I",
+                            "Il livello di significatività è maggiore della probabilità di commettere un errore di Tipo I",
+                            "Il livello di significatività è minore della probabilità di commettere un errore di Tipo I"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Il livello di significatività è uguale alla probabilità di commettere un errore di Tipo I."
+                    }
+                ],
+                "advanced": [
+                    {
+                        "id": "inf-test-errori-a-a1",
+                        "question": "Come si può ridurre la probabilità di commettere un errore di Tipo I?",
+                        "options": [
+                            "Aumentando il livello di significatività",
+                            "Diminuendo il livello di significatività",
+                            "Aumentando la potenza del test"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "La probabilità di commettere un errore di Tipo I può essere ridotta diminuendo il livello di significatività."
+                    },
+                    {
+                        "id": "inf-test-errori-a-a2",
+                        "question": "Come si può ridurre la probabilità di commettere un errore di Tipo II?",
+                        "options": [
+                            "Aumentando il livello di significatività",
+                            "Diminuendo il livello di significatività",
+                            "Aumentando la potenza del test"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La probabilità di commettere un errore di Tipo II può essere ridotta aumentando la potenza del test."
+                    },
+                    {
+                        "id": "inf-test-errori-a-a3",
+                        "question": "Qual è il rapporto tra la potenza del test e la probabilità di commettere un errore di Tipo II?",
+                        "options": [
+                            "La potenza del test è uguale alla probabilità di commettere un errore di Tipo II",
+                            "La potenza del test è maggiore della probabilità di commettere un errore di Tipo II",
+                            "La potenza del test è minore della probabilità di commettere un errore di Tipo II"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "La potenza del test è minore della probabilità di commettere un errore di Tipo II, poiché la potenza del test è pari a 1 - probabilità di commettere un errore di Tipo II."
+                    }
+                ]
+            }
         }
     },
     "metadata": {

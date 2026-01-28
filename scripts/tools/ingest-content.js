@@ -3,7 +3,9 @@ import path from 'path';
 import dotenv from 'dotenv';
 import Groq from 'groq-sdk';
 
-import pdf from 'pdf-parse/lib/pdf-parse.js';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const pdf = require('pdf-parse');
 
 // Configurazione
 dotenv.config();
@@ -47,10 +49,16 @@ async function main() {
 
             // Estrazione Testo in base al formato
             if (file.endsWith('.pdf')) {
-                const dataBuffer = await fs.readFile(`${RAW_DIR}/${file}`);
-                const pdfData = await pdf(dataBuffer);
-                rawText = pdfData.text;
-                console.log(`   📄 PDF estratto: ${pdfData.numpages} pagine.`);
+                try {
+                    console.log(`   📖 Leggo PDF: ${file}`);
+                    const dataBuffer = await fs.readFile(`${RAW_DIR}/${file}`);
+                    const pdfData = await pdf(dataBuffer);
+                    rawText = pdfData.text;
+                    console.log(`   ✅ PDF estratto: ${pdfData.numpages} pagine. Lunghezza testo: ${rawText.length}`);
+                } catch (pdfErr) {
+                    console.error('❌ Errore lettura PDF:', pdfErr);
+                    continue; // Salta file danneggiato
+                }
             } else {
                 rawText = await fs.readFile(`${RAW_DIR}/${file}`, 'utf-8');
             }
