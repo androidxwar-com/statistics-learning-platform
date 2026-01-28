@@ -330,7 +330,7 @@ Usa un tono incoraggiante ma diretto. Max 150 parole, in italiano.`;
             }
 
             // Caso 3: Spiegazione Alternativa (MOCK AVANZATO)
-            if (prompt.includes('spiegazione sul concetto') || prompt.includes('Rispigalo')) {
+            if (prompt.includes('Genera una spiegazione alternativa') || prompt.includes('L\'utente è bloccato')) {
                 if (prompt.includes('ANALOGIA')) {
                     return `**Analogia della Bilancia ⚖️**\n\nImmagina il Valore Atteso come il punto esatto dove devi mettere il dito sotto un righello per tenerlo in equilibrio.\n\nNon è detto che su quel punto ci sia un "peso" (un valore reale), ma è il *centro di gravità* di tutto il sistema. Se hai pesi grossi a sinistra, il punto di equilibrio si sposta a sinistra. Ecco, la media è proprio quel punto di equilibrio matematico.`;
                 }

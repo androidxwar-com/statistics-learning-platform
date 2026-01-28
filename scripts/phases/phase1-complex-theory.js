@@ -12,12 +12,14 @@
 
 const Phase1ComplexTheory = (function () {
     let currentContent = null;
+    let fullConceptData = null; // Store full context (Phase 1-3)
     let attempts = 0; // Contatore tentativi spiegazione
 
     /**
      * Renderizza Fase 1
      */
     function render(conceptData) {
+        fullConceptData = conceptData; // Capture full context
         currentContent = conceptData.phase1_complex;
         hasRequestedAlternative = StateManager.getState().requestedAlternativeExplanation;
 
@@ -110,10 +112,11 @@ const Phase1ComplexTheory = (function () {
         disableFeedbackButtons();
 
         try {
-            // Richiedi spiegazione alternativa via Groq con contesto del tentativo
+            // Richiedi spiegazione alternativa via Groq con contesto COMPLETO (Radiated Architecture)
+            // Passiamo l'intero oggetto dati affinché l'IA possa "vedere" tutto il materiale disponibile
             const alternative = await GroqAPIClient.generateAlternativeExplanation(
                 currentContent.title,
-                currentContent.content,
+                fullConceptData, // PASSING FULL CONTEXT OBJECT
                 attempts
             );
 
