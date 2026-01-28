@@ -32,16 +32,17 @@ const GroqAPIClient = (function () {
             return responseCache.get(cacheKey);
         }
 
-        // Modalità demo: ritorna placeholder
-        if (config.demoMode) {
-            console.warn('⚠️ DEMO MODE: API non chiamata. Usa fallback.');
-            return null;
+        // Modalità demo: ritorna risposta SIMULATA istantanea
+        if (config.demoMode || !config.apiKey || config.apiKey === 'YOUR_GROQ_API_KEY_HERE') {
+            console.log('⚡ SIMULATION MODE: Generazione risposta istantanea (Mock)');
+            await sleep(1000); // Piccolo delay per realismo
+            return simulateResponse(prompt);
         }
 
-        // Verifica API key
-        if (!config.apiKey || config.apiKey === 'YOUR_GROQ_API_KEY_HERE') {
+        // Verifica API key (se non demo)
+        if (!config.apiKey) {
             console.error('❌ API Key non configurata!');
-            return null;
+            return simulateResponse(prompt); // Fallback to simulation safeguard
         }
 
         const requestBody = {
@@ -207,6 +208,35 @@ Usa un tono incoraggiante ma diretto. Max 150 parole, in italiano.`;
     function clearCache() {
         responseCache.clear();
         console.log('🗑️ Cache Groq svuotata');
+    }
+
+    /**
+     * Simula una risposta AI intelligente basata sul prompt
+     */
+    function simulateResponse(prompt) {
+        // Riconoscimento pattern semplice per decidere cosa rispondere
+
+        // Caso 1: Quiz JSON
+        if (prompt.includes('Genera UNA domanda a risposta multipla')) {
+            return JSON.stringify({
+                question: "Domanda Generata Simulazione: Qual è la proprietà fondamentale di una PMF?",
+                options: ["Somma deve essere 1", "Somma deve essere 0", "Valori possono essere negativi"],
+                correctIndex: 0,
+                explanation: "La somma delle probabilità di tutti gli eventi possibili deve sempre essere 1 (certezza)."
+            });
+        }
+
+        // Caso 2: Spiegazione Alternativa
+        if (prompt.includes('spiegazione sul concetto')) {
+            return "Ecco una spiegazione semplificata (Simulazione):\n\nImmagina questo concetto come una ricetta di cucina. Non puoi cambiare gli ingredienti (le variabili) senza cambiare il sapore (il risultato). In pratica, stiamo solo cercando di capire quanto 'sale' mettere per avere il piatto perfetto.";
+        }
+
+        // Caso 3: Feedback Errore
+        if (prompt.includes('risposto ERRONEAMENTE')) {
+            return "Hai sbagliato perché hai confuso la definizione. Ricorda: La probabilità non può mai essere negativa! Riprova ragionando su questo punto.";
+        }
+
+        return "Risposta simulata standard. Configura una API Key reale per risposte intelligenti.";
     }
 
     // Public API

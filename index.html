@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piattaforma Apprendimento - Probabilità & Statistica</title>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/theory-mode.css">
     <link rel="stylesheet" href="styles/quiz-mode.css">
-    
+
     <!-- Google Fonts (Poppins) già in main.css via @import -->
 </head>
+
 <body>
+    <!-- Sidebar Extension -->
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Libreria Argomenti" title="Indice Argomenti">
+        <span style="font-size: 1.5rem;">📚</span>
+    </button>
+
+    <aside id="app-sidebar">
+        <div class="sidebar-header">
+            <h2>Indice</h2>
+            <button class="sidebar-close" onclick="SidebarManager.toggleSidebar(false)">×</button>
+        </div>
+        <div id="sidebar-content">
+            <!-- Renderizzato via JS -->
+        </div>
+    </aside>
+
     <!-- Application Container -->
     <div id="app">
         <!-- Header: Modalità, Progresso, Info Concetto -->
@@ -31,28 +50,79 @@
     </div>
 
     <!-- Scripts: Caricamento Moduli -->
-    
+
     <!-- 1. Config -->
     <script src="config/api-config.js"></script>
-    
-    <!-- 2. Core Modules -->
+
+    <!-- 2. Core Modules (New Architecture) -->
+    <script src="scripts/core/EventBus.js"></script>
+    <script src="scripts/core/ErrorHandler.js"></script>
+    <script src="scripts/utils/DataManager.js"></script>
+
+    <!-- 2b. Legacy Core -->
     <script src="scripts/core/state-manager.js"></script>
     <script src="scripts/core/api-client.js"></script>
-    
-    <!-- 3. Utilities -->
-    <script src="scripts/utils/data-loader.js"></script>
-    
+    <script src="scripts/core/PhaseManager.js"></script>
+
+    <!-- 3. UI Components -->
+    <!-- <script src="scripts/utils/data-loader.js"></script> REMOVED: Replaced by DataManager -->
+    <script src="scripts/ui/sidebar-manager.js"></script>
+
     <!-- 4. Phase Modules (1-5) -->
     <script src="scripts/phases/phase1-complex-theory.js"></script>
     <script src="scripts/phases/phase2-simplified-theory.js"></script>
     <script src="scripts/phases/phase3-practical-application.js"></script>
     <script src="scripts/phases/phase4-basic-quiz.js"></script>
     <script src="scripts/phases/phase5-advanced-quiz.js"></script>
-    
+
     <!-- 5. App Controller (deve essere ultimo per accedere a tutti i moduli) -->
     <script src="scripts/core/app-controller.js"></script>
-    
+
     <!-- Note: app-controller.js inizializza automaticamente l'app al caricamento DOM -->
-    
+
+    <!-- PROTOCOL SECURITY CHECK -->
+    <script>
+        if (window.location.protocol === 'file:') {
+            document.body.innerHTML = `
+                <div style="
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white; display: flex;
+                    flex-direction: column; align-items: center; justify-content: center;
+                    text-align: center; font-family: 'Poppins', sans-serif; z-index: 9999;
+                ">
+                    <div style="background: white; color: #333; padding: 40px; border-radius: 20px; max-width: 600px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+                        <h1 style="color: #dc3545; margin-top: 0; font-size: 2.5rem;">⚠️ STOP!</h1>
+                        <h2 style="margin-bottom: 20px;">Non puoi aprire questo file direttamente</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+                            Hai aperto il sito facendo <strong>doppio click</strong> su <code>index.html</code>.<br>
+                            Per motivi di sicurezza, i browser <strong>bloccano</strong> il caricamento dei dati in questa modalità (Errore CORS).
+                        </p>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: left; border-left: 5px solid #667eea;">
+                            <strong>✅ SOLUZIONE (Scegli una):</strong>
+                            <ol style="margin-left: 20px; margin-top: 10px;">
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Usa Live Server (Consigliato per sviluppo):</strong>
+                                    <br>Tasto destro su <code>index.html</code> in VS Code → <em>"Open with Live Server"</em>.
+                                </li>
+                                <li>
+                                    <strong>Usa la versione Online:</strong>
+                                    <br>Vai su: <a href="https://androidxwar-com.github.io/statistics-learning-platform/" target="_blank" style="color: #667eea; font-weight: bold;">Versione GitHub Pages</a> (Se hai fatto il deploy).
+                                </li>
+                            </ol>
+                        </div>
+                        <button onclick="location.reload()" style="
+                            padding: 12px 24px; background: #667eea; color: white; border: none;
+                            border-radius: 8px; cursor: pointer; font-size: 1rem; margin-top: 10px; transition: transform 0.2s;
+                        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            Ho avviato il Server, Riprova 🔄
+                        </button>
+                    </div>
+                </div>
+            `;
+            throw new Error('Application stopped due to file:// protocol restriction');
+        }
+    </script>
 </body>
+
 </html>

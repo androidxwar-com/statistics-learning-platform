@@ -20,13 +20,26 @@ const Phase4BasicQuiz = (function () {
         const conceptId = state.currentConceptId;
         const mode = state.currentMode;
 
-        // Carica domande dal database
-        const questionsData = await DataLoader.loadQuestions(conceptId);
+        // NEW: Usa DataManager
+        const questionsData = DataManager.getConceptQuestions(conceptId);
+
+        // NEW: Validazione robusta
+        if (!questionsData || !questionsData[mode + '_mode'] || !questionsData[mode + '_mode'].basic) {
+            showError(`Domande non disponibili per questo concetto in modalità ${mode}.<br>Contatta l'amministratore o cambia modalità.`);
+            // Fallback opzionale: prova a caricare l'altra modalità o usa domande generiche
+            return;
+        }
+
         currentQuestions = questionsData[mode + '_mode'].basic;
+        // Se l'indice salvato è oltre il limite (es. cambio modalità con meno domande), resetta
+        if (state.currentQuestionIndex >= currentQuestions.length) {
+            state.currentQuestionIndex = 0;
+            StateManager.saveState();
+        }
         currentQuestionIndex = state.currentQuestionIndex;
 
-        if (!currentQuestions || currentQuestions.length === 0) {
-            showError('Nessuna domanda disponibile per questo concetto');
+        if (currentQuestions.length === 0) {
+            showError('Lista domande vuota.');
             return;
         }
 
@@ -67,7 +80,7 @@ const Phase4BasicQuiz = (function () {
 
             <div class="cards-container">
                 ${questionData.options.map((option, index) => `
-                    <div class="card" id="card-${index}" onclick="Phase4BasicQuiz.checkAnswer(${index})">
+                    <div class="card" id="card-${index}" onclick="window.Phase4BasicQuiz.checkAnswer(${index})">
                         ${option}
                     </div>
                 `).join('')}
@@ -105,7 +118,13 @@ const Phase4BasicQuiz = (function () {
                     // Quiz completato, avanza a Fase 5
                     console.log('✅ Quiz base completato!');
                     StateManager.advancePhase();
-                    AppController.renderCurrentPhase();
+
+                    // Usa PhaseManager se disponibile per renderizzare fase successiva
+                    if (window.PhaseManager) {
+                        PhaseManager.renderPhase(5);
+                    } else {
+                        AppController.renderCurrentPhase();
+                    }
                 }
             }, 2000);
 
@@ -142,10 +161,10 @@ const Phase4BasicQuiz = (function () {
                     </div>
 
                     <div class="modal-actions">
-                        <button class="btn-secondary" onclick="Phase4BasicQuiz.reviewTheory()">
+                        <button class="btn-secondary" onclick="window.Phase4BasicQuiz.reviewTheory()">
                             📚 Rivedere la Teoria
                         </button>
-                        <button class="btn-primary" onclick="Phase4BasicQuiz.tryNewQuiz()">
+                        <button class="btn-primary" onclick="window.Phase4BasicQuiz.tryNewQuiz()">
                             🔄 Provare Nuovo Quiz
                         </button>
                     </div>
@@ -164,7 +183,13 @@ const Phase4BasicQuiz = (function () {
         console.log('📚 Utente sceglie di rivedere la teoria');
 
         StateManager.resetToPhase1();
-        AppController.renderCurrentPhase();
+        if (window.PhaseManager) {
+            const conceptId = StateManager.getState().currentConceptId;
+            const data = DataManager.getConceptTheory(conceptId);
+            PhaseManager.renderPhase(1, data);
+        } else {
+            AppController.renderCurrentPhase();
+        }
     }
 
     /**
@@ -175,18 +200,21 @@ const Phase4BasicQuiz = (function () {
         console.log('🔄 Generazione nuovo quiz...');
 
         const state = StateManager.getState();
+        const feedbackEl = document.getElementById('feedback-message');
+        if (feedbackEl) feedbackEl.textContent = 'Generazione domanda alternativa...';
 
         // Opzione 1: Chiama Groq per generare nuova domanda
         const newQuestion = await GroqAPIClient.generateQuizQuestion(
             state.currentConceptId,
             state.currentMode,
-            'basic'
+            'basic' // Livello
         );
 
         if (newQuestion) {
             // Sostituisci domanda corrente con quella generata
             currentQuestions[currentQuestionIndex] = newQuestion;
             render();
+            showFeedback('Domanda rigenerata! Riprova.', 'info');
         } else {
             // Fallback: semplicemente ricarica domanda diversa dal database
             // (In produzione, potresti shufflare o prendere da pool più ampio)
@@ -223,9 +251,9 @@ const Phase4BasicQuiz = (function () {
     function showError(message) {
         document.getElementById('app-content').innerHTML = `
             <div class="error-box">
-                <h3>⚠️ Errore</h3>
+                <h3>⚠️ Errore Quiz</h3>
                 <p>${message}</p>
-                <button class="btn-primary" onclick="AppController.init()">Torna all'inizio</button>
+                <button class="btn-primary" onclick="location.reload()">Ricarica Applicazione</button>
             </div>
         `;
     }
@@ -243,3 +271,6 @@ const Phase4BasicQuiz = (function () {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Phase4BasicQuiz;
 }
+
+// Expose to window for inline onclick handlers
+window.Phase4BasicQuiz = Phase4BasicQuiz;

@@ -60,13 +60,16 @@ const StateManager = (function () {
     }
 
     /**
-     * Salva stato in localStorage
+     * Salva stato in localStorage e notifica listener
      */
-    function saveState() {
+    function saveState(notify = true) {
         try {
             state.lastUpdated = new Date().toISOString();
             localStorage.setItem('learningPlatformState', JSON.stringify(state));
-            console.log('💾 Stato salvato:', state);
+
+            if (notify && window.EventBus) {
+                window.EventBus.emit('STATE_UPDATED', getState());
+            }
         } catch (error) {
             console.error('❌ Errore salvataggio stato:', error);
         }
@@ -84,8 +87,7 @@ const StateManager = (function () {
      */
     function setState(updates) {
         state = { ...state, ...updates };
-        saveState();
-        console.log('🔄 Stato aggiornato:', updates);
+        saveState(true);
     }
 
     /**

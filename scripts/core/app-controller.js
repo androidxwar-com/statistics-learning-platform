@@ -23,29 +23,70 @@ const AppController = (function () {
             console.warn('⚠️ GROQ_CONFIG non trovato');
         }
 
-        // 2. Carica dati
-        const dataLoaded = await DataLoader.init();
-        if (!dataLoaded) {
-            showError('Errore nel caricamento dei dati. Ricarica la pagina.');
+        // 2. Carica dati con gestione errori dettagliata (Nuovo DataManager)
+        const success = await DataManager.init();
+        if (!success) {
+            // ErrorHandler ha già gestito la modale, interrompiamo solo il flusso
             return;
         }
 
         // 3. Carica o inizializza stato
         StateManager.loadState();
 
-        // 4. Renderizza interfaccia iniziale
+        // 4. Inizializza Sidebar
+        try {
+            // DataManager.getTopics() restituisce la struttura raw
+            const structure = DataManager.getTopics();
+            if (structure) {
+                SidebarManager.init(structure);
+                SidebarManager.updateActiveItem();
+            } else {
+                console.error('❌ Struttura argomenti non disponibile per Sidebar');
+            }
+        } catch (e) {
+            console.error('❌ Errore init Sidebar:', e);
+        }
+
+        // 5. Renderizza interfaccia iniziale
         renderHeader();
         renderCurrentPhase();
+
+        // 6. Setup Event Listeners
+        if (window.EventBus) {
+            window.EventBus.on('NAVIGATE_TO_CONCEPT', (data) => {
+                loadConcept(data.topicId, data.subtopicId, data.conceptId);
+            });
+        }
 
         console.log('✅ App inizializzata');
     }
 
     /**
-     * Renderizza header (modalità + progresso)
+     * Carica uno specifico concetto (API Pubblica per Sidebar)
      */
+    function loadConcept(topicId, subtopicId, conceptId) {
+        console.log(`Navigazione a: ${topicId} > ${subtopicId} > ${conceptId}`);
+        StateManager.setCurrentConcept(topicId, subtopicId, conceptId);
+        renderHeader();
+        renderCurrentPhase();
+        // SidebarManager.updateActiveItem() rimosso: ora reagisce all'evento STATE_UPDATED
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ... funzioni private ...
+
+    // Public API
+    return {
+        init,
+        renderCurrentPhase,
+        renderHeader,
+        switchMode,
+        loadConcept // Esposto per la sidebar
+    };
     function renderHeader() {
         const state = StateManager.getState();
-        const conceptInfo = DataLoader.getConceptInfo(state.currentConceptId);
+        // Usa DataManager.getConceptMetadata
+        const conceptInfo = DataManager.getConceptMetadata(state.currentConceptId);
 
         const header = `
             <div class="app-header">
@@ -66,8 +107,8 @@ const AppController = (function () {
 
                 ${conceptInfo ? `
                     <div class="current-concept-info">
-                        <strong>${conceptInfo.concept}</strong>
-                        <span class="concept-meta">${conceptInfo.topic} • ${conceptInfo.subtopic}</span>
+                        <strong>${conceptInfo.title}</strong>
+                        <span class="concept-meta">${conceptInfo.macroTitle} • ${conceptInfo.subTitle}</span>
                     </div>
                 ` : ''}
 
@@ -109,41 +150,23 @@ const AppController = (function () {
         showLoader();
 
         try {
-            // Carica dati concetto se necessario
-            const conceptData = DataLoader.loadTheoryContent(conceptId);
+            // Carica dati concetto se necessario (Nuova API)
+            const conceptData = DataManager.getConceptTheory(conceptId);
 
-            if (!conceptData && phase <= 3) {
-                showError(`Dati non disponibili per concetto: ${conceptId}`);
-                return;
+            if (!PhaseManager.validateDataForPhase(phase, conceptData)) {
+                // Se manca teoria per fasi teoriche, è un problema
+                throw new Error(`Dati non disponibili per concetto: ${conceptId}`);
             }
 
-            // Renderizza fase appropriata
-            switch (phase) {
-                case 1:
-                    Phase1ComplexTheory.render(conceptData);
-                    break;
-                case 2:
-                    Phase2SimplifiedTheory.render(conceptData);
-                    break;
-                case 3:
-                    Phase3PracticalApplication.render(conceptData);
-                    break;
-                case 4:
-                    await Phase4BasicQuiz.render();
-                    break;
-                case 5:
-                    await Phase5AdvancedQuiz.render();
-                    break;
-                default:
-                    showError(`Fase non valida: ${phase}`);
-            }
+            // Renderizza fase appropriata tramite PhaseManager
+            await PhaseManager.renderPhase(phase, conceptData);
 
             // Aggiorna header
             renderHeader();
 
         } catch (error) {
             console.error('Errore rendering fase:', error);
-            showError('Errore nel caricamento. Riprova.');
+            showError(`Errore nel caricamento: ${error.message}`);
         }
     }
 
@@ -199,7 +222,8 @@ const AppController = (function () {
         init,
         renderCurrentPhase,
         renderHeader,
-        switchMode
+        switchMode,
+        loadConcept // Esposto per la sidebar
     };
 })();
 

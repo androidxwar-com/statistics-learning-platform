@@ -107,11 +107,301 @@
                 ],
                 "realWorldUse": "Il valore atteso è usato per: decisioni finanziarie (rendimento atteso investimenti), teoria dei giochi, analisi rischio-beneficio, ottimizzazione di strategie."
             }
+        },
+        "vcd-proprieta": {
+            "conceptId": "vcd-proprieta",
+            "title": "Proprietà della Funzione di Massa",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "La Funzione di Massa di Probabilità (PMF) $p_X(x)$ gode di proprietà fondamentali che derivano dagli assiomi della probabilità:\n\n1. **Limitazione**: $0 \\leq p_X(x) \\leq 1$ per ogni $x$.\n2. **Certezza**: $\\sum_{x} p_X(x) = 1$.\n3. **Probabilità di un evento**: Per un qualsiasi insieme $A$ di possibili valori, $P(X \\in A) = \\sum_{x \\in A} p_X(x)$.",
+                "mathFormulas": [
+                    "0 \\leq p_X(x) \\leq 1",
+                    "\\sum_{all x} p_X(x) = 1",
+                    "P(X \\in A) = \\sum_{x \\in A} p_X(x)"
+                ],
+                "keyTerms": [
+                    "assiomi",
+                    "sommatoria",
+                    "evento"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Queste proprietà sono le regole del gioco per qualsiasi probabilità:\n- Non puoi avere una probabilità negativa o maggiore del 100%.\n- La somma di tutte le possibilità deve fare 100% (qualcosa deve succedere).\n- Per calcolare la probabilità che succeda 'una cosa O l'altra', basta sommare le loro probabilità singole.",
+                "analogy": "È come una torta intera (100%). Puoi tagliarla in quante fette vuoi, ma la somma delle fette sarà sempre una torta intera. Nessuna fetta può essere più grande della torta stessa."
+            },
+            "phase3_practical": {
+                "title": "Applicazione Pratica",
+                "examples": [
+                    {
+                        "scenario": "Verifica Validità Modello",
+                        "description": "Una funzione assegna probabilità: P(1)=0.2, P(2)=0.5, P(3)=0.4. È valida?",
+                        "solution": "Sommiamo: 0.2 + 0.5 + 0.4 = 1.1.\nLa somma è 1.1, che è diverso da 1. **Non è una PMF valida**."
+                    }
+                ],
+                "realWorldUse": "Verifica della coerenza nei modelli predittivi."
+            }
+        },
+        "vcd-varianza": {
+            "conceptId": "vcd-varianza",
+            "title": "Varianza e Deviazione Standard",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "La **varianza** misura la dispersione dei valori attorno alla media. Definita come:\n$Var(X) = E[(X - \\mu)^2] = \\sum (x - \\mu)^2 p(x)$.\n\nLa **deviazione standard** è la radice quadrata della varianza: $\\sigma = \\sqrt{Var(X)}$.",
+                "mathFormulas": [
+                    "Var(X) = E[X^2] - (E[X])^2",
+                    "\\sigma_X = \\sqrt{Var(X)}"
+                ],
+                "keyTerms": [
+                    "varianza",
+                    "dispersione",
+                    "deviazione standard"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "La media ti dice il 'centro', la varianza ti dice quanto i dati sono 'sparpagliati'.\n- Bassa varianza: i risultati sono tutti vicini alla media.\n- Alta varianza: i risultati sono molto imprevedibili e lontani dalla media.",
+                "analogy": "Due tiratori al bersaglio possono avere lo stesso punteggio medio (centro). Ma uno colpisce sempre vicino al centro (bassa varianza), l'altro colpisce a caso ovunque (alta varianza)."
+            },
+            "phase3_practical": {
+                "title": "Applicazione Pratica",
+                "examples": [
+                    {
+                        "scenario": "Rischio Investimento",
+                        "description": "Due azioni hanno rendimento medio 5%. Azione A ha varianza alta, B bassa.",
+                        "solution": "L'azione A è più rischiosa (puoi guadagnare molto o perdere molto). L'azione B è più stabile."
+                    }
+                ],
+                "realWorldUse": "Finanza (rischio), Controllo Qualità (tolleranze)."
+            }
+        },
+        "vcc-def-base": {
+            "conceptId": "vcc-def-base",
+            "title": "Definizione di Variabile Casuale Continua",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Una **variabile casuale continua** X può assumere un'infinità non numerabile di valori (es. tutti i numeri reali in un intervallo). A differenza delle discrete, $P(X=x) = 0$ per ogni singolo punto $x$.\nSi descrive tramite una **funzione di densità di probabilità** (PDF) $f(x)$.",
+                "mathFormulas": [
+                    "P(X = x) = 0",
+                    "P(a \\le X \\le b) = \\int_a^b f(x) dx"
+                ],
+                "keyTerms": [
+                    "continuo",
+                    "non numerabile",
+                    "densità",
+                    "integrale"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Le variabili continue misurano quantità che fluiscono senza salti, come il tempo, la distanza o la temperatura.\nNon ha senso chiedere 'qual è la probabilità che piova esattamente 10.000... mm?', perché è zero. Ha senso chiedere 'qual è la probabilità tra 10mm e 11mm?'.",
+                "analogy": "Non puoi misurare un punto esatto su una linea (ha larghezza zero). Puoi solo misurare un segmento."
+            },
+            "phase3_practical": {
+                "title": "Applicazione Pratica",
+                "examples": [
+                    {
+                        "scenario": "Tempo di Attesa",
+                        "description": "Il tempo di attesa del bus è tra 0 e 10 minuti.",
+                        "solution": "È una variabile continua. Possiamo calcolare la probabilità di attendere tra 2 e 3 minuti (integrale), non di attendere esattamente 3.14159... minuti."
+                    }
+                ],
+                "realWorldUse": "Fisica, Misurazioni, Tempo, Denaro (su grandi scale)."
+            }
+        },
+        "vcc-densita-prob": {
+            "conceptId": "vcc-densita-prob",
+            "title": "Densità di Probabilità",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "La funzione $f(x)$ è la PDF. Deve soddisfare:\n1. $f(x) \\ge 0$\n2. $\\int_{-\\infty}^{+\\infty} f(x) dx = 1$.",
+                "mathFormulas": [
+                    "\\int f(x) dx = 1"
+                ],
+                "keyTerms": [
+                    "PDF",
+                    "area sotto la curva"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "È la curva che disegna la forma della distribuzione. L'area sotto la curva rappresenta la probabilità.",
+                "analogy": "La forma di una collina. Dove è più alta, è più probabile trovare il valore."
+            },
+            "phase3_practical": {
+                "title": "Esempio",
+                "examples": [
+                    {
+                        "scenario": "Normale",
+                        "description": "Curva a campana",
+                        "solution": "Standard per errori di misura."
+                    }
+                ],
+                "realWorldUse": "Statistica generale."
+            }
+        },
+        "vcc-funzione-ripartizione": {
+            "conceptId": "vcc-funzione-ripartizione",
+            "title": "Funzione di Ripartizione (CDF)",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "$F(x) = P(X \\le x) = \\int_{-\\infty}^x f(t) dt$. È una funzione non decrescente che va da 0 a 1.",
+                "mathFormulas": [
+                    "F(x) = P(X \\le x)"
+                ],
+                "keyTerms": [
+                    "CDF",
+                    "cumulativa"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Ti dice la probabilità che il valore sia 'fino a x'. Accumula tutta la probabilità passata.",
+                "analogy": "Riempire un bicchiere. Il livello sale finché non è pieno (1)."
+            },
+            "phase3_practical": {
+                "title": "Esempio",
+                "examples": [
+                    {
+                        "scenario": "Durata Lampadina",
+                        "description": "Probabilità che duri MENO di 1000 ore",
+                        "solution": "Si usa la CDF: F(1000)."
+                    }
+                ],
+                "realWorldUse": "Affidabilità, Survival Analysis."
+            }
+        },
+        "inf-ic-definizione": {
+            "conceptId": "inf-ic-definizione",
+            "title": "Intervalli di Confidenza: Definizione",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Un intervallo di confidenza $1-\\alpha$ è un intervallo casuale che contiene il vero parametro $\\theta$ con probabilità $1-\\alpha$.",
+                "mathFormulas": [
+                    "P(L \\le \\theta \\le U) = 1-\\alpha"
+                ],
+                "keyTerms": [
+                    "stima intervallare",
+                    "livello di confidenza"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Non diamo un numero secco, ma un range. 'Sono sicuro al 95% che la media sia tra 10 e 20'.",
+                "analogy": "Lanciare una rete per catturare un pesce invisibile. Più larga è la rete, più sei sicuro di prenderlo."
+            },
+            "phase3_practical": {
+                "title": "Esempio",
+                "examples": [
+                    {
+                        "scenario": "Sondaggio Politico",
+                        "description": "30% ± 3%",
+                        "solution": "L'intervallo è [27%, 33%]."
+                    }
+                ],
+                "realWorldUse": "Sondaggi, Ricerca scientifica."
+            }
+        },
+        "inf-ic-media": {
+            "conceptId": "inf-ic-media",
+            "title": "Intervalli di Confidenza per la Media",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Per grandi campioni (Teorema Limite Centrale), l'IC per la media $\\mu$ è $\\bar{x} \\pm z_{\\alpha/2} \\frac{\\sigma}{\\sqrt{n}}$.",
+                "mathFormulas": [
+                    "\\bar{x} \\pm z \\frac{s}{\\sqrt{n}}"
+                ],
+                "keyTerms": [
+                    "z-score",
+                    "errore standard"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Calcoliamo la media del campione e aggiungiamo/togliamo un margine di errore che dipende da quanto varia il fenomeno e da quanti dati abbiamo.",
+                "analogy": "Margine di errore nei sondaggi."
+            },
+            "phase3_practical": {
+                "title": "Esempio",
+                "examples": [
+                    {
+                        "scenario": "Altezza Media",
+                        "description": "Campione 100 persone, media 175cm",
+                        "solution": "IC 95%: 175 ± 2cm."
+                    }
+                ],
+                "realWorldUse": "Controllo qualità, Biostatistica."
+            }
+        },
+        "inf-test-definizione": {
+            "conceptId": "inf-test-definizione",
+            "title": "Logica dei Test di Ipotesi",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Si formulano due ipotesi: Nulla ($H_0$) e Alternativa ($H_1$). Si usa un test statistico per decidere se rifiutare $H_0$ in favore di $H_1$.",
+                "mathFormulas": [
+                    "H_0: \\mu = \\mu_0",
+                    "H_1: \\mu \\neq \\mu_0"
+                ],
+                "keyTerms": [
+                    "ipotesi nulla",
+                    "p-value",
+                    "significatività"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Come un processo in tribunale. $H_0$ è 'innocente fino a prova contraria'. Rifiutiamo $H_0$ solo se le prove (dati) sono schiaccianti contro di essa.",
+                "analogy": "Tribunale: Innocente vs Colpevole."
+            },
+            "phase3_practical": {
+                "title": "Esempio",
+                "examples": [
+                    {
+                        "scenario": "Farmaco Nuovo",
+                        "description": "Il nuovo farmaco funziona meglio del vecchio?",
+                        "solution": "H0: Farmaci uguali. H1: Nuovo migliore. Testiamo i dati."
+                    }
+                ],
+                "realWorldUse": "Medicina, A/B Testing, Scienza."
+            }
+        },
+        "inf-test-errori": {
+            "conceptId": "inf-test-errori",
+            "title": "Errori di Tipo I e II",
+            "phase1_complex": {
+                "title": "Teoria Formale",
+                "content": "Errore Tipo I ($\\alpha$): Rifiutare $H_0$ quando è vera (Falso Positivo).\nErrore Tipo II ($\\beta$): Non rifiutare $H_0$ quando è falsa (Falso Negativo).",
+                "mathFormulas": [
+                    "\\alpha = P(\\text{Rifiuto } H_0 | H_0 \\text{ vera})"
+                ],
+                "keyTerms": [
+                    "alfa",
+                    "beta",
+                    "potenza del test"
+                ]
+            },
+            "phase2_simplified": {
+                "title": "Spiegazione Semplificata",
+                "content": "Tipo I: Condannare un innocente (allarme che suona per nulla).\nTipo II: Assolvere un colpevole (allarme rotto durante furto).",
+                "analogy": "Allarme antincendio."
+            },
+            "phase3_practical": {
+                "title": "Esempio",
+                "examples": [
+                    {
+                        "scenario": "Test Medico",
+                        "description": "Diagnosi malattia",
+                        "solution": "Tipo I: Dire che sei malato quando sei sano. Tipo II: Dire che sei sano quando sei malato."
+                    }
+                ],
+                "realWorldUse": "Diagnostica, Sicurezza."
+            }
         }
     },
     "metadata": {
         "version": "1.0.0",
-        "totalConcepts": 3,
+        "totalConcepts": 14,
         "contentType": "structured-theory",
         "language": "it"
     }

@@ -12,21 +12,29 @@ const Phase5AdvancedQuiz = (function () {
     let currentQuestionIndex = 0;
     let isProcessing = false;
 
-    /**
-     * Renderizza Fase 5
-     */
     async function render() {
         const state = StateManager.getState();
         const conceptId = state.currentConceptId;
         const mode = state.currentMode;
 
-        // Carica domande AVANZATE
-        const questionsData = await DataLoader.loadQuestions(conceptId);
+        // NEW: DataManager Link
+        const questionsData = DataManager.getConceptQuestions(conceptId);
+
+        // NEW: Validazione
+        if (!questionsData || !questionsData[mode + '_mode'] || !questionsData[mode + '_mode'].advanced) {
+            showError(`Domande avanzate non disponibili per questo concetto in modalità ${mode}.`);
+            return;
+        }
+
         currentQuestions = questionsData[mode + '_mode'].advanced;
+        // Fix index overflow
+        if (state.currentQuestionIndex >= currentQuestions.length) {
+            state.currentQuestionIndex = 0;
+        }
         currentQuestionIndex = state.currentQuestionIndex;
 
-        if (!currentQuestions || currentQuestions.length === 0) {
-            showError('Nessuna domanda avanzata disponibile');
+        if (currentQuestions.length === 0) {
+            showError('Lista domande avanzate vuota.');
             return;
         }
 
@@ -57,9 +65,6 @@ const Phase5AdvancedQuiz = (function () {
         isProcessing = false;
     }
 
-    /**
-     * Renderizza domanda (uguale a Fase 4)
-     */
     function renderQuestion(questionData) {
         return `
             <div class="question-box advanced-question" id="question-box">
@@ -68,7 +73,7 @@ const Phase5AdvancedQuiz = (function () {
 
             <div class="cards-container">
                 ${questionData.options.map((option, index) => `
-                    <div class="card card-advanced" id="card-${index}" onclick="Phase5AdvancedQuiz.checkAnswer(${index})">
+                    <div class="card card-advanced" id="card-${index}" onclick="window.Phase5AdvancedQuiz.checkAnswer(${index})">
                         ${option}
                     </div>
                 `).join('')}
@@ -76,9 +81,6 @@ const Phase5AdvancedQuiz = (function () {
         `;
     }
 
-    /**
-     * Verifica risposta
-     */
     function checkAnswer(selectedIndex) {
         if (isProcessing) return;
         isProcessing = true;
@@ -91,25 +93,23 @@ const Phase5AdvancedQuiz = (function () {
         cards.forEach(card => card.style.pointerEvents = 'none');
 
         if (selectedIndex === correctIndex) {
-            // ✅ RISPOSTA CORRETTA
+            // ✅ CORRETTO
             selectedCard.classList.add('correct');
             showFeedback('Eccellente! Risposta corretta! 🎉', 'success');
 
             setTimeout(() => {
                 if (StateManager.nextQuizQuestion()) {
-                    // Prossima domanda
                     currentQuestionIndex = StateManager.getState().currentQuestionIndex;
                     render();
                 } else {
-                    // QUIZ COMPLETATO → Concetto terminato
                     completeConcept();
                 }
             }, 2000);
 
         } else {
-            // ❌ RISPOSTA ERRATA
+            // ❌ ERRATO
             selectedCard.classList.add('wrong');
-            showFeedback('Risposta errata.  Analizza bene! 🤔', 'error');
+            showFeedback('Risposta errata. Analizza bene! 🤔', 'error');
 
             StateManager.recordIncorrectAttempt(
                 StateManager.getState().currentConceptId,
@@ -122,21 +122,11 @@ const Phase5AdvancedQuiz = (function () {
         }
     }
 
-    /**
-     * Concetto completato → Passa al successivo
-     */
     function completeConcept() {
-        const state = StateManager.getState();
-
         StateManager.completeCurrentConcept();
-
-        // Mostra schermata celebrativa
         showCompletionScreen();
     }
 
-    /**
-     * Schermata di completamento
-     */
     function showCompletionScreen() {
         const html = `
             <div class="completion-screen">
@@ -146,7 +136,7 @@ const Phase5AdvancedQuiz = (function () {
                     <p class="completion-subtitle">Sei ora pronto per il prossimo concetto!</p>
                     
                     <div class="completion-actions">
-                        <button class="btn-primary btn-large" onclick="Phase5AdvancedQuiz.loadNextConcept()">
+                        <button class="btn-primary btn-large" onclick="window.Phase5AdvancedQuiz.loadNextConcept()">
                             ➡️ Prossimo Concetto
                         </button>
                         <button class="btn-secondary" onclick="StateManager.resetProgress()">
@@ -160,29 +150,25 @@ const Phase5AdvancedQuiz = (function () {
         document.getElementById('app-content').innerHTML = html;
     }
 
-    /**
-     * Carica prossimo concetto
-     */
     async function loadNextConcept() {
-        // In un'implementazione completa, caricheremmo il prossimo dalla struttura
-        // Per ora, torna al primo concetto (loop demo)
-        const state = StateManager.getState();
-
+        // Logica semplice per demo: torna al primo concetto o trova il successivo
         showFeedback('Caricamento prossimo concetto...', 'info');
 
-        // Placeholder: ricarica primo concetto
-        StateManager.setCurrentConcept(
-            'variabili-casuali-discrete',
-            'vcd-definizione',
-            'vcd-funzione-massa' // Passa al secondo concetto
-        );
+        // Qui si dovrebbe usare DataManager per trovare il prossimo ID nella lista
+        // Per ora resetta alla home page o primo concetto
+        // TODO: Implementare DataManager.getNextConceptId()
 
-        AppController.renderCurrentPhase();
+        StateManager.setCurrentConcept('variabili-casuali-discrete', 'vcd-definizione', 'vcd-funzione-massa');
+        if (window.PhaseManager) {
+            // Reset a fase 1 del nuovo concetto
+            const conceptId = 'vcd-funzione-massa';
+            const data = DataManager.getConceptTheory(conceptId);
+            PhaseManager.renderPhase(1, data);
+        } else {
+            location.reload();
+        }
     }
 
-    /**
-     * Modale recovery (stessa di Fase 4)
-     */
     function showRecoveryModal(questionData) {
         const modal = `
             <div class="modal-overlay" id="recovery-modal">
@@ -195,34 +181,38 @@ const Phase5AdvancedQuiz = (function () {
                     </div>
 
                     <div class="modal-actions">
-                        <button class="btn-secondary" onclick="Phase5AdvancedQuiz.reviewTheory()">
+                        <button class="btn-secondary" onclick="window.Phase5AdvancedQuiz.reviewTheory()">
                             📚 Rivedere la Teoria
                         </button>
-                        <button class="btn-primary" onclick="Phase5AdvancedQuiz.tryNewQuiz()">
+                        <button class="btn-primary" onclick="window.Phase5AdvancedQuiz.tryNewQuiz()">
                             🔄 Provare Nuovo Quiz
                         </button>
                     </div>
                 </div>
             </div>
         `;
-
         document.body.insertAdjacentHTML('beforeend', modal);
     }
 
     function reviewTheory() {
         closeModal();
         StateManager.resetToPhase1();
-        AppController.renderCurrentPhase();
+        if (window.PhaseManager) {
+            const conceptId = StateManager.getState().currentConceptId;
+            const data = DataManager.getConceptTheory(conceptId);
+            PhaseManager.renderPhase(1, data);
+        } else {
+            location.reload();
+        }
     }
 
     async function tryNewQuiz() {
         closeModal();
-
         const state = StateManager.getState();
         const newQuestion = await GroqAPIClient.generateQuizQuestion(
             state.currentConceptId,
             state.currentMode,
-            'advanced' // Livello avanzato
+            'advanced'
         );
 
         if (newQuestion) {
@@ -253,12 +243,11 @@ const Phase5AdvancedQuiz = (function () {
             <div class="error-box">
                 <h3>⚠️ Errore</h3>
                 <p>${message}</p>
-                <button class="btn-primary" onclick="AppController.init()">Torna all'inizio</button>
+                <button class="btn-primary" onclick="location.reload()">Ricarica App</button>
             </div>
         `;
     }
 
-    // Public API
     return {
         render,
         checkAnswer,
@@ -272,3 +261,6 @@ const Phase5AdvancedQuiz = (function () {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Phase5AdvancedQuiz;
 }
+
+// Expose to window for inline onclick handlers
+window.Phase5AdvancedQuiz = Phase5AdvancedQuiz;

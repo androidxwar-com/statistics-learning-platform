@@ -15,35 +15,58 @@ const DataLoader = (function () {
     /**
      * Inizializza caricando tutti i dati
      */
+    /**
+     * Inizializza caricando tutti i dati
+     */
     async function init() {
         try {
             console.log('📥 Caricamento dati...');
 
-            // Carica tutti i JSON (percorsi relativi a index.html, non al file .js)
-            [topicsStructure, theoryContent, questionsBank] = await Promise.all([
+            const results = await Promise.allSettled([
                 loadJSON('config/topics-structure.json'),
                 loadJSON('data/theory-content.json'),
                 loadJSON('data/questions-bank.json')
             ]);
 
+            // Check failures
+            const errors = results
+                .filter(r => r.status === 'rejected')
+                .map(r => r.reason.message);
+
+            if (errors.length > 0) {
+                throw new Error(errors.join('\n'));
+            }
+
+            // Success assignments
+            topicsStructure = results[0].value;
+            theoryContent = results[1].value;
+            questionsBank = results[2].value;
+
             console.log('✅ Dati caricati con successo');
-            return true;
+            return { success: true };
 
         } catch (error) {
             console.error('❌ Errore caricamento dati:', error);
-            return false;
+            return { success: false, error: error.message };
         }
     }
 
     /**
-     * Carica file JSON
+     * Carica file JSON con error handling specifico
      */
     async function loadJSON(path) {
-        const response = await fetch(path);
-        if (!response.ok) {
-            throw new Error(`Failed to load ${path}: ${response.statusText}`);
+        try {
+            const response = await fetch(path);
+            if (!response.ok) {
+                throw new Error(`File non trovato o errore server: ${path} (${response.status})`);
+            }
+            return await response.json();
+        } catch (error) {
+            if (error instanceof SyntaxError) {
+                throw new Error(`Errore sintassi JSON in ${path}: ${error.message}`);
+            }
+            throw new Error(`Impossibile caricare ${path}: ${error.message}`);
         }
-        return await response.json();
     }
 
     /**
