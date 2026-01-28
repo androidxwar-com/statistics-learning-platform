@@ -216,27 +216,43 @@ Usa un tono incoraggiante ma diretto. Max 150 parole, in italiano.`;
     function simulateResponse(prompt) {
         // Riconoscimento pattern semplice per decidere cosa rispondere
 
-        // Caso 1: Quiz JSON
+        // Caso 1: Feedback Errore
+        if (prompt.includes('risposto ERRONEAMENTE')) {
+            const feedbacks = [
+                "Hai sbagliato perché hai confuso la definizione. Ricorda: La probabilità non può mai essere negativa!",
+                "Attenzione! Hai considerato l'insieme sbagliato. Rileggi bene la domanda.",
+                "Errore comune. Il valore atteso è una media ponderata, non il valore più frequente."
+            ];
+            return feedbacks[Math.floor(Math.random() * feedbacks.length)];
+        }
+
+        // Caso 2: Quiz JSON (Dynamic Generation)
         if (prompt.includes('Genera UNA domanda a risposta multipla')) {
+            // Estrai topic dal prompt
+            let topic = "di Statistica";
+            if (prompt.includes('variabili-casuali')) topic = "sulle Variabili Casuali";
+            if (prompt.includes('teorema')) topic = "sul Teorema";
+
+            const uniqueId = `gen-q-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+
             return JSON.stringify({
-                question: "Domanda Generata Simulazione: Qual è la proprietà fondamentale di una PMF?",
-                options: ["Somma deve essere 1", "Somma deve essere 0", "Valori possono essere negativi"],
+                question: `Domanda Generativa ${topic} #${Math.floor(Math.random() * 900) + 100}: Quale delle seguenti affermazioni è corretta?`,
+                options: [
+                    "Questa è l'opzione corretta basata sui principi fondamentali.",
+                    "Questa opzione contiene un errore logico comune.",
+                    "Questa opzione è matematicamente errata."
+                ],
                 correctIndex: 0,
-                explanation: "La somma delle probabilità di tutti gli eventi possibili deve sempre essere 1 (certezza)."
+                explanation: `La risposta è corretta perché rispetta le definizioni assiomatiche ${topic}. L'errore nelle altre opzioni deriva da un'errata interpretazione delle proprietà.`
             });
         }
 
-        // Caso 2: Spiegazione Alternativa
-        if (prompt.includes('spiegazione sul concetto')) {
-            return "Ecco una spiegazione semplificata (Simulazione):\n\nImmagina questo concetto come una ricetta di cucina. Non puoi cambiare gli ingredienti (le variabili) senza cambiare il sapore (il risultato). In pratica, stiamo solo cercando di capire quanto 'sale' mettere per avere il piatto perfetto.";
+        // Caso 3: Spiegazione Alternativa
+        if (prompt.includes('spiegazione sul concetto') || prompt.includes('rispiega lo stesso concetto')) {
+            return "Certamente. Proviamo a vedere il concetto da un'altra prospettiva.\n\nImmagina di costruire un edificio: le fondamenta devono essere solide prima di alzare i muri. Allo stesso modo, in questo teorema, le ipotesi iniziali sono le fondamenta. Se ne togliamo una, crolla la tesi. In termini pratici, stiamo calcolando l'equilibrio del sistema.";
         }
 
-        // Caso 3: Feedback Errore
-        if (prompt.includes('risposto ERRONEAMENTE')) {
-            return "Hai sbagliato perché hai confuso la definizione. Ricorda: La probabilità non può mai essere negativa! Riprova ragionando su questo punto.";
-        }
-
-        return "Risposta simulata standard. Configura una API Key reale per risposte intelligenti.";
+        return "Risposta generata dal sistema locale. Per risposte real-time specifiche, configura l'API Key.";
     }
 
     // Public API

@@ -20,23 +20,46 @@ const Phase5AdvancedQuiz = (function () {
         // NEW: DataManager Link
         const questionsData = DataManager.getConceptQuestions(conceptId);
 
-        // NEW: Validazione
-        if (!questionsData || !questionsData[mode + '_mode'] || !questionsData[mode + '_mode'].advanced) {
-            showError(`Domande avanzate non disponibili per questo concetto in modalità ${mode}.`);
+        // NEW: Logica ibrida (Statico + AI Fallback)
+        let questions = [];
+        if (questionsData && questionsData[mode + '_mode'] && questionsData[mode + '_mode'].advanced) {
+            questions = questionsData[mode + '_mode'].advanced;
+        }
+
+        // Se non ci sono domande statiche, prova a generarle con IA
+        if (questions.length === 0) {
+            console.log('⚠️ Nessuna domanda statica avanzata trovata. Avvio Generazione IA...');
+
+            // Mostra Loader
+            document.getElementById('app-content').innerHTML = `
+                <div class="phase-container phase5-container" style="text-align:center; padding-top: 50px;">
+                    <h2>🎓 Generazione Esame IA...</h2>
+                    <p>Sto analizzando l'argomento <b>${conceptId}</b> per creare quesiti complessi.</p>
+                    <div class="loader" style="margin: 20px auto; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #4a90e2; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                </div>
+                <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+            `;
+
+            // Genera 3 domande
+            for (let i = 0; i < 3; i++) {
+                const q = await GroqAPIClient.generateQuizQuestion(conceptId, mode, 'advanced');
+                if (q) questions.push(q);
+            }
+        }
+
+        // Se ancóra vuoto, allora errore reale
+        if (questions.length === 0) {
+            showError(`Impossibile generare domande avanzate per questo argomento (${conceptId}).`);
             return;
         }
 
-        currentQuestions = questionsData[mode + '_mode'].advanced;
+        currentQuestions = questions;
+
         // Fix index overflow
         if (state.currentQuestionIndex >= currentQuestions.length) {
             state.currentQuestionIndex = 0;
         }
         currentQuestionIndex = state.currentQuestionIndex;
-
-        if (currentQuestions.length === 0) {
-            showError('Lista domande avanzate vuota.');
-            return;
-        }
 
         const html = `
             <div class="phase-container phase5-container">

@@ -23,25 +23,47 @@ const Phase4BasicQuiz = (function () {
         // NEW: Usa DataManager
         const questionsData = DataManager.getConceptQuestions(conceptId);
 
-        // NEW: Validazione robusta
-        if (!questionsData || !questionsData[mode + '_mode'] || !questionsData[mode + '_mode'].basic) {
-            showError(`Domande non disponibili per questo concetto in modalità ${mode}.<br>Contatta l'amministratore o cambia modalità.`);
-            // Fallback opzionale: prova a caricare l'altra modalità o usa domande generiche
+        // NEW: Logica ibrida (Statico + AI Fallback)
+        let questions = [];
+        if (questionsData && questionsData[mode + '_mode'] && questionsData[mode + '_mode'].basic) {
+            questions = questionsData[mode + '_mode'].basic;
+        }
+
+        // Se non ci sono domande statiche, prova a generarle con IA
+        if (questions.length === 0) {
+            console.log('⚠️ Nessuna domanda statica trovata. Avvio Generazione IA...');
+
+            // Mostra Loader
+            document.getElementById('app-content').innerHTML = `
+                <div class="phase-container phase4-container" style="text-align:center; padding-top: 50px;">
+                    <h2>🤖 Generazione Quiz in corso...</h2>
+                    <p>L'Intelligenza Artificiale sta scrivendo domande su misura per: <b>${conceptId}</b></p>
+                    <div class="loader" style="margin: 20px auto; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #8e6fa3; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                </div>
+                <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+            `;
+
+            // Genera 3 domande
+            for (let i = 0; i < 3; i++) {
+                const q = await GroqAPIClient.generateQuizQuestion(conceptId, mode, 'basic');
+                if (q) questions.push(q);
+            }
+        }
+
+        // Se ancóra vuoto, allora errore reale
+        if (questions.length === 0) {
+            showError(`Impossibile generare domande per questo argomento (${conceptId}).<br>Controlla la connessione o l'API Key.`);
             return;
         }
 
-        currentQuestions = questionsData[mode + '_mode'].basic;
+        currentQuestions = questions;
+
         // Se l'indice salvato è oltre il limite (es. cambio modalità con meno domande), resetta
         if (state.currentQuestionIndex >= currentQuestions.length) {
             state.currentQuestionIndex = 0;
             StateManager.saveState();
         }
         currentQuestionIndex = state.currentQuestionIndex;
-
-        if (currentQuestions.length === 0) {
-            showError('Lista domande vuota.');
-            return;
-        }
 
         const html = `
             <div class="phase-container phase4-container">

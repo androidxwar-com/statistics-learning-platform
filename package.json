@@ -1,0 +1,27 @@
+{
+  "name": "ema-project",
+  "version": "1.0.0",
+  "description": "🎓 Piattaforma educativa interattiva per l'apprendimento rigoroso di Probabilità e Inferenza Statistica.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ingest": "node scripts/tools/ingest-content.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/androidxwar-com/statistics-learning-platform.git"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "groq-sdk": "^0.3.2",
+    "pdf-parse": "^2.4.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/androidxwar-com/statistics-learning-platform/issues"
+  },
+  "homepage": "https://github.com/androidxwar-com/statistics-learning-platform#readme"
+}
