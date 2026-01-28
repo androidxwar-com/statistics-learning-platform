@@ -343,18 +343,12 @@ Usa un tono incoraggiante ma diretto. Max 150 parole, in italiano.`;
     };
 })();
 
-// Export per ES Module e Browser
+// Export Semplificato e Sicuro
+if (typeof window !== 'undefined') {
+    window.GroqAPIClient = GroqAPIClient;
+}
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = GroqAPIClient;
-} else if (typeof window !== 'undefined') {
-    window.GroqAPIClient = GroqAPIClient;
-} else {
-    // Default export per ESM environments senza 'module' defined
-    try {
-        // @ts-ignore
-        if (import.meta.url) {
-            // workaround for direct export default in browser ESM if needed
-        }
-    } catch (e) { }
 }
 
