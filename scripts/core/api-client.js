@@ -17,6 +17,12 @@
          */
         function init(apiConfig) {
             config = apiConfig;
+            // CHECK LOCAL STORAGE FOR OVERRIDE
+            const storedKey = localStorage.getItem('groq_api_key');
+            if (storedKey && storedKey.startsWith('gsk_')) {
+                config.apiKey = storedKey;
+                console.log('🔑 API Key caricata da LocalStorage');
+            }
             console.log('🤖 Groq API Client inizializzato:', config.demoMode ? 'DEMO MODE' : 'PRODUCTION MODE');
         }
 
@@ -206,17 +212,26 @@
          */
         function simulateResponse(prompt) {
             if (prompt.includes('LEZIONE MAGISTRALE')) {
-                return `<h3>🏛️ Simulazione Lezione</h3><p>API Key non rilevata. Inseriscila in <code>.env</code> per generare lezioni reali.</p>`;
+                return `<h3>🏛️ Chiave Mancante</h3><p>Per usare l'IA, clicca su <b>Impostazioni</b> e inserisci la tua API Key.</p>`;
             }
             if (prompt.includes('DOMANDA DI ESAME')) {
                 return JSON.stringify({
-                    question: "Domanda simulata (No API)",
-                    options: ["A", "B", "C"],
-                    correctIndex: 1,
-                    explanation: "Demo mode."
+                    question: "Chiave API Mancante",
+                    options: ["Inserisci Key", "Usa Demo", "Annulla"],
+                    correctIndex: 0,
+                    explanation: "Vai nelle impostazioni per configurare l'IA."
                 });
             }
-            return "Risposta Simulatore Locale: Configura API Key.";
+            return "Risposta Simulatore: Inserisci API Key nelle Impostazioni.";
+        }
+
+        function setApiKey(key) {
+            if (key && key.startsWith('gsk_')) {
+                localStorage.setItem('groq_api_key', key);
+                if (config) config.apiKey = key;
+                return true;
+            }
+            return false;
         }
 
         // Public API
@@ -228,7 +243,9 @@
             generateAdvancedTheory,
             generateDataPractice,
             generateMasterQuiz,
-            clearCache
+            generateMasterQuiz,
+            clearCache,
+            setApiKey
         };
     })();
 
