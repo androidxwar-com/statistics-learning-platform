@@ -15,8 +15,15 @@ const Phase2SimplifiedTheory = (function () {
      */
     function render(conceptData) {
         // --- SELF-HEALING: Check data validity ---
-        if (!conceptData || !conceptData.phase2_simplified || !conceptData.phase2_simplified.content) {
-            console.warn('[Phase2] Dati mancanti, avvio generazione IA...');
+        const rawContent = conceptData?.phase2_simplified?.content;
+        const isPlaceholder = rawContent && (
+            rawContent.includes("in fase di elaborazione") ||
+            rawContent.includes("generato automaticamente") ||
+            rawContent.length < 50
+        );
+
+        if (!rawContent || isPlaceholder) {
+            console.warn('[Phase2] Dati mancanti o placeholder, avvio generazione IA...');
             renderFallbackWithAI();
             return;
         }
