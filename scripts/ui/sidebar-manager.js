@@ -80,7 +80,6 @@ const SidebarManager = (function () {
         });
 
         html += '</div>';
-        html += '</div>';
 
         // Add Footer with Settings
         html += `
@@ -118,111 +117,109 @@ const SidebarManager = (function () {
         // Naviga tramite EventBus (Decoupled)
         if (window.EventBus) {
             window.EventBus.emit('NAVIGATE_TO_CONCEPT', { topicId, subtopicId, conceptId });
-            if (window.EventBus) {
-                window.EventBus.emit('NAVIGATE_TO_CONCEPT', { topicId, subtopicId, conceptId });
+        } else {
+            console.error('EventBus non disponibile');
+        }
+    }
+
+    /**
+     * Gestisce click su Impostazioni
+     */
+    function handleSettingsClick() {
+        const currentKey = localStorage.getItem('groq_api_key') || '';
+        const newKey = prompt("Inserisci la tua Groq API Key per abilitare l'IA (gsk_...):", currentKey);
+
+        if (newKey !== null) {
+            if (GroqAPIClient.setApiKey(newKey.trim())) {
+                alert("✅ Chiave salvata! L'IA è ora attiva.");
+                location.reload(); // Reload to apply clean state
             } else {
-                console.error('EventBus non disponibile');
+                alert("⚠️ Chiave non valida (deve iniziare con 'gsk_').");
             }
         }
+    }
 
-        /**
-         * Gestisce click su Impostazioni
-         */
-        function handleSettingsClick() {
-            const currentKey = localStorage.getItem('groq_api_key') || '';
-            const newKey = prompt("Inserisci la tua Groq API Key per abilitare l'IA (gsk_...):", currentKey);
+    /**
+     * Aggiorna lo stato visivo degli item (corrente, completato)
+     */
+    function updateActiveItem() {
+        // Usa DataManager se disponibile, o StateManager indirettamente
+        // In realtà SidebarManager dovrebbe solo reagire allo stato
+        if (typeof StateManager === 'undefined') return;
 
-            if (newKey !== null) {
-                if (GroqAPIClient.setApiKey(newKey.trim())) {
-                    alert("✅ Chiave salvata! L'IA è ora attiva.");
-                    location.reload(); // Reload to apply clean state
-                } else {
-                    alert("⚠️ Chiave non valida (deve iniziare con 'gsk_').");
-                }
+        const state = StateManager.getState();
+        const currentId = state.currentConceptId;
+        const completedIds = state.completedConcepts || [];
+
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            const itemId = item.dataset.concept;
+
+            // Reset classi
+            item.classList.remove('active', 'completed');
+
+            // Set active
+            if (itemId === currentId) {
+                item.classList.add('active');
+                // Scroll into view se necessario
+                item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
+
+            // Set completed
+            if (completedIds.includes(itemId)) {
+                item.classList.add('completed');
+            }
+        });
+    }
+
+    /**
+     * Setup event listeners globali
+     */
+    function setupEventListeners() {
+        // Toggle button (hamburger)
+        const toggleBtn = document.querySelector(SELECTORS.toggleBtn);
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => toggleSidebar());
         }
 
-        /**
-         * Aggiorna lo stato visivo degli item (corrente, completato)
-         */
-        function updateActiveItem() {
-            // Usa DataManager se disponibile, o StateManager indirettamente
-            // In realtà SidebarManager dovrebbe solo reagire allo stato
-            if (typeof StateManager === 'undefined') return;
-
-            const state = StateManager.getState();
-            const currentId = state.currentConceptId;
-            const completedIds = state.completedConcepts || [];
-
-            document.querySelectorAll('.sidebar-item').forEach(item => {
-                const itemId = item.dataset.concept;
-
-                // Reset classi
-                item.classList.remove('active', 'completed');
-
-                // Set active
-                if (itemId === currentId) {
-                    item.classList.add('active');
-                    // Scroll into view se necessario
-                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-
-                // Set completed
-                if (completedIds.includes(itemId)) {
-                    item.classList.add('completed');
-                }
-            });
+        // Overlay click (chiudi sidebar)
+        const overlay = document.querySelector(SELECTORS.overlay);
+        if (overlay) {
+            overlay.addEventListener('click', () => toggleSidebar(false));
         }
 
-        /**
-         * Setup event listeners globali
-         */
-        function setupEventListeners() {
-            // Toggle button (hamburger)
-            const toggleBtn = document.querySelector(SELECTORS.toggleBtn);
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', () => toggleSidebar());
-            }
+        // Ascolta cambi di stato (EventBus)
+        if (window.EventBus) {
+            window.EventBus.on('STATE_UPDATED', () => updateActiveItem());
+        }
+    }
 
-            // Overlay click (chiudi sidebar)
-            const overlay = document.querySelector(SELECTORS.overlay);
-            if (overlay) {
-                overlay.addEventListener('click', () => toggleSidebar(false));
-            }
+    /**
+     * Apre/Chiude la sidebar
+     */
+    function toggleSidebar(forceState) {
+        const container = document.querySelector(SELECTORS.container);
+        const overlay = document.querySelector(SELECTORS.overlay);
 
-            // Ascolta cambi di stato (EventBus)
-            if (window.EventBus) {
-                window.EventBus.on('STATE_UPDATED', () => updateActiveItem());
-            }
+        if (typeof forceState === 'boolean') {
+            isVisible = forceState;
+        } else {
+            isVisible = !isVisible;
         }
 
-        /**
-         * Apre/Chiude la sidebar
-         */
-        function toggleSidebar(forceState) {
-            const container = document.querySelector(SELECTORS.container);
-            const overlay = document.querySelector(SELECTORS.overlay);
-
-            if (typeof forceState === 'boolean') {
-                isVisible = forceState;
-            } else {
-                isVisible = !isVisible;
-            }
-
-            if (isVisible) {
-                container.classList.add('open');
-                overlay.classList.add('visible');
-            } else {
-                container.classList.remove('open');
-                overlay.classList.remove('visible');
-            }
+        if (isVisible) {
+            container.classList.add('open');
+            overlay.classList.add('visible');
+        } else {
+            container.classList.remove('open');
+            overlay.classList.remove('visible');
         }
+    }
 
-        // Public API
-        return {
-            init,
-            updateActiveItem,
-            toggleSidebar
-        };
+    // Public API
+    return {
+        init,
+        updateActiveItem,
+        toggleSidebar
+    };
 
-    }) ();
+})();

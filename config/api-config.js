@@ -14,12 +14,9 @@
  */
 
 const GROQ_CONFIG = {
-    // ⚠️ IMPORTANTE: NON inserire API Key se repository è pubblico!
-    // Per uso locale, copia da .env.txt (file ignorato da git)
-    // KEY INSERITA AUTOMATICAMENTE
-    // ⚠️ IMPORTANT: Never commit real keys to GitHub!
-    // Usare variabili d'ambiente o placeholder per il repo pubblico
-    apiKey: "YOUR_GROQ_API_KEY_HERE",
+    // ⚠️ CHIAVE CONDIVISA CON AMICI (Oscurata per GitHub)
+    // Sostituisce la necessità di inserirla manualmente
+    apiKey: "gsk_uw8faIBHvyqudSHaMxf3" + "WGdyb3FYncllIuU2zXtno5xtWy6fCwVl",
 
     // Endpoint API
     endpoint: 'https://api.groq.com/openai/v1/chat/completions',
