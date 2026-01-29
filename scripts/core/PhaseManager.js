@@ -15,6 +15,24 @@ const PhaseManager = (function () {
      * Accesso Lazy per evitare ReferenceError al caricamento
      */
     function getStrategy(phaseNumber) {
+        const state = StateManager.getState();
+        const mode = state.appMode || 'standard';
+
+        // --- ROUTING MODALITÀ AVANZATA (3 STEP) ---
+        if (mode === 'advanced') {
+            switch (phaseNumber) {
+                case 1:
+                    // Se il modulo non esiste ancora (lo stiamo creando), fallback intelligente o errore
+                    return (typeof Phase1AdvancedTheory !== 'undefined') ? Phase1AdvancedTheory : null;
+                case 2:
+                    return (typeof Phase2DataPractice !== 'undefined') ? Phase2DataPractice : null;
+                case 3:
+                    return (typeof Phase3MasterQuiz !== 'undefined') ? Phase3MasterQuiz : null;
+                default: return null;
+            }
+        }
+
+        // --- ROUTING MODALITÀ STANDARD (5 STEP) ---
         switch (phaseNumber) {
             case 1: return Phase1ComplexTheory;
             case 2: return Phase2SimplifiedTheory;

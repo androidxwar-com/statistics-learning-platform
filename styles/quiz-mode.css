@@ -34,7 +34,7 @@
     margin-bottom: 30px;
     padding: 25px;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
+    border-radius: var(--radius-md);
     min-height: 100px;
     display: flex;
     align-items: center;
@@ -59,7 +59,7 @@
 .card {
     background-color: var(--color-card-bg);
     border: 3px solid transparent;
-    border-radius: 20px;
+    border-radius: var(--radius-md);
     padding: 25px 15px;
     width: 240px;
     min-height: 120px;
@@ -67,7 +67,7 @@
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(90, 74, 107, 0.15);
-    transition: all 0.3s ease;
+    transition: all var(--transition-smooth);
     display: flex;
     align-items: center;
     justify-content: center;

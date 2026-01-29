@@ -7,6 +7,8 @@
     <title>Piattaforma Apprendimento - Probabilità & Statistica</title>
 
     <!-- CSS -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#8e6fa3">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/theory-mode.css">
@@ -18,8 +20,13 @@
 <body>
     <!-- Sidebar Extension -->
     <div id="sidebar-overlay"></div>
-    <button id="sidebar-toggle" aria-label="Libreria Argomenti" title="Indice Argomenti">
-        <span style="font-size: 1.5rem;">📚</span>
+    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Menu">
+        ☰
+    </button>
+
+    <button id="mode-toggle-btn" class="mode-toggle-btn" aria-label="Modalità Studio Aggressivo"
+        onclick="AppController.toggleAdvancedMode()">
+        🔥
     </button>
 
     <aside id="app-sidebar">
@@ -53,6 +60,7 @@
 
     <!-- 1. Config -->
     <script src="config/api-config.js"></script>
+    <script src="config/prompts.js"></script>
 
     <!-- 2. Core Modules (New Architecture) -->
     <script src="scripts/core/EventBus.js"></script>
@@ -66,6 +74,10 @@
 
     <!-- 3. UI Components -->
     <!-- <script src="scripts/utils/data-loader.js"></script> REMOVED: Replaced by DataManager -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/ui/Visualizer.js"></script>
+    <script src="scripts/utils/ExportManager.js"></script>
     <script src="scripts/ui/sidebar-manager.js"></script>
 
     <!-- 4. Phase Modules (1-5) -->
@@ -75,10 +87,26 @@
     <script src="scripts/phases/phase4-basic-quiz.js"></script>
     <script src="scripts/phases/phase5-advanced-quiz.js"></script>
 
+    <!-- 4b. Advanced Mode Phases (NEW) -->
+    <script src="scripts/phases/advanced/Phase1AdvancedTheory.js"></script>
+    <script src="scripts/phases/advanced/Phase2DataPractice.js"></script>
+    <script src="scripts/phases/advanced/Phase3MasterQuiz.js"></script>
+
     <!-- 5. App Controller (deve essere ultimo per accedere a tutti i moduli) -->
-    <script src="scripts/core/app-controller.js"></script>
+    <script src="scripts/core/app-controller.js?v=advanced_mode_final"></script>
 
     <!-- Note: app-controller.js inizializza automaticamente l'app al caricamento DOM -->
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('👷 Service Worker registered:', reg.scope))
+                    .catch(err => console.error('❌ SW Registration failed:', err));
+            });
+        }
+    </script>
 
     <!-- PROTOCOL SECURITY CHECK -->
     <script>

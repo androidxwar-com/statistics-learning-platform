@@ -36,7 +36,10 @@ const StateManager = (function () {
 
         // Indice domanda corrente nel quiz (Fase 4-5)
         currentQuestionIndex: 0,
-        totalQuestionsInQuiz: 3
+        totalQuestionsInQuiz: 3,
+
+        // Modalità Applicazione: 'standard' (5 Fasi) | 'advanced' (3 Fasi - Studio Aggressivo)
+        appMode: 'standard'
     };
 
     let state = { ...DEFAULT_STATE };
@@ -94,11 +97,13 @@ const StateManager = (function () {
      * Avanza alla fase successiva
      */
     function advancePhase() {
-        if (state.currentPhase < 5) {
+        const maxPhases = state.appMode === 'advanced' ? 3 : 5;
+
+        if (state.currentPhase < maxPhases) {
             state.phaseHistory.push(state.currentPhase);
             state.currentPhase++;
             saveState();
-            console.log(`➡️ Avanzamento: Fase ${state.currentPhase}`);
+            console.log(`➡️ Avanzamento (${state.appMode}): Fase ${state.currentPhase}`);
             return true;
         }
         return false;
@@ -201,6 +206,21 @@ const StateManager = (function () {
         return false; // Quiz completato
     }
 
+    /**
+     * Switch tra Standard e Advanced Mode
+     */
+    function toggleAppMode() {
+        state.appMode = state.appMode === 'standard' ? 'advanced' : 'standard';
+
+        // Reset alla fase 1 quando si cambia modalità
+        state.currentPhase = 1;
+        state.currentQuestionIndex = 0;
+
+        saveState();
+        console.log(`🔥 Modalità Applicazione: ${state.appMode.toUpperCase()}`);
+        return state.appMode;
+    }
+
     // Inizializza al caricamento modulo
     loadState();
 
@@ -217,7 +237,8 @@ const StateManager = (function () {
         setCurrentConcept,
         nextQuizQuestion,
         saveState,
-        loadState
+        loadState,
+        toggleAppMode
     };
 })();
 

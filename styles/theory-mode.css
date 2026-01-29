@@ -14,8 +14,8 @@
 
 .theory-text {
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 20px;
-    border-radius: 15px;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -41,7 +41,7 @@
 .formula {
     background-color: white;
     padding: 8px 12px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     margin: 8px 0;
     font-family: 'Courier New', monospace;
     font-size: 1.05rem;
@@ -108,11 +108,11 @@
 .btn-feedback {
     padding: 12px 25px;
     border: none;
-    border-radius: 20px;
+    border-radius: var(--radius-md);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform var(--transition-fast);
     font-family: 'Poppins', sans-serif;
     display: inline-flex;
     align-items: center;

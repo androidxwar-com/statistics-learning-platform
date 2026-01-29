@@ -16,20 +16,23 @@
 const GROQ_CONFIG = {
     // ⚠️ IMPORTANTE: NON inserire API Key se repository è pubblico!
     // Per uso locale, copia da .env.txt (file ignorato da git)
-    apiKey: '', // ← Vuoto per sicurezza GitHub
+    // KEY INSERITA AUTOMATICAMENTE
+    // ⚠️ IMPORTANT: Never commit real keys to GitHub!
+    // Usare variabili d'ambiente o placeholder per il repo pubblico
+    apiKey: "YOUR_GROQ_API_KEY_HERE",
 
     // Endpoint API
     endpoint: 'https://api.groq.com/openai/v1/chat/completions',
 
     // Modello consigliato per bilanciamento qualità/velocità
-    model: 'llama-3.3-70b-versatile',
+    model: 'llama-3.1-8b-instant',
 
     // Parametri generazione
-    maxTokens: 1024,
+    maxTokens: 2048,
     temperature: 0.7,
 
     // Modalità demo (usa spiegazioni pre-caricate se true)
-    demoMode: true, // ✅ DEMO MODE per GitHub Pages
+    demoMode: false, // ✅ PRODUCTION MODE LOCAL
 
     // Rate limiting (millisecondi tra chiamate consecutive)
     rateLimitDelay: 1000,

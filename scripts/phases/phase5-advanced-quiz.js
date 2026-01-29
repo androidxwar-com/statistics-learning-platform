@@ -40,11 +40,26 @@ const Phase5AdvancedQuiz = (function () {
                 <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
             `;
 
+            // ADAPTIVE DIFFICULTY (Professional Tier)
+            let difficulty = 'advanced';
+            let mastery = 0;
+
+            if (typeof UserProfile !== 'undefined') {
+                const userState = UserProfile.getState();
+                mastery = userState.concepts[conceptId]?.mastery || 0;
+
+                // Se mastery è bassa (< 40), proponi domande semplici per rinforzo
+                if (mastery < 40) difficulty = 'basic';
+                console.log(`🧠 Adaptive Difficulty: Mastery ${mastery}% -> ${difficulty.toUpperCase()}`);
+            }
+
             // Genera 3 domande
             for (let i = 0; i < 3; i++) {
-                const q = await GroqAPIClient.generateQuizQuestion(conceptId, mode, 'advanced');
+                const q = await GroqAPIClient.generateQuizQuestion(conceptId, mode, difficulty);
                 if (q) questions.push(q);
             }
+            // Store difficulty for UI
+            state.currentDifficulty = difficulty;
         }
 
         // Se ancóra vuoto, allora errore reale
@@ -73,7 +88,9 @@ const Phase5AdvancedQuiz = (function () {
 
                 <div class="quiz-progress">
                     Domanda ${currentQuestionIndex + 1} di ${currentQuestions.length}
-                    <span class="difficulty-badge">Livello: AVANZATO</span>
+                    <span class="difficulty-badge" style="background-color: ${state.currentDifficulty === 'basic' ? '#17a2b8' : '#dc3545'}">
+                        Livello: ${state.currentDifficulty ? state.currentDifficulty.toUpperCase() : 'AVANZATO'}
+                    </span>
                 </div>
 
                 <div id="quiz-content">
@@ -115,10 +132,18 @@ const Phase5AdvancedQuiz = (function () {
 
         cards.forEach(card => card.style.pointerEvents = 'none');
 
+        // Tracking & XP (Professional Tier)
+        const difficultyLevel = StateManager.getState().currentDifficulty === 'basic' ? 1 : 2;
+        let xpGained = 0;
+        if (typeof UserProfile !== 'undefined') {
+            const result = UserProfile.trackQuizResult(StateManager.getState().currentConceptId, selectedIndex === correctIndex, difficultyLevel);
+            xpGained = result ? result.xpGained : 0;
+        }
+
         if (selectedIndex === correctIndex) {
             // ✅ CORRETTO
             selectedCard.classList.add('correct');
-            showFeedback('Eccellente! Risposta corretta! 🎉', 'success');
+            showFeedback(`Eccellente! Risposta corretta! (+${xpGained} XP) 🎉`, 'success');
 
             setTimeout(() => {
                 if (StateManager.nextQuizQuestion()) {

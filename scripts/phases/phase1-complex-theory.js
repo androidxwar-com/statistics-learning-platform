@@ -20,6 +20,15 @@ const Phase1ComplexTheory = (function () {
      */
     function render(conceptData) {
         fullConceptData = conceptData; // Capture full context
+        fullConceptData = conceptData; // Capture full context
+
+        // --- SELF-HEALING: Check if content exists ---
+        if (!conceptData || !conceptData.phase1_complex || !conceptData.phase1_complex.content) {
+            console.warn('[Phase1] Dati mancanti, avvio generazione IA...');
+            renderFallbackWithAI();
+            return;
+        }
+
         currentContent = conceptData.phase1_complex;
         hasRequestedAlternative = StateManager.getState().requestedAlternativeExplanation;
 
@@ -49,6 +58,9 @@ const Phase1ComplexTheory = (function () {
                             ${currentContent.keyTerms.map(t => `<span class="term-badge">${t}</span>`).join(' ')}
                         </div>
                     ` : ''}
+
+                    <!-- VISUALIZATION SLOT -->
+                    <div id="visualization-container"></div>
                 </div>
 
                 <div id="alternative-explanation-box" style="display: ${hasRequestedAlternative ? 'block' : 'none'};">
@@ -76,6 +88,21 @@ const Phase1ComplexTheory = (function () {
         // Se aveva già richiesto spiegazione alternativa, ri-renderizzala
         if (hasRequestedAlternative) {
             showStoredAlternativeExplanation();
+        }
+
+        // Tenta Visualizzazione (Professional Tier)
+        // Tenta Visualizzazione (Professional Tier)
+        if (typeof Visualizer !== 'undefined' && Visualizer.canVisualize(currentContent.title)) {
+            setTimeout(() => {
+                Visualizer.render('visualization-container', currentContent.title);
+            }, 100);
+        }
+        // End if
+        // Brace removed to keep tracking inside render
+
+        // Tracking Memoria (Professional Tier)
+        if (typeof UserProfile !== 'undefined') {
+            UserProfile.trackVisit(currentContent.title);
         }
     }
 
@@ -181,6 +208,7 @@ const Phase1ComplexTheory = (function () {
      * Formatta contenuto teoria (supporta paragrafi, liste, ecc.)
      */
     function formatTheoryContent(text) {
+        if (!text) return '<p class="error-text">Contenuto non disponibile.</p>';
         return text
             .split('\n\n')
             .map(para => `<p>${para.trim()}</p>`)
@@ -221,6 +249,94 @@ const Phase1ComplexTheory = (function () {
         const div = document.createElement('div');
         div.textContent = str;
         return div.innerHTML;
+    }
+
+    /**
+     * FALLBACK: Generazione via IA se il JSON locale è vuoto
+     */
+    async function renderFallbackWithAI() {
+        const state = StateManager.getState();
+        const meta = DataManager.getConceptMetadata(state.currentConceptId);
+        const title = meta ? meta.title : "Concetto sconosciuto";
+
+        const container = document.getElementById('app-content');
+        container.innerHTML = `
+            <div class="phase-container phase1-container">
+                <div class="phase-header">
+                    <span class="phase-badge phase-badge-warning">FASE 1/5 (GENERATA DA IA)</span>
+                    <h2>${title}</h2>
+                    <p class="phase-subtitle">Teoria Formale - Generazione in corso...</p>
+                </div>
+                <div class="loader-container">
+                    <div class="loader"></div>
+                    <p>L'IA sta scrivendo la teoria per te...</p>
+                </div>
+            </div>
+        `;
+
+        try {
+            // Simuliamo struttura conceptData minima per l'API
+            const mockData = { title: title, phase1_complex: { title: title } };
+
+            // Usa il generatore "AdvancedTheory" che è adatto per spiegazioni formali
+            const generatedHTML = await GroqAPIClient.generateAdvancedTheory(mockData);
+
+            if (!generatedHTML) throw new Error("Risposta vuota dall'IA");
+
+            // Costruiamo un oggetto "currentContent" fittizio con l'HTML generato
+            currentContent = {
+                title: title,
+                content: generatedHTML, // L'HTML grezzo andrà bypassato nel formatter o iniettato diretto
+                mathFormulas: [], // Non possiamo estrarle facilmente dal RAW HTML per ora
+                keyTerms: ["IA", "Generated"]
+            };
+
+            // Override della funzione render standard per questo ciclo
+            renderGeneratedContent(container, title, generatedHTML);
+
+        } catch (error) {
+            console.error("Errore fallback IA:", error);
+            container.innerHTML += `<div class="error-box">Errore generazione: ${error.message}</div>`;
+        }
+    }
+
+    function renderGeneratedContent(container, title, htmlText) {
+        container.innerHTML = `
+            <div class="phase-container phase1-container">
+                <div class="phase-header">
+                    <span class="phase-badge phase-badge-success">FASE 1/5 (GENERATA DA IA)</span>
+                    <h2>${title}</h2>
+                    <p class="phase-subtitle">Teoria Formale</p>
+                </div>
+
+                <div class="theory-content">
+                    <div class="theory-text">
+                        ${htmlText} 
+                    </div>
+                     <!-- Visualizer Slot -->
+                    <div id="visualization-container"></div>
+                </div>
+
+                <div class="clarity-feedback">
+                    <p class="feedback-question">✨ Ti è chiaro questo concetto?</p>
+                    <div class="feedback-buttons">
+                        <button class="btn-feedback btn-clear" onclick="Phase1ComplexTheory.handleClear()">
+                            <span class="icon">✅</span> Sì, mi è chiaro
+                        </button>
+                        <button class="btn-feedback btn-unclear" onclick="Phase1ComplexTheory.handleUnclear()">
+                            <span class="icon">❌</span> No, non mi è chiaro
+                        </button>
+                    </div>
+                </div>
+                <div id="feedback-message" class="feedback-message"></div>
+                <div id="alternative-explanation-box" style="display:none"></div>
+            </div>
+        `;
+
+        // Tenta visualizzazione anche sul generato
+        if (typeof Visualizer !== 'undefined' && Visualizer.canVisualize(title)) {
+            setTimeout(() => Visualizer.render('visualization-container', title), 100);
+        }
     }
 
     // Public API

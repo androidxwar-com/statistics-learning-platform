@@ -43,6 +43,195 @@
                             "estimatedMinutes": 12
                         }
                     ]
+                },
+                {
+                    "id": "proprietà-delle-variabili-casuali",
+                    "title": "Proprietà delle Variabili Casuali",
+                    "order": 3,
+                    "concepts": [
+                        {
+                            "id": "varianza-combinazione-lineare",
+                            "title": "Varianza di una combinazione lineare",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-generatrice-momenti",
+                            "title": "Funzione generatrice dei momenti",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-di-ripartizione",
+                            "title": "Funzione di ripartizione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-di-densità",
+                            "title": "Funzione di densità",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-del-limite",
+                            "title": "Teorema del limite",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni-di-probabilità",
+                    "title": "Distribuzioni di Probabilità",
+                    "order": 4,
+                    "concepts": [
+                        {
+                            "id": "distribuzione-poisson",
+                            "title": "Distribuzione di Poisson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-binomiale",
+                            "title": "Distribuzione binomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-poisson-indipendente",
+                            "title": "Distribuzione di Poisson indipendente",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-gamma",
+                            "title": "Distribuzione gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-esponenziale",
+                            "title": "Distribuzione esponenziale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-lognormale",
+                            "title": "Distribuzione lognormale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-multinomiale",
+                            "title": "Distribuzione multinomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-binomiale-indipendente",
+                            "title": "Distribuzione binomiale indipendente",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-gamma-indipendente",
+                            "title": "Distribuzione gamma indipendente",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-esponenziale-indipendente",
+                            "title": "Distribuzione esponenziale indipendente",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-lognormale-indipendente",
+                            "title": "Distribuzione lognormale indipendente",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-multinomiale-indipendente",
+                            "title": "Distribuzione multinomiale indipendente",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "t-stud",
+                            "title": "Distribuzione T-student",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-kumaraswamy",
+                            "title": "Distribuzione di Kumaraswamy",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-erlang-2",
+                            "title": "Distribuzione di Erlang-2",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-centrali-limitate",
+                            "title": "Teorema dei Limiti Centrali",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-log-normale",
+                            "title": "Distribuzione Log-Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-weibull",
+                            "title": "Distribuzione Weibull",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-beta",
+                            "title": "Distribuzione Beta",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-dirichlet",
+                            "title": "Distribuzione Dirichlet",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-hypergeometrica",
+                            "title": "Distribuzione Ipergeometrica",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-pareto",
+                            "title": "Distribuzione Pareto",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-log-logistica",
+                            "title": "Distribuzione Log-Logistica",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-weibull-modificata",
+                            "title": "Distribuzione Weibull Modificata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-log-normalizzata",
+                            "title": "Distribuzione Log-Normalizzata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-gamma-modificata",
+                            "title": "Distribuzione Gamma Modificata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-log-logistica-modificata",
+                            "title": "Distribuzione Log-Logistica Modificata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-weibull-modificata-2",
+                            "title": "Distribuzione Weibull Modificata 2",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-log-normalizzata-2",
+                            "title": "Distribuzione Log-Normalizzata 2",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-gamma-modificata-2",
+                            "title": "Distribuzione Gamma Modificata 2",
+                            "estimatedMinutes": 15
+                        }
+                    ]
                 }
             ]
         },
@@ -118,6 +307,1941 @@
                             "id": "inf-test-errori",
                             "title": "Errori di Tipo I e II",
                             "estimatedMinutes": 18
+                        },
+                        {
+                            "id": "verifica-d-ipotesi",
+                            "title": "Verifica d'Ipotesi",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-potenza",
+                            "title": "Funzione Potenza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-ump",
+                            "title": "Test UMP",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-lrt",
+                            "title": "Test di Verosimiglianza Razionale (LRT)",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-3",
+                            "title": "Caso 3: Differenza tra due medie",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-4",
+                            "title": "Caso 4: Differenza tra due proporzioni",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-5",
+                            "title": "Caso 5: Rapporto tra due varianze",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-6",
+                            "title": "Caso 6: Rapporto tra due medie",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-7",
+                            "title": "Caso 7: Media ponderata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-8",
+                            "title": "Caso 8: Margine di errore",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "verifica-dipotesi",
+                            "title": "Verifica di ipotesi",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-più-potente",
+                            "title": "Test più potente",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-n-p",
+                            "title": "Teorema di Neyman-Pearson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-wilk",
+                            "title": "Teorema di Wilk",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "chi-quadro-test",
+                            "title": "Test del Chi Quadro",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "chi-quadro-test-indipendenza",
+                            "title": "Test del Chi Quadro per Indipendenza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-slutsky",
+                            "title": "Teorema di Slutsky",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-score",
+                            "title": "Test Score",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-chi-quadro",
+                            "title": "Test Chi-Quadro",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-ipotesi",
+                            "title": "Test di Ipotesi",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "ks-test",
+                            "title": "Test di Kolmogorov-Smirnov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-t",
+                            "title": "Test di T",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-z",
+                            "title": "Test di Z",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-del-limite-centrale",
+                            "title": "Teorema del Limite Centrale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regione-critica",
+                            "title": "Regione Critica",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "potenza-test",
+                            "title": "Potenza del Test",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-del-rapporto-di-verosimiglianza",
+                            "title": "Test del Rapporto di Verosimiglianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-wilks",
+                            "title": "Teorema di Wilks",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "analisi-della-varianza",
+                            "title": "Analisi della Varianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "analisi-della-varianza-ov",
+                            "title": "Analisi della Varianza (ANOVA)",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-jarque-bera",
+                            "title": "Test Jarque-Bera",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "chi-test",
+                            "title": "Test di chi quadrato",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-kolmogorov-smirnov",
+                            "title": "Test di Kolmogorov-Smirnov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-anova",
+                            "title": "Test di ANOVA",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-t-student",
+                            "title": "Test di T-Student",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-kurtosi",
+                            "title": "Test di Kurtosi",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-indipendenza",
+                            "title": "Test di Indipendenza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-bernoulli",
+                            "title": "Test di Bernoulli",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-fisher",
+                            "title": "Test di Fisher",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-kolmogorov-smirnov-uno-samplone",
+                            "title": "Test di Kolmogorov-Smirnov Uno-Samplone",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-kurtosi-locale",
+                            "title": "Test di Kurtosi Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-bernoulli-locale",
+                            "title": "Test di Bernoulli Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-fisher-locale",
+                            "title": "Test di Fisher Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-kolmogorov-smirnov-uno-samplone-locale",
+                            "title": "Test di Kolmogorov-Smirnov Uno-Samplone Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-kurtosi-locale-locale",
+                            "title": "Test di Kurtosi Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-bernoulli-locale-locale",
+                            "title": "Test di Bernoulli Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-fisher-locale-locale",
+                            "title": "Test di Fisher Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-kolmogorov-smirnov-uno-samplone-locale-locale",
+                            "title": "Test di Kolmogorov-Smirnov Uno-Samplone Locale Locale",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-puntuale",
+                    "title": "Stima Puntuale",
+                    "order": 3,
+                    "concepts": [
+                        {
+                            "id": "disuguaglianza-di-chebyshev",
+                            "title": "Disuguaglianza di Chebyshev",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "valore-atteso",
+                            "title": "Valore Atteso",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "informazione-di-fisher",
+                            "title": "Informazione di Fisher",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-cramer",
+                            "title": "Teorema di Cramer",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "verosimiglianza-massima",
+                            "title": "Stima per Massima Verosimiglianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-mle",
+                            "title": "Stimatore di Massima Verosimiglianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-verosimiglianza",
+                            "title": "Funzione di Verosimiglianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-mle-pareto",
+                            "title": "Stimatore di Massima Verosimiglianza per la Distribuzione Pareto",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-mle-esponenziale",
+                            "title": "Stimatore di Massima Verosimiglianza per la Distribuzione Esponenziale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "log-verosimiglianza",
+                            "title": "Log-Verosimiglianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-mle-k",
+                            "title": "Stimatore di Massima Verosimiglianza per il Parametro k",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-umvue",
+                            "title": "Stimatore UMVUE",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-per-intervallo",
+                    "title": "Stima per Intervallo",
+                    "order": 4,
+                    "concepts": [
+                        {
+                            "id": "intervalli-di-confidenza",
+                            "title": "Intervalli di Confidenza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "intervallo-di-confidenza",
+                            "title": "Intervallo di Confidenza",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "probabilità-condizionata",
+                    "title": "Probabilità condizionata",
+                    "order": 5,
+                    "concepts": [
+                        {
+                            "id": "teorema-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "probabilità-condizionata",
+                            "title": "Probabilità Condizionata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "marginalizzazione",
+                            "title": "Marginalizzazione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "legge-di-morgan",
+                            "title": "Legge di De Morgan",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "probabilita-condizionata",
+                            "title": "Probabilità Condizionata",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stime-di-probabilità",
+                    "title": "Stime di probabilità",
+                    "order": 6,
+                    "concepts": [
+                        {
+                            "id": "disuguaglianza-di-chebyshev",
+                            "title": "Disuguaglianza di Chebyshev",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "probabilità-bayesiana",
+                    "title": "Probabilità Bayesiana",
+                    "order": 7,
+                    "concepts": [
+                        {
+                            "id": "teorema-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-rao-blackwell",
+                            "title": "Teorema di Rao-Blackwell",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "statistica-descrittiva",
+                    "title": "Statistica descrittiva",
+                    "order": 8,
+                    "concepts": [
+                        {
+                            "id": "media-condizionata",
+                            "title": "Media Condizionata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "varianza-condizionata",
+                            "title": "Varianza Condizionata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "media-ponderata",
+                            "title": "Media Ponderata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "varianza-ponderata",
+                            "title": "Varianza Ponderata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "statistica-sufficiente",
+                            "title": "Statistica sufficiente",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-dei-parametri",
+                    "title": "Stima dei Parametri",
+                    "order": 9,
+                    "concepts": [
+                        {
+                            "id": "stimatore-umvue",
+                            "title": "Stimatore UMVUE",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "errore-quadratico-medio",
+                            "title": "Errore Quadratico Medio",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "consistenza",
+                            "title": "Consistenza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-cramer-rao",
+                            "title": "Teorema di Cramer-Rao",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "intervalli-di-confidenza",
+                            "title": "Intervalli di Confidenza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-1-differenza-tra-le-medie",
+                            "title": "Caso 1: Differenza tra le medie",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-2-differenza-tra-le-medie",
+                            "title": "Caso 2: Differenza tra le medie",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "caso-3-differenza-tra-le-medie",
+                            "title": "Caso 3: Differenza tra le medie",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-ols",
+                            "title": "Stimatore di OLS",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-maximum-likelihood",
+                            "title": "Stimatore di Maximum Likelihood",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-bayes",
+                            "title": "Stimatore di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-asimov",
+                            "title": "Stimatore di Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-bayes-asimov",
+                            "title": "Stimatore di Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-asimov-bayes",
+                            "title": "Stimatore di Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-bayes-asimov-bayes",
+                            "title": "Stimatore di Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-asimov-bayes-asimov",
+                            "title": "Stimatore di Asimov-Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-asimov-bayes-asimov-bayes",
+                            "title": "Stimatore di Asimov-Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "convergenza",
+                    "title": "Convergenza",
+                    "order": 10,
+                    "concepts": [
+                        {
+                            "id": "teorema-slutsky",
+                            "title": "Teorema di Slutsky",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-cramer",
+                            "title": "Teorema di Cramer",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-bayesiana",
+                    "title": "Stima Bayesiana",
+                    "order": 11,
+                    "concepts": [
+                        {
+                            "id": "teorema-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "test-di-chi-quadro",
+                    "title": "Test di Chi-Quadro",
+                    "order": 12,
+                    "concepts": [
+                        {
+                            "id": "chi-quadro",
+                            "title": "Test di Chi-Quadro",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "teoremi",
+                    "title": "Teoremi",
+                    "order": 13,
+                    "concepts": [
+                        {
+                            "id": "teorema-di-glivenko-cantelli",
+                            "title": "Teorema di Glivenko-Cantelli",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "funzione-di-ripartizione-campionaria",
+                    "title": "Funzione di Ripartizione Campionaria",
+                    "order": 14,
+                    "concepts": [
+                        {
+                            "id": "teorema-glivenko-cantelli",
+                            "title": "Teorema di Glivenko-Cantelli",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "statistica-di-kolmogorov",
+                            "title": "Statistica di Kolmogorov",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "teoremi-di-inferenza",
+                    "title": "Teoremi di Inferenza",
+                    "order": 15,
+                    "concepts": [
+                        {
+                            "id": "teorema-di-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-ipotesi",
+                            "title": "Test di ipotesi",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "lemma-di-neyman-pearson",
+                            "title": "Lemma di Neyman-Pearson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-di-verosimiglianza",
+                            "title": "Funzione di verosimiglianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood",
+                            "title": "Regola del likelihood",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-potenza",
+                            "title": "Test di potenza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood-ratio",
+                            "title": "Regola del likelihood ratio",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-asimov",
+                            "title": "Test di Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood-asimov",
+                            "title": "Regola del likelihood Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-bayes-asimov",
+                            "title": "Test di Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood-bayes-asimov",
+                            "title": "Regola del likelihood Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-asimov-bayes",
+                            "title": "Test di Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood-asimov-bayes",
+                            "title": "Regola del likelihood Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-bayes-asimov-bayes",
+                            "title": "Test di Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood-bayes-asimov-bayes",
+                            "title": "Regola del likelihood Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-asimov-bayes-asimov",
+                            "title": "Test di Asimov-Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood-asimov-bayes-asimov",
+                            "title": "Regola del likelihood Asimov-Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "test-di-asimov-bayes-asimov-bayes",
+                            "title": "Test di Asimov-Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "regola-del-likelihood-asimov-bayes-asimov-bayes",
+                            "title": "Regola del likelihood Asimov-Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "statistica-sufficiente",
+                    "title": "Statistica Sufficiente",
+                    "order": 16,
+                    "concepts": [
+                        {
+                            "id": "statistica-sufficiente",
+                            "title": "Statistica Sufficiente",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "statistica-asintotica",
+                    "title": "Statistica Asintotica",
+                    "order": 17,
+                    "concepts": [
+                        {
+                            "id": "teorema-asintotico",
+                            "title": "Teorema Asintotico",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-asintoticamente-normale",
+                            "title": "Stimatore Asintoticamente Normale",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "informazione",
+                    "title": "Informazione",
+                    "order": 18,
+                    "concepts": [
+                        {
+                            "id": "informazione-di-fisher",
+                            "title": "Informazione di Fisher",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "disuguaglianza",
+                    "title": "Disuguaglianza",
+                    "order": 19,
+                    "concepts": [
+                        {
+                            "id": "disuguaglianza-di-rao-cramer",
+                            "title": "Disuguaglianza di Rao-Cramer",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "teorema",
+                    "title": "Teorema",
+                    "order": 20,
+                    "concepts": [
+                        {
+                            "id": "teorema-di-fattorizzazione",
+                            "title": "Teorema di fattorizzazione",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "varianza",
+                    "title": "Varianza",
+                    "order": 21,
+                    "concepts": [
+                        {
+                            "id": "varianza-campionaria",
+                            "title": "Varianza campionaria",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "media",
+                    "title": "Media",
+                    "order": 22,
+                    "concepts": [
+                        {
+                            "id": "media-campionaria",
+                            "title": "Media campionaria",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzione",
+                    "title": "Distribuzione",
+                    "order": 23,
+                    "concepts": [
+                        {
+                            "id": "distribuzione-normale",
+                            "title": "Distribuzione normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-binomiale",
+                            "title": "Distribuzione binomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-pareto",
+                            "title": "Distribuzione Pareto",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-gamma",
+                            "title": "Distribuzione Gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-beta",
+                            "title": "Distribuzione Beta",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "verifica-d'ipotesi",
+                    "title": "Verifica d'ipotesi",
+                    "order": 24,
+                    "concepts": [
+                        {
+                            "id": "teorema-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "intervallo-di-confidenza",
+                    "title": "Intervallo di confidenza",
+                    "order": 25,
+                    "concepts": [
+                        {
+                            "id": "confint",
+                            "title": "Intervallo di confidenza",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "probabilità",
+            "title": "Probabilità",
+            "order": 4,
+            "subtopics": [
+                {
+                    "id": "variabili-discrete",
+                    "title": "Variabili Discrete",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "variabile-casuale-discreta",
+                            "title": "Variabile Casuale Discreta",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-poisson",
+                            "title": "Distribuzione di Poisson",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "variabili-continue",
+                    "title": "Variabili Continue",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "variabile-casuale-continua",
+                            "title": "Variabile Casuale Continua",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale-bivariata",
+                            "title": "Distribuzione Normale Bivariata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "somma-di-variabili-casuali",
+                            "title": "Somma di Variabili Casuali",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale",
+                            "title": "Distribuzione Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "probabilita-condizionata",
+                            "title": "Probabilità Condizionata",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni-continue",
+                    "title": "Distribuzioni Continue",
+                    "order": 3,
+                    "concepts": [
+                        {
+                            "id": "distribuzione-uniforme",
+                            "title": "Distribuzione Uniforme",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale",
+                            "title": "Distribuzione Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-pareto",
+                            "title": "Distribuzione di Pareto",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "variabili-casuali",
+                    "title": "Variabili Casuali",
+                    "order": 4,
+                    "concepts": [
+                        {
+                            "id": "distribuzione-poisson",
+                            "title": "Distribuzione di Poisson",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "probabilità-condizionata",
+                    "title": "Probabilità Condizionata",
+                    "order": 5,
+                    "concepts": [
+                        {
+                            "id": "probabilita-condizionata",
+                            "title": "Probabilità Condizionata",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "indipendenza",
+                    "title": "Indipendenza",
+                    "order": 6,
+                    "concepts": [
+                        {
+                            "id": "indipendenza",
+                            "title": "Indipendenza",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "leggi-di-de-morgan",
+                    "title": "Leggi di De Morgan",
+                    "order": 7,
+                    "concepts": [
+                        {
+                            "id": "leggi-de-morgan",
+                            "title": "Leggi di De Morgan",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "teorema-di-bayes",
+                    "title": "Teorema di Bayes",
+                    "order": 8,
+                    "concepts": [
+                        {
+                            "id": "teorema-di-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "inferenza",
+                    "title": "Inferenza",
+                    "order": 9,
+                    "concepts": [
+                        {
+                            "id": "teorema-di-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "probabilita-condizionata",
+                            "title": "Probabilità Condizionata",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "leggi-di-de-morgan",
+                            "title": "Leggi di De Morgan",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "probabilità-fondamentale",
+                    "title": "Probabilità Fondamentale",
+                    "order": 10,
+                    "concepts": [
+                        {
+                            "id": "legge-di-probabilità",
+                            "title": "Legge di Probabilità",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "teoria-della-probabilità",
+                    "title": "Teoria della probabilità",
+                    "order": 11,
+                    "concepts": [
+                        {
+                            "id": "teorema-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-bayes",
+                            "title": "Teorema di Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-asimov",
+                            "title": "Teorema di Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-bayes-asimov",
+                            "title": "Teorema di Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-asimov-bayes",
+                            "title": "Teorema di Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-bayes-asimov-bayes",
+                            "title": "Teorema di Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-asimov-bayes-asimov",
+                            "title": "Teorema di Asimov-Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-bayes-asimov-bayes-asimov",
+                            "title": "Teorema di Bayes-Asimov-Bayes-Asimov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-bayes-asimov-bayes-asimov-bayes",
+                            "title": "Teorema di Bayes-Asimov-Bayes-Asimov-Bayes",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "densità-di-probabilità",
+                    "title": "Densità di probabilità",
+                    "order": 12,
+                    "concepts": [
+                        {
+                            "id": "density",
+                            "title": "Densità di probabilità",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "teoremi-di-probabilità",
+                    "title": "Teoremi di Probabilità",
+                    "order": 13,
+                    "concepts": [
+                        {
+                            "id": "teorema-slutsky",
+                            "title": "Teorema di Slutsky",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-de-finetti",
+                            "title": "Teorema di De Finetti",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-centrali-limiti",
+                            "title": "Teorema dei Limiti Centrali",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-asimmetria",
+                            "title": "Teorema di Asimmetria",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-casualità",
+                            "title": "Teorema di Casualità",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-omogeneità",
+                            "title": "Teorema di Omogeneità",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-markov",
+                            "title": "Teorema di Markov",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-casualità-locale",
+                            "title": "Teorema di Casualità Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-asimmetria-locale",
+                            "title": "Teorema di Asimmetria Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-omogeneità-locale",
+                            "title": "Teorema di Omogeneità Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-markov-locale",
+                            "title": "Teorema di Markov Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-casualità-locale-locale",
+                            "title": "Teorema di Casualità Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-asimmetria-locale-locale",
+                            "title": "Teorema di Asimmetria Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-omogeneità-locale-locale",
+                            "title": "Teorema di Omogeneità Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-markov-locale-locale",
+                            "title": "Teorema di Markov Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-casualità-locale-locale-locale",
+                            "title": "Teorema di Casualità Locale Locale Locale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-asimmetria-locale-locale-locale",
+                            "title": "Teorema di Asimmetria Locale Locale Locale",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "modelli",
+            "title": "Modelli",
+            "order": 5,
+            "subtopics": [
+                {
+                    "id": "famiglia-esponenziale",
+                    "title": "Famiglia Esponenziale",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "teorema-di-fattorizzazione",
+                            "title": "Teorema di Fattorizzazione",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "momenti",
+                    "title": "Momenti",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "momento-1",
+                            "title": "Momento 1",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "momento-2",
+                            "title": "Momento 2",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-generatrice-dei-momenti",
+                            "title": "Funzione generatrice dei momenti",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni",
+                    "title": "Distribuzioni",
+                    "order": 3,
+                    "concepts": [
+                        {
+                            "id": "uniforme-discreta",
+                            "title": "Uniforme discreta",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "bernoulli",
+                            "title": "Bernoulli",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "binomiale",
+                            "title": "Binomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "ipergeometrica",
+                            "title": "Ipergeometrica",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "poisson",
+                            "title": "Poisson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "uniforme-continua",
+                            "title": "Uniforme continua",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "normale",
+                            "title": "Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "esponenziale",
+                            "title": "Esponenziale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "gamma",
+                            "title": "Gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-logistica",
+                            "title": "Distribuzione Logistica",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-poisson",
+                            "title": "Distribuzione di Poisson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale",
+                            "title": "Distribuzione Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "momenti",
+                            "title": "Momenti",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "kurtosi",
+                            "title": "Kurtosi",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "varianza",
+                            "title": "Varianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "media",
+                            "title": "Media",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "errore-medio-quadrato",
+                            "title": "Errore Medio Quadrato",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni-di-probabilità",
+                    "title": "Distribuzioni di probabilità",
+                    "order": 4,
+                    "concepts": [
+                        {
+                            "id": "distribuzione-gamma",
+                            "title": "Distribuzione Gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-pareto",
+                            "title": "Distribuzione Pareto",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-kumaraswamy",
+                            "title": "Distribuzione Kumaraswamy",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-beta",
+                            "title": "Distribuzione Beta",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-poisson",
+                            "title": "Distribuzione Poisson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale",
+                            "title": "Distribuzione Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-bivariata-normale",
+                            "title": "Distribuzione Bivariata Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-multinomiale",
+                            "title": "Distribuzione Multinomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-binomiale",
+                            "title": "Distribuzione Binomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-esponenziale",
+                            "title": "Distribuzione Esponenziale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-gamma-somma",
+                            "title": "Distribuzione Gamma Somma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-poisson-somma",
+                            "title": "Distribuzione Poisson Somma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale-somma",
+                            "title": "Distribuzione Normale Somma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-bivariata-normale-somma",
+                            "title": "Distribuzione Bivariata Normale Somma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-multinomiale-somma",
+                            "title": "Distribuzione Multinomiale Somma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-binomiale-somma",
+                            "title": "Distribuzione Binomiale Somma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-esponenziale-somma",
+                            "title": "Distribuzione Esponenziale Somma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-gamma-somma-poisson",
+                            "title": "Distribuzione Gamma Somma Poisson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-poisson-somma-poisson",
+                            "title": "Distribuzione Poisson Somma Poisson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale-somma-normale",
+                            "title": "Distribuzione Normale Somma Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-bivariata-normale-somma-normale",
+                            "title": "Distribuzione Bivariata Normale Somma Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "famiglia-esponenziale",
+                            "title": "Famiglia Esponenziale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-log-normal",
+                            "title": "Distribuzione Log-Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-log-gamma",
+                            "title": "Distribuzione Log-Gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-bernoulli",
+                            "title": "Distribuzione di Bernoulli",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "dipendenza",
+                    "title": "Dipendenza",
+                    "order": 5,
+                    "concepts": [
+                        {
+                            "id": "independenza",
+                            "title": "Indipendenza",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-parametrica",
+                    "title": "Stima Parametrica",
+                    "order": 6,
+                    "concepts": [
+                        {
+                            "id": "stimatore-ols",
+                            "title": "Stimatore di OLS",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "risposta-anova",
+                    "title": "Risposta ANOVA",
+                    "order": 7,
+                    "concepts": [
+                        {
+                            "id": "regressione-anoa",
+                            "title": "Risposta ANOVA",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "modello-lineare",
+                    "title": "Modello Lineare",
+                    "order": 8,
+                    "concepts": [
+                        {
+                            "id": "modello-lineare",
+                            "title": "Modello Lineare",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "modelli-non-parametrici",
+                    "title": "Modelli Non Parametrici",
+                    "order": 9,
+                    "concepts": [
+                        {
+                            "id": "kde",
+                            "title": "Kernel Density Estimation (KDE)",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-di-ripartizione-campionaria",
+                            "title": "Funzione di Ripartizione Campionaria",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "statistiche-ordinali",
+                            "title": "Statistiche Ordinali",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "quantili-campionari",
+                            "title": "Quantili Campionari",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-puntuale",
+                    "title": "Stima Puntuale",
+                    "order": 10,
+                    "concepts": [
+                        {
+                            "id": "stimatore-ols",
+                            "title": "Stimatore di OLS",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "algebra",
+            "title": "Algebra",
+            "order": 6,
+            "subtopics": [
+                {
+                    "id": "proprietà-delle-operazioni-logiche",
+                    "title": "Proprietà delle Operazioni Logiche",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "legge-di-de-morgan",
+                            "title": "Legge di De Morgan",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "teorema-di-fattorizzazione",
+                            "title": "Teorema di Fattorizzazione",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "stima",
+            "title": "Stima",
+            "order": 7,
+            "subtopics": [
+                {
+                    "id": "stima-parametrica",
+                    "title": "Stima Parametrica",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "stimatore-ols",
+                            "title": "Stimatore di OLS",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-max-verosimiglianza",
+                            "title": "Stimatore di Massima Verosimiglianza",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-wald",
+                            "title": "Stimatore di Wald",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-mle",
+                            "title": "Stimatore di Massima Verosimiglianza (MLE)",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "informazione-di-fisher",
+                            "title": "Informazione di Fisher",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-di-massima-verosimiglianza",
+                            "title": "Stimatore di Massima Verosimiglianza",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "metodi-di-stima",
+                    "title": "Metodi di Stima",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "metodo-dei-momenti",
+                            "title": "Metodo dei Momenti",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "metodo-dei-momenti-gamma",
+                            "title": "Metodo dei Momenti Gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "metodo-dei-momenti-beta",
+                            "title": "Metodo dei Momenti Beta",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-lineare",
+                    "title": "Stima Lineare",
+                    "order": 3,
+                    "concepts": [
+                        {
+                            "id": "stimatore-ols",
+                            "title": "Stimatore di OLS",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-puntuale",
+                    "title": "Stima Puntuale",
+                    "order": 4,
+                    "concepts": [
+                        {
+                            "id": "mse",
+                            "title": "MSE (Mean Squared Error)",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "stima-funzionale",
+                    "title": "Stima Funzionale",
+                    "order": 5,
+                    "concepts": [
+                        {
+                            "id": "kernel-density-estimation",
+                            "title": "Kernel Density Estimation (KDE)",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "distribuzioni",
+            "title": "Distribuzioni",
+            "order": 8,
+            "subtopics": [
+                {
+                    "id": "distribuzioni-speciali",
+                    "title": "Distribuzioni Speciali",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "gamma-inversa",
+                            "title": "Gamma Inversa",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "log-gamma",
+                            "title": "Log-Gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "esponenziale",
+                            "title": "Esponenziale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "uniforme",
+                            "title": "Uniforme",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "gamma",
+                            "title": "Gamma",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "log-normal",
+                            "title": "Log-Normale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "beta",
+                            "title": "Beta",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "poisson",
+                            "title": "Poisson",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "logit",
+                            "title": "Logit",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "probit",
+                            "title": "Probit",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "weibull",
+                            "title": "Weibull",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "f-distribuzione",
+                            "title": "F-Distribuzione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "student-t",
+                            "title": "Student-T",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "log-gamma-distribuzione",
+                            "title": "Log-Gamma Distribuzione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "gamma-distribuzione",
+                            "title": "Gamma Distribuzione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "log-normal-distribuzione",
+                            "title": "Log-Normale Distribuzione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "beta-distribuzione",
+                            "title": "Beta Distribuzione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "poisson-distribuzione",
+                            "title": "Poisson Distribuzione",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni-binomiali",
+                    "title": "Distribuzioni Binomiali",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "bernoulli",
+                            "title": "Bernoulli",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "binomiale",
+                            "title": "Binomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "hipergeometrica",
+                            "title": "Ipergeometrica",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "negativa-binomiale",
+                            "title": "Negativa Binomiale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "binomiale-negativa",
+                            "title": "Binomiale Negativa",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "binomiale-distribuzione",
+                            "title": "Binomiale Distribuzione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "hipergeometrica-distribuzione",
+                            "title": "Ipergeometrica Distribuzione",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "negativa-binomiale-distribuzione",
+                            "title": "Negativa Binomiale Distribuzione",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni-continue",
+                    "title": "Distribuzioni Continue",
+                    "order": 3,
+                    "concepts": [
+                        {
+                            "id": "distribuzione-esponenziale",
+                            "title": "Distribuzione Esponenziale",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "distribuzione-normale",
+                            "title": "Distribuzione Normale",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni-discrete",
+                    "title": "Distribuzioni Discrete",
+                    "order": 4,
+                    "concepts": [
+                        {
+                            "id": "distribuzione-poisson",
+                            "title": "Distribuzione di Poisson",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "caratteristiche-delle-distribuzioni",
+                    "title": "Caratteristiche delle Distribuzioni",
+                    "order": 5,
+                    "concepts": [
+                        {
+                            "id": "moments",
+                            "title": "Momenti",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "kurtosis",
+                            "title": "Curtosi",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "stima-puntuale",
+            "title": "Stima Puntuale",
+            "order": 9,
+            "subtopics": [
+                {
+                    "id": "stimatori-di-parametri",
+                    "title": "Stimatori di Parametri",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "stimatore-wald",
+                            "title": "Stimatore di Wald",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "stimatore-ols",
+                            "title": "Stimatore OLS",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "distribuzione",
+            "title": "Distribuzione",
+            "order": 10,
+            "subtopics": [
+                {
+                    "id": "funzioni-di-ripartizione",
+                    "title": "Funzioni di Ripartizione",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "funzione-generatrice-dei-momenti",
+                            "title": "Funzione Generatrice dei Momenti",
+                            "estimatedMinutes": 15
+                        },
+                        {
+                            "id": "funzione-di-ripartizione-campionaria",
+                            "title": "Funzione di Ripartizione Campionaria",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "distribuzioni-ordinali",
+                    "title": "Distribuzioni Ordinali",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "statistica-ordinale",
+                            "title": "Statistica Ordinale",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "descrizione-dei-dati",
+            "title": "Descrizione dei Dati",
+            "order": 11,
+            "subtopics": [
+                {
+                    "id": "stima-della-densità",
+                    "title": "Stima della Densità",
+                    "order": 1,
+                    "concepts": [
+                        {
+                            "id": "kernel-density-estimation",
+                            "title": "Kernel Density Estimation",
+                            "estimatedMinutes": 15
+                        }
+                    ]
+                },
+                {
+                    "id": "test-di-normalità",
+                    "title": "Test di Normalità",
+                    "order": 2,
+                    "concepts": [
+                        {
+                            "id": "jarque-bera-test",
+                            "title": "Jarque-Bera Test",
+                            "estimatedMinutes": 15
                         }
                     ]
                 }

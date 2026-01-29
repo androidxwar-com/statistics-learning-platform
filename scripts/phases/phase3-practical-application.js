@@ -14,6 +14,18 @@ const Phase3PracticalApplication = (function () {
      * Renderizza Fase 3
      */
     function render(conceptData) {
+        // --- SELF-HEALING: Check data validity ---
+        if (!conceptData || !conceptData.phase3_practical || !conceptData.phase3_practical.content) {
+            // Note: Some legacy data might have 'examples' array but no content text. Check broadly.
+            const hasExamples = conceptData && conceptData.phase3_practical && conceptData.phase3_practical.examples && conceptData.phase3_practical.examples.length > 0;
+
+            if (!hasExamples) {
+                console.warn('[Phase3] Dati mancanti, avvio generazione IA...');
+                renderFallbackWithAI();
+                return;
+            }
+        }
+
         const content = conceptData.phase3_practical;
 
         const html = `
@@ -109,6 +121,79 @@ const Phase3PracticalApplication = (function () {
 
         StateManager.advancePhase();
         AppController.renderCurrentPhase();
+    }
+
+    /**
+     * FALLBACK: Generazione via IA (Analogia Pratica)
+     */
+    async function renderFallbackWithAI() {
+        const state = StateManager.getState();
+        const meta = DataManager.getConceptMetadata(state.currentConceptId);
+        const title = meta ? meta.title : "Concetto";
+
+        const container = document.getElementById('app-content');
+        container.innerHTML = `
+            <div class="phase-container phase3-container">
+                <div class="phase-header">
+                    <span class="phase-badge phase-badge-warning">FASE 3/5 (GENERATA DA IA)</span>
+                    <h2>${title}</h2>
+                    <p class="phase-subtitle">Generazione esempi pratici...</p>
+                </div>
+                <div class="loader-container">
+                    <div class="loader"></div>
+                    <p>L'IA sta cercando esempi nel mondo reale...</p>
+                </div>
+            </div>
+        `;
+
+        try {
+            // Usa generateAlternativeExplanation con attempt=1 (Analogia Pratica)
+            const generatedText = await GroqAPIClient.generateAlternativeExplanation(title, null, 1);
+
+            if (!generatedText) throw new Error("Risposta vuota dall'IA");
+
+            const mockContent = {
+                title: title,
+                realWorldUse: generatedText // Mettiamo tutto qui
+            };
+
+            renderGeneratedContent(container, mockContent);
+
+        } catch (error) {
+            console.error("Errore fallback Phase3:", error);
+            container.innerHTML += `<div class="error-box">Errore generazione: ${error.message}</div>`;
+        }
+    }
+
+    function renderGeneratedContent(container, content) {
+        container.innerHTML = `
+            <div class="phase-container phase3-container">
+                <div class="phase-header">
+                    <span class="phase-badge phase-badge-success">FASE 3/5 (GENERATA DA IA)</span>
+                    <h2>${content.title}</h2>
+                    <p class="phase-subtitle">Esempi Pratici - Applicazione</p>
+                </div>
+
+                <div class="practical-content">
+                    <div class="real-world-use">
+                        <h4>🌍 Applicazioni nel Mondo Reale (IA)</h4>
+                        <div class="generated-text-content">
+                             ${content.realWorldUse} 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-actions">
+                    <p class="ready-quiz-message">
+                        🎯 Esempio generato dall'IA. <br>
+                        Sei pronto a testare le tue conoscenze!
+                    </p>
+                    <button class="btn-primary btn-large" onclick="Phase3PracticalApplication.startQuiz()">
+                        🚀 Inizia il Quiz
+                    </button>
+                </div>
+            </div>
+        `;
     }
 
     // Public API
