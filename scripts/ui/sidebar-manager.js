@@ -24,6 +24,11 @@ const SidebarManager = (function () {
         render();
         setupEventListeners();
         updateActiveItem();
+
+        // Init ChatManager
+        if (typeof ChatManager !== 'undefined') {
+            ChatManager.init();
+        }
     }
 
     /**
@@ -83,9 +88,12 @@ const SidebarManager = (function () {
 
         // Add Footer with Settings
         html += `
-            <div class="sidebar-footer" style="padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: auto;">
+            <div class="sidebar-footer" style="padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
+                <button id="tutor-btn" class="btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #FF6B6B, #FF8E53); border:none;">
+                    <span>🤖</span> Tutor IA
+                </button>
                 <button id="settings-btn" class="btn-secondary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <span>⚙️</span> Impostazioni IA
+                    <span>⚙️</span> Impostazioni
                 </button>
             </div>
         `;
@@ -94,6 +102,12 @@ const SidebarManager = (function () {
 
         // Settings Handler
         document.getElementById('settings-btn').addEventListener('click', handleSettingsClick);
+
+        // Chat Handler
+        document.getElementById('tutor-btn').addEventListener('click', () => {
+            if (window.innerWidth <= 768) toggleSidebar(false); // Chiudi menu su mobile
+            ChatManager.toggleChat(true);
+        });
 
         // Aggiungi click handlers agli item
         document.querySelectorAll('.sidebar-item').forEach(item => {

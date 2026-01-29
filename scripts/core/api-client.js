@@ -185,6 +185,67 @@
         }
 
         /**
+         * CHATBOT: Invia messaggio al Tutor
+         */
+        async function sendChatMessage(userMessage, history, contextData) {
+            // Costruisci System Prompt con Persona + Contesto
+            const contextStr = contextData ? JSON.stringify(contextData) : "Nessun contesto specifico.";
+
+            const systemPrompt = `
+SEI UN PROFESSORE UNIVERSITARIO D'ELITE (Stile "Feynman").
+Tono: Autorevole ma Accessibile, Coinvolgente, Simpatico (Usa Emoji 🎓🚀💡).
+Obiettivo: Spiegare il concetto basandoti SUI DATI FORNITI.
+
+DATI CONCETTO CORRENTE:
+${contextStr}
+
+REGOLE:
+1. Usa Teoria Formale + Esempi Pratici.
+2. Usa LaTeX/Simboli se serve (ma leggibili).
+3. Se la domanda è fuori contesto, cerca di collegarla alla statistica o rispondi brevemente.
+4. Sii conciso ma ESAUSTIVO.
+            `.trim();
+
+            // Prepara messaggi (System + History + New User Msg)
+            // History deve essere array [{role: 'user/assistant', content: '...'}]
+            const messages = [
+                { role: 'system', content: systemPrompt },
+                ...history,
+                { role: 'user', content: userMessage }
+            ];
+
+            // Payload manuale (bypass callAPI standard per custom history)
+            // Usiamo comunque la logica di callAPI se possibile? 
+            // callAPI accetta solo "prompt" (stringa). Dobbiamo estendere callAPI o fare fetch qui?
+            // Facciamo fetch diretta qui per gestire la history complessa.
+
+            if (!config || !config.apiKey) return simulateResponse(userMessage);
+
+            try {
+                const response = await fetch(config.endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${config.apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: config.model,
+                        messages: messages,
+                        max_tokens: 1000,
+                        temperature: 0.7
+                    })
+                });
+
+                const data = await response.json();
+                return data.choices?.[0]?.message?.content || "Scusa, non ho capito.";
+
+            } catch (e) {
+                console.error("Chat API Error:", e);
+                return "⚠️ Errore di connessione al cervello del Professore.";
+            }
+        }
+
+        /**
          * Utility interna per parsing JSON sicuro
          */
         function parseJSONResponse(response) {
@@ -245,7 +306,8 @@
             generateMasterQuiz,
             generateMasterQuiz,
             clearCache,
-            setApiKey
+            setApiKey,
+            sendChatMessage
         };
     })();
 
