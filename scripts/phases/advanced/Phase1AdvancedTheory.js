@@ -53,7 +53,13 @@ const Phase1AdvancedTheory = (function () {
                 if (!content && currentData?.phase1_complex?.definition) {
                     content = currentData.phase1_complex.definition;
                 }
-                content = content || 'Contenuto base non disponibile.';
+
+                // Placeholder Check
+                if (content && (content.includes("in fase di elaborazione") || content.includes("generato automaticamente"))) {
+                    content = null; // Scarta placeholder
+                }
+
+                content = content || 'Contenuto base non disponibile. Riprova più tardi.';
 
                 advancedContent = `
                     <h3>${title}</h3>

@@ -19,12 +19,18 @@ const Phase1ComplexTheory = (function () {
      * Renderizza Fase 1
      */
     function render(conceptData) {
-        fullConceptData = conceptData; // Capture full context
-        fullConceptData = conceptData; // Capture full context
+        fullConceptData = conceptData;
 
-        // --- SELF-HEALING: Check if content exists ---
-        if (!conceptData || !conceptData.phase1_complex || !conceptData.phase1_complex.content) {
-            console.warn('[Phase1] Dati mancanti, avvio generazione IA...');
+        // --- SELF-HEALING: Check content validity ---
+        const rawContent = conceptData?.phase1_complex?.content;
+        const isPlaceholder = rawContent && (
+            rawContent.includes("in fase di elaborazione") ||
+            rawContent.includes("generato automaticamente") ||
+            rawContent.length < 50
+        );
+
+        if (!rawContent || isPlaceholder) {
+            console.warn('[Phase1] Dati mancanti o placeholder, avvio generazione IA...');
             renderFallbackWithAI();
             return;
         }
